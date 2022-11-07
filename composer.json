@@ -1,0 +1,14 @@
+{ "name": "iutnc/atelier-1",
+  "description": "Fichier composer pour l'atelier",
+  "type": "project",
+  
+  "autoload": {
+      "psr-4": {
+          "iutnc\\" : "./src/classes"
+      }
+  },
+  
+  "require": {
+      "illuminate/database": "*"
+  }
+}
