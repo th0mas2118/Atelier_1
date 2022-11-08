@@ -3,7 +3,7 @@ namespace iutnc\mediaApp\model;
 
 class Gallery extends \Illuminate\Database\Eloquent\Model {
 
-    protected $table      = 'atelier1__galery';  /* le nom de la table */
+    protected $table      = 'atelier1__gallery';  /* le nom de la table */
     protected $primaryKey = 'id';     /* le nom de la clé primaire */
     protected $fillable=['name', 'description', 'author'];
     public    $timestamps = true;    /* si vrai la table doit contenir
