@@ -20,3 +20,9 @@ try {
 $req = model\Image::getById(1);
 
 echo $req;
+
+$faker = Faker\Factory::create("fr_FR");
+
+$t = model\Image::addNew('title', 'description', 4, 21, 43, 13, null);
+
+echo $t;
