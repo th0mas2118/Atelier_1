@@ -1,6 +1,6 @@
 <?php
 
-namespace iutnc\media\model;
+namespace iutnc\mediaApp\model;
 
 class Comment extends \Illuminate\Database\Eloquent\Model{
 
