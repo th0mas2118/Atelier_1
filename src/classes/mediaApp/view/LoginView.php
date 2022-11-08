@@ -4,9 +4,11 @@ namespace iutnc\mediaApp\view;
 
 use \iutnc\mf\view\Renderer;
 
-class LoginView extends MainView implements Renderer{
-    public function render():string{
-        $res=<<<EOT
+class LoginView extends MainView implements Renderer
+{
+    public function render(): string
+    {
+        $res = <<<EOT
             <section>
                 <form method=post>
                     <input class="forms-text" type=text name=username placeholder="username">
