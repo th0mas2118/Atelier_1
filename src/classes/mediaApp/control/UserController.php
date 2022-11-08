@@ -11,6 +11,5 @@ class UserController extends \iutnc\mf\control\AbstractController{
         $g=$g->galleries()->get();
         $uv=new \iutnc\mediaApp\view\UserView($g);
         $uv->makePage();
-        echo $g;
     }
 }

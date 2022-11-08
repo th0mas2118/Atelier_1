@@ -8,8 +8,6 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
         foreach($this->data as $g){
             $name=$g->name()->first()['fullname'];
             $nb_image=$g->nb_images();
-            echo $g->images()->get();
-            echo $nb_image;
             $res.=<<<EOT
                 <article>
                     <div>
