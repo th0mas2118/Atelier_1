@@ -14,6 +14,6 @@ class Comment extends \Illuminate\Database\Eloquent\Model
 
     public function user()
     {
-        return $this->belongsTo('\iutnc\tweeterapp\model\User', 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
