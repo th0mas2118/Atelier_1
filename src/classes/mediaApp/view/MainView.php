@@ -1,6 +1,6 @@
 <?php
 
-namespace itunc\mediaApp\view;
+namespace iutnc\mediaApp\view;
 
 use iutnc\mf\router\Router;
 use iutnc\mf\view\AbstractView;
