@@ -9,6 +9,6 @@ class User extends \Illuminate\Database\Eloquent\Model{
 
 
     public function galeries(){
-        return $this->hasMAny('\iutnc\meadiaApp\model\Galery','author');
+        return $this->hasMany('\iutnc\meadiaApp\model\Gallery','author');
     }
 }
