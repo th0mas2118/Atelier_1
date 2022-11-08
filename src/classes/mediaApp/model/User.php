@@ -1,6 +1,6 @@
 <?php
 
-namespace iutnc\media\model;
+namespace iutnc\mediaApp\model;
 
 class User extends \Illuminate\Database\Eloquent\Model{
     protected $table='user';
