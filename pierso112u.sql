@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mar. 08 nov. 2022 à 13:48
+-- Généré le : mar. 08 nov. 2022 à 14:02
 -- Version du serveur : 8.0.27
 -- Version de PHP : 8.1.0
 
@@ -675,7 +675,7 @@ CREATE TABLE `atelier1__image` (
   `title` varchar(256) NOT NULL,
   `author` int NOT NULL,
   `description` varchar(256) DEFAULT NULL,
-  `galery_id` int NOT NULL,
+  `gallery_id` int NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `altitude` int DEFAULT NULL,
@@ -688,7 +688,7 @@ CREATE TABLE `atelier1__image` (
 -- Déchargement des données de la table `atelier1__image`
 --
 
-INSERT INTO `atelier1__image` (`id`, `title`, `author`, `description`, `galery_id`, `created_at`, `updated_at`, `altitude`, `longitude`, `latitude`, `photo_date`) VALUES
+INSERT INTO `atelier1__image` (`id`, `title`, `author`, `description`, `gallery_id`, `created_at`, `updated_at`, `altitude`, `longitude`, `latitude`, `photo_date`) VALUES
 (106, 'Spectacles de.', 0, 'Il avait mené une vie bruyante de débauches, pleine de monde. On se poussait. Elle se promettait continuellement, pour son mari. Il s\'épaississait le sang sortit. Madame Bovary se précipita pour la.', 274, '2022-11-08 12:23:43', '2022-11-08 12:23:43', 65, 55, -12, '2004-02-10 15:27:48'),
 (107, 'Emma sentait.', 0, 'Lefrançois, Artémise, les voisins, le mari, toute sorte d\'attentions, depuis les recherches de table jusqu\'aux coquetteries du costume et aux beaux-arts, ces deux mille francs à M. Lheureux. Donc.', 290, '2022-11-08 12:23:43', '2022-11-08 12:23:43', 99, 7, -14, '2018-05-13 04:18:20'),
 (108, 'Bovary. -- Eh.', 0, 'Elle sanglotait, appelait Léon, et elle fût ainsi demeurée en sa sécurité, lorsqu\'elle découvrit subitement une lézarde dans le Fanal de Rouen à Yonville, des coffres, des valises, des paquets; et.', 218, '2022-11-08 12:23:43', '2022-11-08 12:23:43', 90, 1, 62, '1979-07-14 12:33:58'),
@@ -847,7 +847,7 @@ INSERT INTO `atelier1__image` (`id`, `title`, `author`, `description`, `galery_i
 (261, 'Charles crut.', 0, 'Charles observa qu\'il y a là-dedans certains côtés scientifiques qu\'il n\'est pas finie; nous en détache quelque peu. Il ne mentait point. Il les écouta de toutes ses pensées appartenant à celui d\'un.', 248, '2022-11-08 12:23:46', '2022-11-08 12:23:46', 57, -7, -36, '1985-09-05 14:59:37'),
 (262, 'Elle dénouait.', 0, 'À cause du bouillon trop fort, s\'était écrasé en mille morceaux sur le compte de son avenir perdu, et, rêvant au nombre illimité de rendez-vous que ces gens-là se ressemblaient. Leurs molles figures.', 277, '2022-11-08 12:23:46', '2022-11-08 12:23:46', 93, -89, 55, '1993-12-18 10:05:10'),
 (263, 'Bovary: -- Ma.', 0, 'Il venait chercher sa bêche qu\'il avait des éclats de rire. Léon la baisa au front avec son pilon. -- Il faudrait, dit Charles, qui était posée devant le vitrage d\'un café. Il fut sur la table, il.', 260, '2022-11-08 12:23:46', '2022-11-08 12:23:46', 63, -40, 69, '2019-11-02 02:15:40');
-INSERT INTO `atelier1__image` (`id`, `title`, `author`, `description`, `galery_id`, `created_at`, `updated_at`, `altitude`, `longitude`, `latitude`, `photo_date`) VALUES
+INSERT INTO `atelier1__image` (`id`, `title`, `author`, `description`, `gallery_id`, `created_at`, `updated_at`, `altitude`, `longitude`, `latitude`, `photo_date`) VALUES
 (264, 'L\'effet doit.', 0, 'Ils l\'avaient, par méchanceté, ensevelie dans de la somme immédiatement, et, quand elle faisait des efforts qu\'il faisait eût été le jour commençait à se rompre sous le vestibule, sentit tomber sur.', 234, '2022-11-08 12:23:46', '2022-11-08 12:23:46', 34, -2, 15, '2010-06-01 01:11:10'),
 (265, 'Tu sais bien.', 0, 'Notre-Dame. C\'était par un charme glacial, comme l\'on frissonne dans les beaux-arts des inquiétudes de la muraille faisait comme une statue sur un album. C\'était le capitaine Binet, à l\'affût des.', 222, '2022-11-08 12:23:46', '2022-11-08 12:23:46', 39, 18, -32, '1990-12-27 23:00:11'),
 (266, 'Undulgentiam.', 0, 'Marquis s\'avança, et, offrant son bras dans le dos appuyé contre une chaise, une grande carafe d\'eau-de-vie, dont il encombrait sa maison, elle vous faisait l\'effet d\'un drap d\'enterrement tendu.', 297, '2022-11-08 12:23:46', '2022-11-08 12:23:46', 19, 61, -27, '2004-02-23 19:34:27'),
