@@ -15,4 +15,14 @@ class Gallery extends \Illuminate\Database\Eloquent\Model {
         /* 'Image'     : le nom de la classe du modèle lié   */
             /* 'galery_id' : la clé étrangère dans la table liée */
     }
+    public function nb_images(){
+        $res=0;
+        foreach($this->images as $img){
+            $res++;
+        }
+        return $res;
+    }
+    public function name(){
+        return $this->belongsTo(User::class,'author');
+    }
 }
