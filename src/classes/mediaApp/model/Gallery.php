@@ -10,7 +10,7 @@ class Gallery extends \Illuminate\Database\Eloquent\Model {
                                         created_at */
 
     public function images(){
-        return $this->hasMany('Image', 'galery_id');
+        return $this->hasMany('iutnc\mediaApp\model\Image', 'galery_id');
         /* 'Image'     : le nom de la classe du modèle lié   */
             /* 'galery_id' : la clé étrangère dans la table liée */
     }
