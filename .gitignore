@@ -3,6 +3,7 @@
 
 ### Composer ###
 composer.phar
+main.php
 /conf/
 /vendor/
 
