@@ -9,7 +9,7 @@ class User extends \Illuminate\Database\Eloquent\Model{
     public $timestamps=false;
 
 
-    public function galeries(){
-        return $this->hasMany('\iutnc\meadiaApp\model\Gallery','author');
+    public function galleries(){
+        return $this->hasMany(Gallery::class,'author','id');
     }
 }
