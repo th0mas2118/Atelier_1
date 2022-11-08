@@ -5,7 +5,6 @@ namespace iutnc\mediaApp\model;
 class User extends \Illuminate\Database\Eloquent\Model{
     protected $table='user';
     protected $primarykey='id';
-    protected $fillable=['name', 'description', 'author'];
     public $timestamps=false;
 
 
