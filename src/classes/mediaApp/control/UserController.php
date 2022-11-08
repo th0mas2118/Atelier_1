@@ -3,7 +3,7 @@
 namespace iutnc\mediaApp\control;
 
 class UserController extends \iutnc\mf\control\AbstractController{
-    function execute():void{
+    public function execute():void{
         echo 'user';
     }
 }
