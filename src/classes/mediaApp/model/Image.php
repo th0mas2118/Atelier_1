@@ -14,6 +14,11 @@ class Image extends \Illuminate\Database\Eloquent\Model
         return Image::where('id', '=', $id)->first();
     }
 
+    public function keywords()
+    {
+        return $this->hasMany(Keyword::class, 'image_id');
+    }
+
     public static function addNew($title, $description, $galery_id, $altitude, $longitude, $latitude, $photo_date): Image
     {
         return Image::create(['title' => $title, 'description' => $description, 'galery_id' => $galery_id, 'altitude' => $altitude, 'longitude' => $longitude, 'latitude' => $latitude, 'photo_date' => $photo_date]);
