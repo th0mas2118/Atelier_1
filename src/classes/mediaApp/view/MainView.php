@@ -12,7 +12,7 @@ class MainView extends AbstractView
         return "
             {$this->renderHeader()}
             <main>
-                {$this->data->render()}
+                {$this->render()}
             </main>
             {$this->renderFooter()}
         ";
