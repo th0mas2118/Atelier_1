@@ -3,7 +3,7 @@
 namespace iutnc\mediaApp\Control;
 
 use \iutnc\mf\control\AbstractController;
-use \iutnc\mediaApp\View\LoginView;
+use \iutnc\mediaApp\view\LoginView;
 
 class LoginController extends AbstractController{
     public function execute():void{

@@ -1,9 +1,11 @@
 <?php
 
 namespace iutnc\mediaApp\control; 
+
+use iutnc\mf\control\AbstractController;
 use iutnc\mediaApp\model\Gallery;
 
-class GalleryController {
+class GalleryController extends AbstractController{
 
     /* Algorithme de execute:
  *
@@ -15,14 +17,13 @@ class GalleryController {
  *
  */
 
-    public function execute(){
-
-    $v = Gallery::where('id', '=', 202)->first();
+    public function execute():void{
+    $id = $this->request->get['id'];
+    $v = Gallery::where('id', '=', $id)->first();
     $liste_images = $v->images()->get() ;
 
-    echo "gallery";   
 
-
-    
+    $gv = new \iutnc\mediaApp\view\GalleryView($liste_images);
+    $gv->makePage();
 }
 }
