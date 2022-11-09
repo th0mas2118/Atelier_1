@@ -24,11 +24,12 @@ class AddImageController extends AbstractController
 
             if (!isset($this->request->post["title"]) || !isset($this->request->post["description"]) || !isset($this->request->post["keywords"]) || !isset($this->request->post["galleryId"])) return;
             $img = $_FILES["img"];
-
             $title = $this->request->post["title"];
             $description = $this->request->post["description"];
             $keywords = $this->request->post["keywords"];
             $gallery_id = $this->request->post["galleryId"];
+
+            $exif = exif_read_data($img['tmp_name']);
             $id = Image::addNew($title, $description, $gallery_id, 0, 0, 0, 0)->id;
             UploadManager::saveImage($img, $id);
         }
