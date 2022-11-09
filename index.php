@@ -23,9 +23,9 @@ AbstractView::addStyleSheet("src/css/main.css");
 $router = new Router();
 
 $router->addRoute('home', 'home', '\iutnc\mediaApp\control\HomeController');
-$router->addRoute('login', 'sign_in', '\iutnc\mediaApp\control\LoginController');
-$router->addRoute('user', 'user_galleries', '\iutnc\mediaApp\control\UserController');
-$router->addRoute('gallery', 'show_gallery', '\iutnc\mediaApp\control\GalleryController');
+$router->addRoute('login', 'login', '\iutnc\mediaApp\control\LoginController');
+$router->addRoute('user', 'user', '\iutnc\mediaApp\control\UserController');
+$router->addRoute('gallery', 'gallery', '\iutnc\mediaApp\control\GalleryController');
 $router->addRoute('signup', 'signup', '\iutnc\mediaApp\control\SignUpController');
 $router->addRoute('new_gallley', 'new_gallery', '\iutnc\mediaApp\control\CreateGalleryController');
 $router->addRoute('image', 'image', '\iutnc\mediaApp\control\ImageController');
