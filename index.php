@@ -28,6 +28,7 @@ $router->addRoute('user', 'user_galleries', '\iutnc\mediaApp\control\UserControl
 $router->addRoute('gallery', 'show_gallery', '\iutnc\mediaApp\control\GalleryController');
 $router->addRoute('signup', 'signup', '\iutnc\mediaApp\control\SignUpController');
 $router->addRoute('new_gallley', 'new_gallery', '\iutnc\mediaApp\control\CreateGalleryController');
+$router->addRoute('image', 'image', '\iutnc\mediaApp\control\ImageController');
 
 
 $router->setDefaultroute('home');
