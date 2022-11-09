@@ -15,19 +15,22 @@ class AddImageController extends AbstractController
     public function execute(): void
     {
         if ($this->request->method === 'GET') {
-            $imgView = new AddImageView();
+            $imgView = new AddImageView($this->request->get);
             $imgView->makePage();
         }
 
         if ($this->request->method === 'POST') {
             if (!isset($_FILES["img"])) return;
+
+            if (!isset($this->request->post["title"]) || !isset($this->request->post["description"]) || !isset($this->request->post["keywords"]) || !isset($this->request->post["galleryId"])) return;
             $img = $_FILES["img"];
-            var_dump($this->request->post);
+
             $title = $this->request->post["title"];
             $description = $this->request->post["description"];
             $keywords = $this->request->post["keywords"];
-
-            // UploadManager::saveImage($img, 1312);
+            $gallery_id = $this->request->post["galleryId"];
+            $id = Image::addNew($title, $description, $gallery_id, 0, 0, 0, 0)->id;
+            UploadManager::saveImage($img, $id + 1);
         }
     }
 }

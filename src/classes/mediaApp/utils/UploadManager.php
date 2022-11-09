@@ -6,7 +6,7 @@ use iutnc\mediaApp\model\Image;
 
 class UploadManager
 {
-    public static function saveImage($file, $id)
+    public static function saveImage($file, int $id)
     {
         $errors = array();
         $file_name = $file['name'];
