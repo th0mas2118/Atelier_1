@@ -3,6 +3,7 @@
 namespace iutnc\mediaApp\view;
 
 use  iutnc\mf\view\Renderer;
+use iutnc\mf\router\Router;
 
 class ImageView extends MainView implements Renderer{
     public function render():string{
@@ -31,9 +32,13 @@ class ImageView extends MainView implements Renderer{
         EOT;
         //*comments as list of article of comment
         $comments="";
+        $galery_name=$image->galleryName()->first()->name;
+        $r=new Router();
+        $url_gallery=$r->urlFor('gallery',[['id',$image->galleryName()->first()->id]]);
         $res=<<<EOT
-        <section>
-            <h1>{$image['title']}</h1>
+        <section class='img-fullsize'>
+            <a href=$url_gallery><h1>Gallery name : $galery_name</h1></a>
+            <h3>Image name : {$image['title']}</h1>
             <div><img alt='image' src={$img_src}></img></div>
             <div>
                 <div>

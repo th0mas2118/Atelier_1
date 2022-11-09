@@ -23,4 +23,7 @@ class Image extends \Illuminate\Database\Eloquent\Model
     {
         return Image::create(['title' => $title, 'description' => $description, 'galery_id' => $galery_id, 'altitude' => $altitude, 'longitude' => $longitude, 'latitude' => $latitude, 'photo_date' => $photo_date]);
     }
+    public function galleryName(){
+        return $this->belongsTo(Gallery::class,'gallery_id');
+    }
 }
