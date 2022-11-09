@@ -54,7 +54,7 @@ class ImageView extends MainView implements Renderer{
                     {$comments}
                 </div>
             </div>
-        </section
+        </section>
         EOT;
         return $res;
     }
