@@ -45,6 +45,21 @@ class MainView extends AbstractView
 
     public function renderFooter(): string
     {
-        return "";
+        $url_home=$this->router->urlFor('home');
+        $url_about=$this->router->urlFor('about');
+        $url_contact="";
+        return "
+            <footer>
+                <div>
+                    <h2>
+                        MediaPhoto
+                    </h2>
+                </div>    
+                <nav>
+                    <a href=$url_home>Home</a>
+                    <a href=$url_about>A propos</a>
+                    <a href=$url_contact>Contatct</a>
+                </nav
+        ";
     }
 }
