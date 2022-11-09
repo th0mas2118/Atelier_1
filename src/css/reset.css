@@ -2,16 +2,19 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border: 0; }
+  border: 0;
+}
 
 *:focus {
-  outline: none; }
+  outline: none;
+}
 
 a,
 a:hover,
 a:visited,
 a:active {
   color: inherit;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 /*# sourceMappingURL=reset.css.map */
