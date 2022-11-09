@@ -28,6 +28,10 @@ a:active {
   height: 100%;
 }
 
+.img-fullsize .title h1, .img-fullsize .title h3 {
+  text-align: center;
+}
+
 .gallery-article {
   width: 350px;
   height: 350px;
@@ -76,6 +80,18 @@ a:active {
 }
 .gallery-article div:hover img {
   filter: blur(2px);
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+footer nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
 }
 
 html,
