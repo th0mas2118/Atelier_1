@@ -7,17 +7,21 @@ use \iutnc\mf\router\Router;
 
 class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\Renderer{
     public function render():string{
-        $bool=false;
+        $bool=0;
         $modify="";
-        //$url_add_image=$this->router->urlFor();
         if(AbstractAuthentification::connectedUser()){
             if($this->data['id']==AbstractAuthentification::connectedUser()){
-                echo 'hello world';
+                echo 'Connected';
+                $bool=1;
             }
         }
         $res="";
         $gal=$this->data->galleries()->get();
         foreach($gal as $g){
+            if($bool==1){
+                $url_add_image=$this->router->urlFor('modifygallery',[['id',$g->id]]);
+                $modify='<a href="">Modify Gallery</a>';
+            }
             $name=$g->name()->first()['fullname'];
             $nb_image=$g->nb_images();
             $image_list=$g->images()->get();
@@ -26,8 +30,10 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
             if($count>0){
                 $index=$image_list[$random]->id;
                 $img_src=$this->request->root.'/img/thumbnails/'.$index.'.jpg';
+                $url_gallery=$this->router->urlFor('gallery',[['id',$g->id]]);
                 $res.=<<<EOT
                 <article class='gallery-article'>
+                    <a href=$url_gallery>
                     <div>
                         <h3>{$g['name']}</h3>
                         <div>
@@ -40,6 +46,7 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
                             <span>{$g['created_at']}</span>
                         </div>
                     </div>
+                    </a>
                 </article>
             EOT;
             }
