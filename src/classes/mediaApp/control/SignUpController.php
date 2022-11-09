@@ -33,7 +33,7 @@ class SignUpController extends AbstractController
             }
 
             try {
-                Authentification::register($username, $password, $fullname);
+                Authentification::register($username, $fullname, $password);
                 Router::executeRoute("home");
             } catch (\Throwable $th) {
                 throw new $th;
