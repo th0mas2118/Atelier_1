@@ -83,7 +83,8 @@ header {
   font-style: normal;
   font-weight: 400;
   font-size: 25px;
-  line-height: 30px; }
+  line-height: 30px;
+  height: 100px; }
   header nav {
     display: flex;
     flex-direction: row;
