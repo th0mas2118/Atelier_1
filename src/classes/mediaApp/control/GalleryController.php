@@ -2,8 +2,9 @@
 
 namespace iutnc\mediaApp\control; 
 
-use iutnc\mf\control\AbstractController;
-use iutnc\mediaApp\model\Gallery;
+use \iutnc\mf\control\AbstractController;
+use \iutnc\mediaApp\model\Gallery;
+use \iutnc\mf\router\Router;
 
 class GalleryController extends AbstractController{
 
@@ -18,12 +19,15 @@ class GalleryController extends AbstractController{
  */
 
     public function execute():void{
-    $id = $this->request->get['id'];
-    $v = Gallery::where('id', '=', $id)->first();
-    $liste_images = $v->images()->get() ;
+        if(!isset($this->request->get['id'])){
+            Router::executeRoute('home');
+        }
+        $id = $this->request->get['id'];
+        $v = Gallery::where('id', '=', $id)->first();
+        $liste_images = $v->images()->get() ;
 
 
-    $gv = new \iutnc\mediaApp\view\GalleryView($liste_images);
-    $gv->makePage();
-}
+        $gv = new \iutnc\mediaApp\view\GalleryView($liste_images);
+        $gv->makePage();
+    }
 }
