@@ -3,7 +3,7 @@
 namespace iutnc\mediaApp\control; 
 
 use \iutnc\mf\control\AbstractController;
-use \iutnc\mediaApp\model\Gallery;
+use \iutnc\mediaApp\view\AddimageView;
 use \iutnc\mf\router\Router;
 
 class AddImageController extends AbstractController{
@@ -19,15 +19,9 @@ class AddImageController extends AbstractController{
  */
 
     public function execute():void{
-        if(!isset($this->request->get['id'])){
-            Router::executeRoute('home');
+        if($this->request->method==='GET'){
+            $imgView = new AddimageView();
+            $imgView->makePage();
         }
-        $id = $this->request->get['id'];
-        $v = Gallery::where('id', '=', $id)->first();
-        $liste_images = $v->images()->get() ;
-
-
-        $gv = new \iutnc\mediaApp\view\GalleryView($liste_images);
-        $gv->makePage();
     }
 }
