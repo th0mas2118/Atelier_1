@@ -30,7 +30,7 @@ class AddImageController extends AbstractController
             $keywords = $this->request->post["keywords"];
             $gallery_id = $this->request->post["galleryId"];
             $id = Image::addNew($title, $description, $gallery_id, 0, 0, 0, 0)->id;
-            UploadManager::saveImage($img, $id + 1);
+            UploadManager::saveImage($img, $id);
         }
     }
 }
