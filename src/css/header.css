@@ -1,0 +1,19 @@
+header {
+  display: flex;
+  justify-content: space-around;
+  background: #333333;
+  color: #FFFFFF;
+  padding: 2%;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 30px; }
+  header nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem; }
+  header div form input[type=text]:focus {
+    width: 70%; }
+
+/*# sourceMappingURL=header.css.map */
