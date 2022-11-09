@@ -33,7 +33,7 @@ $router->addRoute('signup', 'signup', '\iutnc\mediaApp\control\SignUpController'
 $router->addRoute('new_gallley', 'new_gallery', '\iutnc\mediaApp\control\CreateGalleryController');
 $router->addRoute('image', 'image', '\iutnc\mediaApp\control\ImageController');
 $router->addRoute('addimage', 'add_image', '\iutnc\mediaApp\control\AddImageController');
-$router->addRoute('about', 'about', '\iutnc\mediaApp\control\aboutController');
+$router->addRoute('about', 'about', '\iutnc\mediaApp\control\AboutController');
 
 
 $router->setDefaultroute('home');
