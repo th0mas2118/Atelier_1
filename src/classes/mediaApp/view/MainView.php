@@ -20,6 +20,7 @@ class MainView extends AbstractView
 
     public function renderHeader(): string
     {
+        $url_home=$this->router->urlFor('home');
         return "
             <header>
                 <div>
@@ -28,7 +29,7 @@ class MainView extends AbstractView
                     </a>
                 </div>
                 <nav>
-                    <a>Home</a>
+                    <a href=$url_home>Home</a>
                     <a>Login</a>
                 </nav>
                 <div>
