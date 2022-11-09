@@ -5,11 +5,6 @@ namespace iutnc\mediaApp\view;
 use \iutnc\mf\view\Renderer;
 use \iutnc\meadiaApp\model\Image;
 
-function jsonPrint($printable){
-    $json=json_encode($printable,JSON_PRETTY_PRINT);
-    return "<pre>{$json}</pre>";
-}
-
 class Homeview extends MainView implements Renderer{
     public function render():string{
         $res="";

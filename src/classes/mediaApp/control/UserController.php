@@ -10,7 +10,10 @@ class UserController extends \iutnc\mf\control\AbstractController{
         if(!isset($this->request->get['id'])){
             Router::executeRoute('home');
         }
-        $id= $this->request->get['id'];
+        $id = $this->request->get['id'];
+        if(is_null(User::find($id))){
+            Router::executeRoute('home');
+        }
         $g=User::select()->where('id','=',$id)->first();
         $g=$g->galleries()->get();
         $uv=new \iutnc\mediaApp\view\UserView($g);
