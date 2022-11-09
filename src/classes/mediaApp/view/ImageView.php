@@ -30,6 +30,7 @@ class ImageView extends MainView implements Renderer{
             </table>
         EOT;
         //*comments as list of article of comment
+        $comments="";
         $res=<<<EOT
         <section>
             <h1>{$image['title']}</h1>
