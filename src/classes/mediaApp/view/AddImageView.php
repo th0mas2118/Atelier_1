@@ -11,10 +11,10 @@ class AddImageView extends MainView implements Renderer{
                 <form method=post>
                 <label for="title">Title</label>
                 <input class="forms-text" type=text name=title placeholder="title">
-                <label for="Description">Description</label>
+                <label for="Description">description</label>
                 <input class="forms-text" type=text name=Description placeholder="Description">
                 <label for="Keywords">Keywords</label>
-                <input class="forms-text" type=text name=Keywords placeholder="Keywords">
+                <input class="forms-text" type=text name=Keywords placeholder="keywords">
 
                 <label for="img">Choose a new picture to add:</label>
                 <input type="file" id="img" name="img" accept="image/jpeg">
