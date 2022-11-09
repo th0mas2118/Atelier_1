@@ -11,7 +11,7 @@ class Homeview extends MainView implements Renderer{
             $name=$g->name()->first()['fullname'];
             $nb_image=$g->nb_images();
             $res.=<<<EOT
-                <article>
+                <article class='gallery-article'>
                     <div>
                         <h3>{$g['name']}</h3>
                         <div>
