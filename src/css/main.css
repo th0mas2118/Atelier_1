@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+.image-article div {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  max-width: 300px;
+}
+.image-article div img {
+  width: 100%;
+  height: 100%;
+}
+
+html,
+body {
+  color: black;
+  font-size: 16px;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+}
+
+/*# sourceMappingURL=main.css.map */

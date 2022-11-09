@@ -18,7 +18,7 @@ try {
     exit;
 }
 
-AbstractView::addStyleSheet("src/css/style.css");
+AbstractView::addStyleSheet("src/css/main.css");
 
 $router = new Router();
 
