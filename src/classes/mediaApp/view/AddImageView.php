@@ -9,8 +9,15 @@ class AddImageView extends MainView implements Renderer{
         $res=<<<EOT
             <section>
                 <form method=post>
+                <label for="title">Title</label>
+                <input class="forms-text" type=text name=title placeholder="title">
+                <label for="Description">Description</label>
+                <input class="forms-text" type=text name=Description placeholder="Description">
+                <label for="Keywords">Keywords</label>
+                <input class="forms-text" type=text name=Keywords placeholder="Keywords">
+
                 <label for="img">Choose a new picture to add:</label>
-                <input type="file" id="img" name="img" accept="image/png, image/jpeg">
+                <input type="file" id="img" name="img" accept="image/jpeg">
                 <button class="forms-button" name=add_button type="submit">Submit</button>
                 </form>
             </section>
