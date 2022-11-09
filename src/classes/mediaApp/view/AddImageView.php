@@ -11,7 +11,7 @@ class AddImageView extends MainView implements Renderer{
                 <form method=post>
                 <label for="img">Choose a new picture to add:</label>
                 <input type="file" id="img" name="img" accept="image/png, image/jpeg">
-                <button class="forms-button" name=add_button type="submit">Add Image</button>
+                <button class="forms-button" name=add_button type="submit">Submit</button>
                 </form>
             </section>
             EOT;
