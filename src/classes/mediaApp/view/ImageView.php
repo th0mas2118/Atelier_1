@@ -24,7 +24,7 @@ class ImageView extends MainView implements Renderer{
                     <td>{$image['latitude']}</td
                 </tr>
                 <tr>
-                    <td>Photo date :</td>
+                    <td>Photo date : </td>
                     <td>{$image['photo_date']}</td
                 </tr>
             </table>
