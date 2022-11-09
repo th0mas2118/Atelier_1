@@ -10,10 +10,12 @@ class GalleryView extends MainView implements Renderer {
         $html= '';
         foreach($this->data as $image){
         $html .= <<<EOT
-        <article>
-            <div>
-                <img alt="" src="https://webetu.iutnc.univ-lorraine.fr/www/pierso112u/Atelier_1/img/$image->id.jpg">
-            </div>
+        <article class="image-article">
+            <a href="">
+                <div>
+                    <img alt="" src="https://webetu.iutnc.univ-lorraine.fr/www/pierso112u/Atelier_1/img/$image->id.jpg">
+                </div>
+            </a>
         </article>
         EOT;
         }
