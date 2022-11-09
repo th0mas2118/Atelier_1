@@ -37,8 +37,10 @@ class ImageView extends MainView implements Renderer{
         $url_gallery=$r->urlFor('gallery',[['id',$image->galleryName()->first()->id]]);
         $res=<<<EOT
         <section class='img-fullsize'>
+            <div>
             <a href=$url_gallery><h1>Gallery name : $galery_name</h1></a>
             <h3>Image name : {$image['title']}</h1>
+            </div>
             <div><img alt='image' src={$img_src}></img></div>
             <div>
                 <div>
