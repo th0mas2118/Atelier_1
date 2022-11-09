@@ -58,7 +58,7 @@ class MainView extends AbstractView
                 <nav>
                     <a href=$url_home>Home</a>
                     <a href=$url_about>A propos</a>
-                    <a href=$url_contact>Contatct</a>
+                    <a href=$url_contact>Contact</a>
                 </nav
         ";
     }
