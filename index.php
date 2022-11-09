@@ -26,6 +26,7 @@ $router = new Router();
 
 $router->addRoute('home', 'home', '\iutnc\mediaApp\control\HomeController');
 $router->addRoute('login', 'login', '\iutnc\mediaApp\control\LoginController');
+$router->addRoute('logout', 'logout', '\iutnc\mediaApp\control\LogoutController');
 $router->addRoute('user', 'user', '\iutnc\mediaApp\control\UserController');
 $router->addRoute('gallery', 'gallery', '\iutnc\mediaApp\control\GalleryController');
 $router->addRoute('signup', 'signup', '\iutnc\mediaApp\control\SignUpController');
