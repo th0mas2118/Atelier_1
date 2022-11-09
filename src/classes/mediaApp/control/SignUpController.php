@@ -21,23 +21,23 @@ class SignUpController extends AbstractController
             $fullname = $this->request->post['fullname'];
             $password = $this->request->post['password'];
             $passwordConfirmation = $this->request->post['password-verify'];
+            echo $fullname;
+            // if (empty($username) || empty($fullname) || empty($password) || empty($passwordConfirmation)) {
+            //     echo "Veuillez remplir tout les champs";
+            //     return;
+            // }
 
-            if (empty($username) || empty($fullname) || empty($password) || empty($passwordConfirmation)) {
-                echo "Veuillez remplir tout les champs";
-                return;
-            }
+            // if ($password !== $passwordConfirmation) {
+            //     echo "Les mots de passes ne correspondent pas";
+            //     return;
+            // }
 
-            if ($password !== $passwordConfirmation) {
-                echo "Les mots de passes ne correspondent pas";
-                return;
-            }
-
-            try {
-                Authentification::register($username, $password, $fullname);
-                Router::executeRoute("home");
-            } catch (\Throwable $th) {
-                throw new $th;
-            }
+            // try {
+            //     Authentification::register($username, $password, $fullname);
+            //     Router::executeRoute("home");
+            // } catch (\Throwable $th) {
+            //     throw new $th;
+            // }
         }
     }
 }
