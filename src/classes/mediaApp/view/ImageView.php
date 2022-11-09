@@ -7,7 +7,7 @@ use  iutnc\mf\view\Renderer;
 class ImageView extends MainView implements Renderer{
     public function render():string{
         $image=$this->data;
-        $img_src='https://webetu.iutnc.univ-lorraine.fr/www/pierso112u/Atelier_1/img/'.$image['id'].'.jpg';
+        $img_src='https://webetu.iutnc.univ-lorraine.fr/www/pierso112u/Atelier_1/img/full_size/'.$image['id'].'.jpg';
         //$table as table_exif
         $table=<<<EOT
             <table>

@@ -11,7 +11,7 @@ class Homeview extends MainView implements Renderer{
             $name=$g->name()->first()['fullname'];
             $nb_image=$g->nb_images();
             $random=rand(206,$nb_image);
-            $img_src='https://webetu.iutnc.univ-lorraine.fr/www/pierso112u/Atelier_1/img/'.$random.'.jpg';
+            $img_src='https://webetu.iutnc.univ-lorraine.fr/www/pierso112u/Atelier_1/img/thumbnails/'.$random.'.jpg';
             $res.=<<<EOT
                 <article class='gallery-article'>
                     <div>

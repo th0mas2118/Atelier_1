@@ -12,7 +12,7 @@ class GalleryView extends MainView implements Renderer {
         $html .= <<<EOT
         <article class="image-article">
             <div>
-                <img alt="" src="https://webetu.iutnc.univ-lorraine.fr/www/pierso112u/Atelier_1/img/$image->id.jpg">
+                <img alt="" src="https://webetu.iutnc.univ-lorraine.fr/www/pierso112u/Atelier_1/img/thumbnails/$image->id.jpg">
             </div>
         </article>
         EOT;
