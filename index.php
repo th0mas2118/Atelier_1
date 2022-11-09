@@ -26,6 +26,7 @@ $router->addRoute('home', 'home', '\iutnc\mediaApp\control\HomeController');
 $router->addRoute('login', 'sign_in', '\iutnc\mediaApp\control\LoginController');
 $router->addRoute('user', 'user_galleries', '\iutnc\mediaApp\control\UserController');
 $router->addRoute('gallery', 'show_gallery', '\iutnc\mediaApp\control\GalleryController');
+$router->addRoute('signup', 'signup', '\iutnc\mediaApp\control\SignUpController');
 
 
 $router->setDefaultroute('home');
