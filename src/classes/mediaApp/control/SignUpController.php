@@ -11,6 +11,10 @@ class SignUpController extends AbstractController
 {
     public function execute(): void
     {
+        if (Authentification::connectedUser()) {
+            Router::executeRoute('home');
+        }
+
         if ($this->request->method === 'GET') {
             $sv = new SignUpView();
             $sv->makePage();

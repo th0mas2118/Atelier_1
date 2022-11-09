@@ -6,6 +6,8 @@ use iutnc\mediaApp\Control;
 
 $config = parse_ini_file("conf/config.ini");
 
+session_start();
+
 require_once 'vendor/autoload.php';
 
 try {
