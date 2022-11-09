@@ -82,6 +82,18 @@ a:active {
   filter: blur(2px);
 }
 
+footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+footer nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+
 html,
 body {
   color: black;

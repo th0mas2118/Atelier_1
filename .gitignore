@@ -4,6 +4,8 @@
 ### Composer ###
 composer.phar
 main.php
+/img/
+img/
 /conf/
 conf/
 /vendor/
