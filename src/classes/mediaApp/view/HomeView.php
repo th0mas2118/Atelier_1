@@ -17,7 +17,7 @@ class Homeview extends MainView implements Renderer{
             $url_gallery=$this->router->urlFor('gallery',[['id',$g->id]]);
             if($count>0){
                 $index=$image_list[$random]->id;
-                $img_src='https://webetu.iutnc.univ-lorraine.fr/www/pierso112u/Atelier_1/img/thumbnails/'.$index.'.jpg';
+                $img_src=$this->request->root.'/img/thumbnails/'.$index.'.jpg';
                 $res.=<<<EOT
                     <article class='gallery-article'>
                         <a href={$url_gallery}>

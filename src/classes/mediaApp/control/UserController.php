@@ -14,9 +14,9 @@ class UserController extends \iutnc\mf\control\AbstractController{
         if(is_null(User::find($id))){
             Router::executeRoute('home');
         }
-        $g=User::select()->where('id','=',$id)->first();
-        $g=$g->galleries()->get();
-        $uv=new \iutnc\mediaApp\view\UserView($g);
+        $u=User::select()->where('id','=',$id)->first();
+        //$g=$g->galleries()->get();
+        $uv=new \iutnc\mediaApp\view\UserView($u);
         $uv->makePage();
     }
 }

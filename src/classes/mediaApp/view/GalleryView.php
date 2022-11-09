@@ -10,16 +10,15 @@ class GalleryView extends MainView implements Renderer {
         $liste_images = $this->data->images()->get() ;
         $html= '';
         $title= $this->data->name;
-        $html.=<<<EOT
-        <h1>$title</h1>
-        EOT;
+        $html.=`<h1>{$title}</h1>`;
         foreach($liste_images as $image){
+            $img_src=$this->request->root.'/img/thumbnails/'.$image->id.'.jpg';
             $url_image=$this->router->urlFor('image',[['id',$image->id]]);
         $html .= <<<EOT
         <article class="image-article">
             <a href=$url_image>
                 <div>
-                    <img alt="" src="https://webetu.iutnc.univ-lorraine.fr/www/pierso112u/Atelier_1/img/thumbnails/$image->id.jpg">
+                    <img alt="" src=$img_src>
                 </div>
             </a>
         </article>
