@@ -1,22 +1,14 @@
 footer {
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-  text-align: center; }
+  text-align: center;
+  background: #333333;
+  color: #FFFFFF;
+  padding: 1%; }
   footer nav {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 1rem; }
-=======
-  text-align: center;
-}
-footer nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 1rem;
-}
->>>>>>> 63a50333214f643e8fb48e6bb8559f30c652d58e
 
 /*# sourceMappingURL=footer.css.map */

@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 {
 "version": 3,
-"mappings": "AAAA,MAAM;EACF,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,UAAU,EAAE,MAAM;EAClB,UAAG;IACC,OAAO,EAAE,IAAI;IACb,cAAc,EAAE,GAAG;IACnB,eAAe,EAAE,MAAM;IACvB,GAAG,EAAE,IAAI",
+"mappings": "AAAA,MAAO;EACH,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,UAAU,EAAE,MAAM;EAClB,UAAU,EAAE,OAAO;EACnB,KAAK,EAAE,OAAO;EACd,OAAO,EAAE,EAAE;EAEX,UAAI;IACA,OAAO,EAAE,IAAI;IACb,cAAc,EAAE,GAAG;IACnB,eAAe,EAAE,MAAM;IACvB,GAAG,EAAE,IAAI",
 "sources": ["../scss/footer.scss"],
 "names": [],
 "file": "footer.css"
 }
-=======
-{"version":3,"sourceRoot":"","sources":["../scss/footer.scss"],"names":[],"mappings":"AAAA;EACI;EACA;EACA;;AACA;EACI;EACA;EACA;EACA","file":"footer.css"}
->>>>>>> 63a50333214f643e8fb48e6bb8559f30c652d58e
