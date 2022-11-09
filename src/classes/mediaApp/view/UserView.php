@@ -17,6 +17,13 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
         }
         $res="";
         $gal=$this->data->galleries()->get();
+        if($bool){
+            $url_create_gallery=$this->router->urlFor('createGallery');
+            $create_gallery=<<<EOT
+            <a href=$url_create_gallery>Create Gallery</a>
+            EOT;
+            $res.=$create_gallery;
+        }
         foreach($gal as $g){
             if($bool==1){
                 $url_add_image=$this->router->urlFor('modifygallery',[['id',$g->id]]);

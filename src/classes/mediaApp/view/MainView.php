@@ -25,7 +25,7 @@ class MainView extends AbstractView
         return "
             <header>
                 <div>
-                    <a>
+                    <a href=$url_home>
                         <h1>MediaPhoto</h1>
                     </a>
                 </div>

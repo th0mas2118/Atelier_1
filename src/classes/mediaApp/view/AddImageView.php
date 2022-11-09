@@ -18,7 +18,7 @@ class AddImageView extends MainView implements Renderer
                 <label for="Keywords">Keywords : </label>
                 <input class="forms-text" type=text name=keywords placeholder="keywords">
                 <label for="img">Choose a new picture to add:</label>
-                <input type="file" id="img" name="img" accept="image/jpeg">
+                <input type="file" id="img" name="img" accept="image/jpeg, image/jpg, image/png">
                 <input type="hidden" name="galleryId" value="{$this->data['gallery_id']}">
                 <button class="forms-button" name=add_button type="submit"> Confirm </button>
                 </form>
