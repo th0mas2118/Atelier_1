@@ -7,8 +7,13 @@ use iutnc\mf\view\Renderer;
 
 class GalleryView extends MainView implements Renderer {
     public function render():string{
+        $liste_images = $this->data->images()->get() ;
         $html= '';
-        foreach($this->data as $image){
+        $title= $this->data->name;
+        $html.=<<<EOT
+        <h1>$title</h1>
+        EOT;
+        foreach($liste_images as $image){
             $url_image=$this->router->urlFor('image',[['id',$image->id]]);
         $html .= <<<EOT
         <article class="image-article">

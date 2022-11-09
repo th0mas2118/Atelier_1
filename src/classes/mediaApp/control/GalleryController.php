@@ -27,9 +27,8 @@ class GalleryController extends AbstractController{
             Router::executeRoute('home');
         }
         $v = Gallery::where('id', '=', $id)->first();
-        $liste_images = $v->images()->get() ;
 
-        $gv = new \iutnc\mediaApp\view\GalleryView($liste_images);
+        $gv = new \iutnc\mediaApp\view\GalleryView($v);
         $gv->makePage();
     }
 }
