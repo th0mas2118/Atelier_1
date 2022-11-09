@@ -89,7 +89,10 @@ header {
 footer {
   display: flex;
   flex-direction: column;
-  text-align: center; }
+  text-align: center;
+  background: #333333;
+  color: #FFFFFF;
+  padding: 1%; }
   footer nav {
     display: flex;
     flex-direction: row;
