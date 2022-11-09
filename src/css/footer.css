@@ -1,0 +1,11 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center; }
+  footer nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem; }
+
+/*# sourceMappingURL=footer.css.map */
