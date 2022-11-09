@@ -9,4 +9,8 @@
   height: 100%;
 }
 
+.img-fullsize .title h1, .img-fullsize .title h3 {
+  text-align: center;
+}
+
 /*# sourceMappingURL=image.css.map */

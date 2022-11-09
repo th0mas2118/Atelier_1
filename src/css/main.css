@@ -28,6 +28,10 @@ a:active {
   height: 100%;
 }
 
+.img-fullsize .title h1, .img-fullsize .title h3 {
+  text-align: center;
+}
+
 .gallery-article {
   width: 350px;
   height: 350px;
