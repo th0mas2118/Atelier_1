@@ -11,7 +11,9 @@ class LoginView extends MainView implements Renderer
         $res = <<<EOT
             <section>
                 <form method=post>
+                    <label namme='username'>Username :</label>
                     <input class="forms-text" type=text name=username placeholder="username">
+                    <label name='password'>Password : </label>
                     <input class="forms-text" type=password name=password placeholder="password">
                     <button class="forms-button name=login_button type=submit">Login</button>
                 </form>
