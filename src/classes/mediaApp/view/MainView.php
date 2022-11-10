@@ -26,13 +26,16 @@ class MainView extends AbstractView
         $url_about = $this->router->urlFor('about');
         $url_logout = $this->router->urlFor('logout');
         $url_user = $this->router->urlFor('user', [['id', AbstractAuthentification::connectedUser()]]);
+        $url_register=$this->router->urlFor('signup');
 
         if (AbstractAuthentification::connectedUser()) {
             $user_button = "<a href=$url_user>My Profile</a>";
             $log = "<a href=$url_logout>Logout</a>";
+            $register='';
         } else {
             $user_button = "";
             $log = "<a href=$url_login>Login</a>";
+            $register="<a href=$url_register>Register</a>";
         }
         return "
             <header>
@@ -43,6 +46,7 @@ class MainView extends AbstractView
                 </div>
                 <nav>                  
                     <a href=$url_home>Home</a>
+                    $register
                     $log
                     <a href=$url_about>A propos</a>
                     $user_button
