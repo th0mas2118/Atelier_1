@@ -15,7 +15,6 @@ class GalleryView extends MainView implements Renderer {
             $img_src=$this->request->root.'/img/thumbnails/'.$image->id.'.jpg';
             $url_image=$this->router->urlFor('image',[['id',$image->id]]);
         $html .= <<<EOT
-        
         <article class="image-article">
             <a href=$url_image>
                 <div>

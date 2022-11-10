@@ -22,11 +22,12 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
             <a href=$url_create_gallery>Create Gallery</a>
             EOT;
             $res.=$create_gallery;
+            $res.="<section id='user-list'>";
         }
         foreach($gal as $g){
             if($bool==1){
-                $url_add_image=$this->router->urlFor('modifyGallery',[['id',$g->id]]);
-                $modify='<a href="">Modify Gallery</a>';
+                $url_modify=$this->router->urlFor('modifyGallery',[['id',$g->id]]);
+                $modify="<a href='$url_modify'><i class='fa-solid fa-pen-to-square'></i></a>";
             }
             $name=$g->name()->first()['fullname'];
             $nb_image=$g->nb_images();
@@ -39,7 +40,7 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
                 $url_gallery=$this->router->urlFor('gallery',[['id',$g->id]]);
                 $res.=<<<EOT
                 <article class='gallery-article'>
-                    <a href=$url_gallery>
+                    <a href='$url_gallery'>
                     <div>
                         <h3>{$g['name']}</h3>
                         <div>
@@ -50,6 +51,7 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
                             <span>{$nb_image}</span>
                             <span>$name</span>
                             <span>{$g['created_at']}</span>
+                            $modify
                         </div>
                     </div>
                     </a>
@@ -57,6 +59,7 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
             EOT;
             }
         }
+        $res.='</section>';
         return $res;
     }
 }
