@@ -23,7 +23,7 @@ class UploadManager
         if (empty($errors) == true) {
             move_uploaded_file($file_tmp, realpath(".") . "/img/full_size/" . $id . ".jpg");
             self::createThumb(realpath(".") . "/img/full_size/" . $id . ".jpg", realpath(".") . "/img/thumbnails/" . $id . ".jpg");
-            echo "Success";
+            //echo "Success";
         } else {
             print_r($errors);
         }
