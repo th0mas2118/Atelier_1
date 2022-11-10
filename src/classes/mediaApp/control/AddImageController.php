@@ -29,8 +29,6 @@ class AddImageController extends AbstractController
             $title = $this->request->post["title"];
             $description = $this->request->post["description"];
             $gallery_id = $this->request->post["galleryId"];
-
-            $exif = exif_read_data($img['tmp_name']);
             $id = Image::addNew($title, $description, $gallery_id, 0, 0, 0, 0, AbstractAuthentification::connectedUser())->id;
             UploadManager::saveImage($img, $id);
 
