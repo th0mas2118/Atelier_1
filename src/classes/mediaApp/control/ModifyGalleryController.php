@@ -20,7 +20,6 @@ class ModifyGalleryController extends AbstractController{
             $gallery_id=$this->request->get['gallery_id'];
             $kDB=Gallery::where('id','=',$gallery_id)->first()->keywords();
             foreach($kDB->get() as $k){
-                echo $k;
                 $k->delete();
             }
 
@@ -29,16 +28,14 @@ class ModifyGalleryController extends AbstractController{
             $g->description=$descr;
             $var=$this->request->post['keyword'];
             $var= str_replace(' ',',',$var);
-            echo $var;
             $keywords = explode(",", $var);
-            var_dump($keywords);
             foreach ($keywords as $keyword) {
                 if (!empty($keyword)) {
-                    echo $keyword;
                     Keyword::create(['content' => trim($keyword), 'gallery_id' => $gallery_id]);
                 }
             }
             $g->save();
+            Router::executeRoute('user');
         }
     }
 }
