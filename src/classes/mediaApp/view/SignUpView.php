@@ -9,8 +9,10 @@ class SignUpView extends MainView implements Renderer
     public function render(): string
     {
         $res = <<<EOT
-            <section>
+            <section class="signup">
+        
                 <form method=post>
+                <h1>REGISTER</h1>
                     <label name='fullname'>Fullname :</label>
                     <input type="text" name="fullname" placeholder="full name">
                     <label name='username'>Username :</label>

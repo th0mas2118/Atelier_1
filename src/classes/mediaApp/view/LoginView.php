@@ -9,7 +9,7 @@ class LoginView extends MainView implements Renderer
     public function render(): string
     {
         $res = <<<EOT
-            <section>
+            <section class="login">
                 <form method=post>
                     <label namme='username'>Username :</label>
                     <input class="forms-text" type=text name=username placeholder="username">

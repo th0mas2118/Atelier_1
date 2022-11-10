@@ -5,40 +5,33 @@
   width: 100%;
   height: 100%;
   cursor: pointer;
-  transition: 0.25s all;
-}
-.gallery-article div div:first-of-type {
-  z-index: 5;
-  overflow: hidden;
-}
-.gallery-article div div:first-of-type img {
-  transition: 0.25s all;
-}
-.gallery-article div h3 {
-  width: 100%;
-  text-align: center;
-  position: absolute;
-  z-index: 10;
-  top: 1rem;
-  opacity: 0;
-  transition: 0.25s all;
-}
-.gallery-article div div:last-of-type {
-  position: absolute;
-  height: auto;
-  bottom: 1rem;
-  padding: 1rem;
-  z-index: 10;
-  text-align: center;
-  opacity: 0;
-  transition: 0.25s all;
-}
-.gallery-article div:hover h3,
-.gallery-article div:hover div:last-of-type {
-  opacity: 100;
-}
-.gallery-article div:hover img {
-  filter: blur(2px);
-}
+  transition: 0.25s all; }
+  .gallery-article div div:first-of-type {
+    z-index: 5;
+    overflow: hidden; }
+    .gallery-article div div:first-of-type img {
+      transition: 0.25s all; }
+  .gallery-article div h3 {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    z-index: 10;
+    top: 1rem;
+    opacity: 0;
+    transition: 0.25s all; }
+  .gallery-article div div:last-of-type {
+    position: absolute;
+    height: auto;
+    bottom: 1rem;
+    padding: 1rem;
+    z-index: 10;
+    text-align: center;
+    opacity: 0;
+    transition: 0.25s all; }
+  .gallery-article div:hover h3,
+  .gallery-article div:hover div:last-of-type {
+    opacity: 100; }
+  .gallery-article div:hover img {
+    filter: blur(2px); }
 
 /*# sourceMappingURL=gallery.css.map */

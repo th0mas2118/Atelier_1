@@ -2,7 +2,10 @@
 @import "image.scss";
 @import "gallery.scss";
 @import "header.scss";
+@import "pagination.scss";
 @import "footer.scss";
+@import "login.scss";
+@import "signup.scss";
 
 html,
 body {
@@ -16,34 +19,42 @@ body {
 
 main {
 	min-height: calc(100vh - 200px);
-	article{
-		width:100%;
+
+	article {
+		width: 100%;
 		aspect-ratio: 1/1;
 	}
 }
 
-#home-list, #gallery-list{
+#home-list,
+#gallery-list {
 	display: grid;
-	padding:1rem;
-	width:100%;
-	
+	padding: 1rem;
+	width: 100%;
+
 	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 8px;
-	section{
-		article{
-			width:100%;
-			a{width:100%;}
+
+	section {
+		article {
+			width: 100%;
+
+			a {
+				width: 100%;
+			}
 		}
-		
-		&:nth-of-type(n){
-			grid-column:1/2;
+
+		&:nth-of-type(n) {
+			grid-column: 1/2;
 		}
-		&:nth-child(n+1){
+
+		&:nth-child(n+1) {
 			grid-column: 2/3;
 		}
 	}
 
 }
+
 img {
 	width: 100%;
 	height: 100%;
