@@ -7,7 +7,7 @@ use \iutnc\meadiaApp\model\Image;
 
 class Homeview extends MainView implements Renderer{
     public function render():string{
-        $res="<section class='home-list'>";
+        $res="<section id='home-list'>";
         foreach($this->data as $g){
             $name=$g->name()->first()['fullname'];
             $nb_image=$g->nb_images();
