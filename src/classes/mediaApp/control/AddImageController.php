@@ -39,7 +39,7 @@ class AddImageController extends AbstractController
 
                 foreach ($keywords as $keyword) {
                     if (!empty($keyword)) {
-                        Keyword::create(['content' => $keyword, 'image_id' => $id]);
+                        Keyword::create(['content' => trim($keyword), 'image_id' => $id]);
                     }
                 }
             }
