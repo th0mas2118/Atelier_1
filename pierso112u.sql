@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 10 nov. 2022 à 15:22
+-- Généré le : jeu. 10 nov. 2022 à 16:03
 -- Version du serveur : 8.0.27
 -- Version de PHP : 8.1.0
 
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `atelier1__access` (
   `id` int NOT NULL,
-  `gallery_id` int NOT NULL,
-  `user_id` int NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `user_id` int NOT NULL,
+  `gallery_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -1591,7 +1591,8 @@ INSERT INTO `atelier1__user` (`id`, `username`, `fullname`, `password`, `user_le
 (47, 'unde', 'Maggie Garnier', '', 0),
 (48, 'dolor2', 'Thibaut Marchal', '', 0),
 (49, 'corporis3', 'Gilbert Roussel', '', 0),
-(50, 'ipsam', 'Grégoire Morvan-Charrier', '', 0);
+(50, 'ipsam', 'Grégoire Morvan-Charrier', '', 0),
+(54, 'test', 'test', '$2y$12$VqQ2uzwE2m7oQPj7K2aiFOEaEJ7wRsK1qePmzh/ocv7XZX0oG92QO', 1);
 
 -- --------------------------------------------------------
 
@@ -1813,7 +1814,7 @@ ALTER TABLE `atelier1__keyword`
 -- AUTO_INCREMENT pour la table `atelier1__user`
 --
 ALTER TABLE `atelier1__user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT pour la table `tweeter__follow`
