@@ -1,6 +1,4 @@
 .gallery-article {
-	width: 350px;
-	height: 350px;
 	div {
 		position: relative;
 		color: white;
@@ -15,9 +13,6 @@
 			overflow: hidden;
 
 			img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
 				transition: 0.25s all;
 			}
 		}
