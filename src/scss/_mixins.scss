@@ -1,0 +1,104 @@
+@mixin screen-el() {
+	@media (min-width: 1455px) {
+		@content;
+	}
+}
+
+@mixin screen-l() {
+	@media (min-width: 1040px) {
+		@content;
+	}
+}
+
+@mixin screen-m() {
+	@media (min-width: 852px) {
+		@content;
+	}
+}
+
+@mixin screen-s() {
+	@media (min-width: 606px) {
+		@content;
+	}
+}
+
+@mixin screen-xs() {
+	@content;
+}
+
+@mixin col_xs($start, $end) {
+	@include screen-xs() {
+		grid-column-start: $start;
+		grid-column-end: $end;
+	}
+}
+
+@mixin col_s($start, $end) {
+	@include screen-s() {
+		grid-column-start: $start;
+		grid-column-end: $end;
+	}
+}
+
+@mixin col_m($start, $end) {
+	@include screen-m() {
+		grid-column-start: $start;
+		grid-column-end: $end;
+	}
+}
+
+@mixin col_l($start, $end) {
+	@include screen-l() {
+		grid-column-start: $start;
+		grid-column-end: $end;
+	}
+}
+
+@mixin col_el($start, $end) {
+	@include screen-el() {
+		grid-column-start: $start;
+		grid-column-end: $end;
+	}
+}
+
+@mixin row_xs($row) {
+	@include screen-xs() {
+		grid-row-start: $row;
+		grid-row-end: $row;
+	}
+}
+
+@mixin row_s($row) {
+	@include screen-s() {
+		grid-row-start: $row;
+		grid-row-end: $row;
+	}
+}
+
+@mixin row_m($row) {
+	@include screen-m() {
+		grid-row-start: $row;
+		grid-row-end: $row;
+	}
+}
+
+@mixin row_l($row) {
+	@include screen-l() {
+		grid-row-start: $row;
+		grid-row-end: $row;
+	}
+}
+
+@mixin row_el($row) {
+	@include screen-el() {
+		grid-row-start: $row;
+		grid-row-end: $row;
+	}
+}
+
+@mixin flex-column-gap($gap) {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: $gap;
+}
