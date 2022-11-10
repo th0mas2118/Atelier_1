@@ -25,7 +25,7 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
         }
         foreach($gal as $g){
             if($bool==1){
-                $url_add_image=$this->router->urlFor('modifygallery',[['id',$g->id]]);
+                $url_add_image=$this->router->urlFor('modifyGallery',[['id',$g->id]]);
                 $modify='<a href="">Modify Gallery</a>';
             }
             $name=$g->name()->first()['fullname'];
