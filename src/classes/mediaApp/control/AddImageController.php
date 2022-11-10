@@ -3,6 +3,7 @@
 namespace iutnc\mediaApp\control;
 
 use iutnc\mediaApp\model\Image;
+use iutnc\mediaApp\model\Keyword;
 use iutnc\mediaApp\utils\UploadManager;
 use \iutnc\mf\control\AbstractController;
 use \iutnc\mf\auth\AbstractAuthentification;
@@ -23,16 +24,25 @@ class AddImageController extends AbstractController
         if ($this->request->method === 'POST') {
             if (!isset($_FILES["img"])) return;
 
-            if (!isset($this->request->post["title"]) || !isset($this->request->post["description"]) || !isset($this->request->post["keywords"]) || !isset($this->request->post["galleryId"])) return;
+            if (!isset($this->request->post["title"]) || !isset($this->request->post["description"]) || !isset($this->request->post["galleryId"])) return;
             $img = $_FILES["img"];
             $title = $this->request->post["title"];
             $description = $this->request->post["description"];
-            $keywords = $this->request->post["keywords"];
             $gallery_id = $this->request->post["galleryId"];
 
             $exif = exif_read_data($img['tmp_name']);
-            $id = Image::addNew($title, $description, $gallery_id, 0, 0, 0, 0,AbstractAuthentification::connectedUser())->id;
+            $id = Image::addNew($title, $description, $gallery_id, 0, 0, 0, 0, AbstractAuthentification::connectedUser())->id;
             UploadManager::saveImage($img, $id);
+
+            if ($this->request->post["keywords"]) {
+                $keywords = explode(",", $this->request->post["keywords"]);
+
+                foreach ($keywords as $keyword) {
+                    if (!empty($keyword)) {
+                        Keyword::create(['content' => $keyword, 'image_id' => $id]);
+                    }
+                }
+            }
         }
     }
 }
