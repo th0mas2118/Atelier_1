@@ -14,4 +14,15 @@ class User extends \Illuminate\Database\Eloquent\Model
     {
         return $this->hasMany(Gallery::class, 'author', 'id');
     }
+
+    public function hasAccessTo(int $gallery_id)
+    {
+        $access = $this->hasMany(Access::class, "user_id")->where('gallery_id', '=', $gallery_id)->first();
+
+        if ($access) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
