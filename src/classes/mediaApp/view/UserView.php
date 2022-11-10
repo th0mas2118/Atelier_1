@@ -29,6 +29,9 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
                 $url_modify=$this->router->urlFor('modifyGallery',[['gallery_id',$g->id]]);
                 $modify="<a href='$url_modify'><i class='fa-solid fa-pen-to-square'></i></a>";
                 $delete="<a href=''><i class='fa-solid fa-trash'></i></i></a>";
+            }else{
+                $modify='';
+                $delete='';
             }
             $name=$g->name()->first()['fullname'];
             $nb_image=$g->nb_images();
