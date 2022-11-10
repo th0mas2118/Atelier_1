@@ -33,11 +33,16 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
             $name=$g->name()->first()['fullname'];
             $nb_image=$g->nb_images();
             $image_list=$g->images()->get();
-            $count=count($image_list);
+            $count=count($gal);
             $random=rand(0,$count-1);
             if($count>0){
-                $index=$image_list[$random]->id;
-                $img_src=$this->request->root.'/img/thumbnails/'.$index.'.jpg';
+                if(count($image_list)>0){
+                    $index=$image_list[$random]->id;
+                    $img_src=$this->request->root.'/img/thumbnails/'.$index.'.jpg';
+                }
+                else{
+                    $img_src="";
+                }
                 $url_gallery=$this->router->urlFor('gallery',[['id',$g->id]]);
                 $res.=<<<EOT
                 <article class='gallery-article'>

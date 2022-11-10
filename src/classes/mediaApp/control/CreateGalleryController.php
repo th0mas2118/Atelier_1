@@ -6,6 +6,7 @@ use \iutnc\mf\control\AbstractController;
 use \iutnc\mf\auth\AbstractAuthentification;
 use \iutnc\mediaApp\view\CreateGalleryView;
 use \iutnc\mediaApp\model\Gallery;
+use \iutnc\mediaApp\model\Keyword;
 
 class CreateGalleryController extends AbstractController{
     public function execute():void{
@@ -24,8 +25,8 @@ class CreateGalleryController extends AbstractController{
             }
             $id=Gallery::addNew($title,$descr,AbstractAuthentification::connectedUser())->id;
         }
-        if ($this->request->post["keywords"]) {
-            $keywords = explode(",", $this->request->post["keywords"]);
+        if ($this->request->post["keyword"]) {
+            $keywords = explode(",", $this->request->post["keyword"]);
 
             foreach ($keywords as $keyword) {
                 if (!empty($keyword)) {
