@@ -21,19 +21,18 @@ class MainView extends AbstractView
 
     public function renderHeader(): string
     {
-        $url_home=$this->router->urlFor('home');
-        $url_login=$this->router->urlFor('login');
-        $url_about=$this->router->urlFor('about');
-        $url_logout=$this->router->urlFor('logout');
-        $url_user=$this->router->urlFor('user',[['id',AbstractAuthentification::connectedUser()]]);
+        $url_home = $this->router->urlFor('home');
+        $url_login = $this->router->urlFor('login');
+        $url_about = $this->router->urlFor('about');
+        $url_logout = $this->router->urlFor('logout');
+        $url_user = $this->router->urlFor('user', [['id', AbstractAuthentification::connectedUser()]]);
 
-        if(AbstractAuthentification::connectedUser()){
-            $user_button="<a href=$url_user>My Profile</a>";
-            $log="<a href=$url_logout>Logout</a>";
-        }
-        else{
-            $user_button="";
-            $log="<a href=$url_login>Login</a>";
+        if (AbstractAuthentification::connectedUser()) {
+            $user_button = "<a href=$url_user>My Profile</a>";
+            $log = "<a href=$url_logout>Logout</a>";
+        } else {
+            $user_button = "";
+            $log = "<a href=$url_login>Login</a>";
         }
         return "
             <header>
@@ -49,8 +48,9 @@ class MainView extends AbstractView
                     $user_button
                 </nav>
                 <div>
-                    <form>
-                        <input type='text' />
+                    <form action=''>
+                        <input type='hidden' name='action' id='action' value='search' />
+                        <input type='text' name='keywords' id='keywords'/>
                         <input type='submit' value='search' />
                     </form>
                 </div>
@@ -60,9 +60,9 @@ class MainView extends AbstractView
 
     public function renderFooter(): string
     {
-        $url_home=$this->router->urlFor('home');
-        $url_about=$this->router->urlFor('about');
-        $url_contact="";
+        $url_home = $this->router->urlFor('home');
+        $url_about = $this->router->urlFor('about');
+        $url_contact = "";
         return "
             <footer>
                 <div>
