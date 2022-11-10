@@ -11,6 +11,25 @@ header {
     line-height: 30px;
     height: 100px;
 
+    
+    #burger-button{
+        position:fixed;
+        right:1.5rem;
+        font-size:2rem;
+        top:1rem;
+        color:white;
+        z-index:1000;
+        .checkbox{
+            position: absolute;
+            left: 0;
+            width: 2rem;
+            height: 2rem;
+            opacity: 1;
+        }
+        i{width:1rem;
+        height: 1rem;}
+    }
+
     nav {
         display: flex;
         flex-direction: row;
