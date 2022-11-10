@@ -272,10 +272,12 @@ main {
       width: 100%; }
   #home-list section:nth-of-type(n),
   #gallery-list section:nth-of-type(n) {
-    grid-column: 1/2; }
+    grid-column-start: 1;
+    grid-column-end: 2; }
   #home-list section:nth-child(n + 1),
   #gallery-list section:nth-child(n + 1) {
-    grid-column: 2/3; }
+    grid-column-start: 2;
+    grid-column-end: 3; }
 
 img {
   width: 100%;

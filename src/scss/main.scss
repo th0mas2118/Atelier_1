@@ -33,25 +33,22 @@ main {
 	display: grid;
 	padding: 1rem;
 	width: 100%;
-
 	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 8px;
 
 	section {
 		article {
 			width: 100%;
-
 			a {
 				width: 100%;
 			}
 		}
-
 		&:nth-of-type(n) {
-			grid-column: 1/2;
+			@include col_xs(1,2);
 		}
 
 		&:nth-child(n + 1) {
-			grid-column: 2/3;
+			@include col_xs(2,3)
 		}
 	}
 }
