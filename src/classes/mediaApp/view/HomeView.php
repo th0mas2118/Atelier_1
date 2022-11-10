@@ -18,7 +18,7 @@ class Homeview extends MainView implements Renderer
             $image_list = $g->images()->get();
             $count = count($image_list);
             $random = rand(0, $count - 1);
-            $url_gallery = $this->router->urlFor('gallery', [['id', $g->id]]);
+            $url_gallery = $this->router->urlFor('gallery', [['gallery_id', $g->id]]);
 
             if ($count > 0) {
                 $index = $image_list[$random]->id;
