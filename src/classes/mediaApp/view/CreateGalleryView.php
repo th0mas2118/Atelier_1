@@ -14,7 +14,7 @@ class CreateGalleryView extends MainView implements Renderer{
                     <input type=text name=title placeholder="Title"><br>
                     <label name=descr>Description :</label>
                     <input type=text name=descr placeholder="Description"><br>
-                    <label name=keyword>KeyWords :</label>
+                    <label name=keyword placeholder="KeyWords">KeyWords :</label>
                     <input type=text name=keyword><br>
 
                     <button name=sign_button type="submit">Confirm</button>
