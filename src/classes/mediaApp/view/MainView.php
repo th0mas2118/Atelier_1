@@ -37,19 +37,17 @@ class MainView extends AbstractView
         }
         return "
             <header>
+            <div id='burger-button'><input class='checkbox' type='checkbox'/><i class='fa-solid fa-bars'></i></div>
                 <div>
                     <a href=$url_home>
                         <h1>MediaPhoto</h1>
                     </a>
                 </div>
-                <nav>
-                <div>
-                    <div id='burger-button'><input class='checkbox' type='checkbox'/><i class='fa-solid fa-bars'></i></div>
+                <nav>                  
                     <a href=$url_home>Home</a>
                     $log
                     <a href=$url_about>A propos</a>
                     $user_button
-                </div>
                 </nav>
                 <div>
                     <form>
