@@ -6,6 +6,7 @@ use \iutnc\mf\router\Router;
 
 class RenderFunction{
     public static function renderGallery($gal,$root,$urls=null){
+        $url_modify="";
         if($urls){
             $url_modify=$urls['modify'];
             $url_delete=$urls['delete'];
@@ -36,7 +37,7 @@ class RenderFunction{
                 <h3>{$gal['name']}</h3>
                 <div>
                     <img class='image-article' alt='image' src='$img_src'></img>
-                    <a href={$url_modify}><i class='fa-solid fa-pen-to-square'></i></a>
+                    <a href={$url_modify}><i></i></a>
                 </div>
                 <div class='overlay'>
                     <div id='image-data'>
