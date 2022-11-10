@@ -6,7 +6,7 @@ class Image extends \Illuminate\Database\Eloquent\Model
 {
     protected $table = 'atelier1__image';
     protected $primaryKey = 'id';
-    protected $fillable = ['title', 'description', 'gallery_id', 'altitude', 'longitude', 'latitude', 'photo_date','author'];
+    protected $fillable = ['title', 'description', 'gallery_id', 'altitude', 'longitude', 'latitude', 'photo_date', 'author'];
     public $timestamps = true;
 
     public static function getById(int $id): ?Image
@@ -19,9 +19,9 @@ class Image extends \Illuminate\Database\Eloquent\Model
         return $this->hasMany(Keyword::class, 'image_id');
     }
 
-    public static function addNew($title, $description, $galery_id, $altitude, $longitude, $latitude, $photo_date,$author): Image
+    public static function addNew($title, $description, $galery_id, $altitude, $longitude, $latitude, $photo_date, $author): Image
     {
-        return Image::create(['title' => $title, 'description' => $description, 'gallery_id' => $galery_id, 'altitude' => $altitude, 'longitude' => $longitude, 'latitude' => $latitude, 'photo_date' => $photo_date, 'author'=>$author]);
+        return Image::create(['title' => $title, 'description' => $description, 'gallery_id' => $galery_id, 'altitude' => $altitude, 'longitude' => $longitude, 'latitude' => $latitude, 'photo_date' => $photo_date, 'author' => $author]);
     }
     public function galleryName()
     {

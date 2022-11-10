@@ -35,7 +35,7 @@ class AddImageController extends AbstractController
             UploadManager::saveImage($img, $id);
 
             if ($this->request->post["keywords"]) {
-                $keywords = explode(",", $this->request->post["keywords"]);
+                $keywords = explode(" ", $this->request->post["keywords"]);
 
                 foreach ($keywords as $keyword) {
                     if (!empty($keyword)) {

@@ -36,6 +36,7 @@ $router->addRoute('addimage', 'add_image', '\iutnc\mediaApp\control\AddImageCont
 $router->addRoute('about', 'about', '\iutnc\mediaApp\control\AboutController');
 $router->addRoute('modifyGallery', 'modify_gallery', '\iutnc\mediaApp\control\ModifyGalleryController');
 $router->addRoute('createGallery', 'create_gallery', '\iutnc\mediaApp\control\CreateGalleryController');
+$router->addRoute('search', 'search', '\iutnc\mediaApp\control\SearchController');
 
 
 $router->setDefaultroute('home');
