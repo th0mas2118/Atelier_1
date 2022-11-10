@@ -8,14 +8,14 @@ use iutnc\mf\view\Renderer;
 class GalleryView extends MainView implements Renderer {
     public function render():string{
         $liste_images = $this->data->images()->get() ;
-        $html= '';
+        $html= '<section id="gallery-list">';
         $title= $this->data->name;
         $html.=`<h1>{$title}</h1>`;
         foreach($liste_images as $image){
             $img_src=$this->request->root.'/img/thumbnails/'.$image->id.'.jpg';
             $url_image=$this->router->urlFor('image',[['id',$image->id]]);
         $html .= <<<EOT
-        <section id="gallery-list">
+        
         <article class="image-article">
             <a href=$url_image>
                 <div>
@@ -23,10 +23,9 @@ class GalleryView extends MainView implements Renderer {
                 </div>
             </a>
         </article>
-        </section>
         EOT;
         }
-
+        $html.="</section>";
         return $html;
     }
 }

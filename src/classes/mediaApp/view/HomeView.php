@@ -7,7 +7,7 @@ use \iutnc\meadiaApp\model\Image;
 
 class Homeview extends MainView implements Renderer{
     public function render():string{
-        $res="";
+        $res="<section class='home-list'>";
         foreach($this->data as $g){
             $name=$g->name()->first()['fullname'];
             $nb_image=$g->nb_images();
@@ -19,7 +19,6 @@ class Homeview extends MainView implements Renderer{
                 $index=$image_list[$random]->id;
                 $img_src=$this->request->root.'/img/thumbnails/'.$index.'.jpg';
                 $res.=<<<EOT
-                <section id="home-list">
                     <article class='gallery-article'>
                         <a href={$url_gallery}>
                         <div>
@@ -35,10 +34,10 @@ class Homeview extends MainView implements Renderer{
                         </div>
                         </a>
                     </article>
-                <section>
             EOT;
             }
         }
+        $res.="</section>";
         return $res;
     }
 }
