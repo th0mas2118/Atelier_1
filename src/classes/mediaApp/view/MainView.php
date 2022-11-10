@@ -54,7 +54,6 @@ class MainView extends AbstractView
                         <input type='submit' value='search' />
                     </form>
                 </div>
-                <li><a href='#'>Home</a></li>
             </header>
         ";
     }
