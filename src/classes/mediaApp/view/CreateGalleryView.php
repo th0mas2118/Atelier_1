@@ -7,8 +7,9 @@ use \iutnc\mf\view\Renderer;
 class CreateGalleryView extends MainView implements Renderer{
     public function render():string{
         $res=<<<EOT
-        <section>
+        <section class="createGallery">
                 <form method=post>
+                <h1>CREATE GALLERY</h1>
                     <label name=title>Title :</label>
                     <input type=text name=title placeholder="Title"><br>
                     <label name=descr>Description :</label>

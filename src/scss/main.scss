@@ -6,6 +6,7 @@
 @import "footer.scss";
 @import "login.scss";
 @import "signup.scss";
+@import "createGallery.scss";
 
 html,
 body {
@@ -61,9 +62,9 @@ img {
 	object-fit: cover;
 }
 
-#about{
-	
-	padding-top:1rem;
-	text-align:center;
+#about {
+
+	padding-top: 1rem;
+	text-align: center;
 
 }
