@@ -4,21 +4,26 @@ namespace iutnc\mediaApp\view;
 
 use \iutnc\mf\view\Renderer;
 use \iutnc\meadiaApp\model\Image;
+use \iutnc\mediaApp\utils\RenderFunction;
 
-class Homeview extends MainView implements Renderer{
-    public function render():string{
-        $res="<section id='home-list'>";
-        foreach($this->data as $g){
-            $name=$g->name()->first()['fullname'];
-            $nb_image=$g->nb_images();
-            $image_list=$g->images()->get();
-            $count=count($image_list);
-            $random=rand(0,$count-1);
-            $url_gallery=$this->router->urlFor('gallery',[['id',$g->id]]);
-            if($count>0){
-                $index=$image_list[$random]->id;
-                $img_src=$this->request->root.'/img/thumbnails/'.$index.'.jpg';
-                $res.=<<<EOT
+class Homeview extends MainView implements Renderer
+{
+    public function render(): string
+    {
+        $res = "<section id='home-list'>";
+
+        foreach ($this->data as $g) {
+            $name = $g->name()->first()['fullname'];
+            $nb_image = $g->nb_images();
+            $image_list = $g->images()->get();
+            $count = count($image_list);
+            $random = rand(0, $count - 1);
+            $url_gallery = $this->router->urlFor('gallery', [['id', $g->id]]);
+
+            if ($count > 0) {
+                $index = $image_list[$random]->id;
+                $img_src = $this->request->root . '/img/thumbnails/' . $index . '.jpg';
+                $res .= <<<EOT
                     <article class='gallery-article'>
                         <a href={$url_gallery}>
                         <div>

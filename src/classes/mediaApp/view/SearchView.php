@@ -2,30 +2,29 @@
 
 namespace iutnc\mediaApp\view;
 
+use iutnc\mediaApp\utils\RenderFunction;
 use \iutnc\mf\view\Renderer;
 
 class SearchView extends MainView implements Renderer
 {
     public function render(): string
     {
-        $liste_images = $this->data['result'];
-        $html = '<section id="gallery-list">';
-        $title = $this->request->get['keywords'];
-        $html .= `<h1>{$title}</h1>`;
-        foreach ($liste_images as $image) {
-            $img_src = $this->request->root . '/img/thumbnails/' . $image->id . '.jpg';
-            $url_image = $this->router->urlFor('image', [['id', $image->id]]);
-            $html .= <<<EOT
-        <article class="image-article">
-            <a href=$url_image>
-                <div>
-                    <img alt="" src=$img_src>
-                </div>
-            </a>
-        </article>
-        EOT;
+        $galleries = $this->data['galleries'];
+        $images = $this->data['images'];
+
+        $html = '<h1>Galeries</h1><section id="gallery-list">';
+        $root = $this->request->root;
+        foreach ($galleries as $gallery) {
+            $html .= RenderFunction::renderGallery($gallery, $root, null);
         }
-        $html .= "</section>";
+
+        $html .= '</section><h1>Image</h1><section id="images-list">';
+
+        foreach ($images as $image) {
+            $url_image = $this->router->urlFor('image', [['id', $image->id]]);
+            $html .= RenderFunction::renderImage($image, $root, $url_image);
+        }
+        $html .= '</section>';
         return $html;
     }
 }

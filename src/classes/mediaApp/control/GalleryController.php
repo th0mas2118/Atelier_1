@@ -19,10 +19,10 @@ class GalleryController extends AbstractController{
  */
 
     public function execute():void{
-        if(!isset($this->request->get['id'])){
+        if(!isset($this->request->get['gallery_id'])){
             Router::executeRoute('home');
         }
-        $id = $this->request->get['id'];
+        $id = $this->request->get['gallery_id'];
         if(is_null(Gallery::find($id))){
             Router::executeRoute('home');
         }
