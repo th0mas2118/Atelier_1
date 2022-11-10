@@ -22,7 +22,16 @@ class CreateGalleryController extends AbstractController{
                 echo "Veuillez remplir tout les champs";
                 return;
             }
-            Gallery::addNew($title,$descr,AbstractAuthentification::connectedUser(),$keywords);
+            $id=Gallery::addNew($title,$descr,AbstractAuthentification::connectedUser())->id;
+        }
+        if ($this->request->post["keywords"]) {
+            $keywords = explode(",", $this->request->post["keywords"]);
+
+            foreach ($keywords as $keyword) {
+                if (!empty($keyword)) {
+                    Keyword::create(['content' => trim($keyword), 'gallery_id' => $id]);
+                }
+            }
         }
     }
 }

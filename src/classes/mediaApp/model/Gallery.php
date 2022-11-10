@@ -25,7 +25,7 @@ class Gallery extends \Illuminate\Database\Eloquent\Model {
     public function name(){
         return $this->belongsTo(User::class,'author');
     }
-    public static function addNew($title,$descriprion,$author,$keyword=null){
-        return Gallery::create(['name'=>$title, 'description'=>$descriprion, 'author'=>$author, 'keyword'=>$keyword]);
+    public static function addNew($title,$descriprion,$author){
+        return Gallery::create(['name'=>$title, 'description'=>$descriprion, 'author'=>$author]);
     }
 }
