@@ -153,8 +153,10 @@ main article {
 }
 
 #burger-button {
-  width: 1rem;
-  height: 1rem;
+  position: fixed;
+  right: 1.5rem;
+  font-size: 2rem;
+  top: 1rem;
   color: white;
   z-index: 1000;
 }
