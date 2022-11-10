@@ -21,7 +21,8 @@ class SearchView extends MainView implements Renderer
         $html .= '</section><h1>Image</h1><section id="images-list">';
 
         foreach ($images as $image) {
-            $html .= "<span>$image->id</span><br>";
+            $url_image = $this->router->urlFor('image', [['id', $image->id]]);
+            $html .= RenderFunction::renderImage($image, $root, $url_image);
         }
         $html .= '</section>';
         return $html;
