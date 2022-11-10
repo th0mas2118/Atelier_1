@@ -66,5 +66,6 @@ class RenderFunction
             </a>
         </article>
         EOT;
+        return $res;
     }
 }
