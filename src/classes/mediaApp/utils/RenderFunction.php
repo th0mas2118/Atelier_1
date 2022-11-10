@@ -13,8 +13,10 @@ class RenderFunction
             $url_modify = $urls['modify'];
             $url_delete = $urls['delete'];
             $image_controls = <<<EOT
+            <div id='image-controls'>
             <a href={$url_modify}><i class='fa-solid fa-pen-to-square'></i></a>
             <a href={$url_delete}><i class='fa-solid fa-trash'></i></a>
+            </div>
             EOT;
         } else {
             $image_controls = "";
@@ -33,12 +35,13 @@ class RenderFunction
         }
         $res = <<<EOT
         <article class='gallery-article'>
-            <a href='$url_gallery'>
             <div>
                 <h3>{$gal['name']}</h3>
                 <div>
+                    <a href='$url_gallery'>
                     <img class='image-article' alt='image' src='$img_src'></img>
-                    <a href={$url_modify}><i></i></a>
+                    </a>
+                    <a><i></i></a>
                 </div>
                 <div class='overlay'>
                     <div id='image-data'>
@@ -49,7 +52,6 @@ class RenderFunction
                     {$image_controls}
                 </div>
             </div>
-            </a>
         </article>
         EOT;
         return $res;
@@ -58,7 +60,7 @@ class RenderFunction
     public static function renderImage($image,$root,$url_image){
         $img_src=$root.'/img/thumbnails/'.$image->id.'.jpg';
         $res=<<<EOT
-        <article class='image-aticle'>
+        <article class='image-article'>
             <a href=$url_image>
                 <div>
                     <img alt="" src=$img_src>
