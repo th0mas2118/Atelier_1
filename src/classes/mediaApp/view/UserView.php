@@ -11,7 +11,6 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
         $modify="";
         if(AbstractAuthentification::connectedUser()){
             if($this->data['id']==AbstractAuthentification::connectedUser()){
-                echo 'Connected';
                 $bool=1;
             }
         }
