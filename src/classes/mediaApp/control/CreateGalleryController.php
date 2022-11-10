@@ -7,6 +7,7 @@ use \iutnc\mf\auth\AbstractAuthentification;
 use \iutnc\mediaApp\view\CreateGalleryView;
 use \iutnc\mediaApp\model\Gallery;
 use \iutnc\mediaApp\model\Keyword;
+use \iutnc\mf\router\Router;
 
 class CreateGalleryController extends AbstractController{
     public function execute():void{
@@ -34,5 +35,6 @@ class CreateGalleryController extends AbstractController{
                 }
             }
         }
+        Router::executeRoute('user');
     }
 }
