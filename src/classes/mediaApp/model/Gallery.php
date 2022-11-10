@@ -28,4 +28,8 @@ class Gallery extends \Illuminate\Database\Eloquent\Model {
     public static function addNew($title,$descriprion,$author){
         return Gallery::create(['name'=>$title, 'description'=>$descriprion, 'author'=>$author]);
     }
+    public function keywords()
+    {
+        return $this->hasMany(Keyword::class, 'gallery_id');
+    }
 }
