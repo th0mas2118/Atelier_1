@@ -28,6 +28,7 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
             if($bool==1){
                 $url_modify=$this->router->urlFor('modifyGallery',[['id',$g->id]]);
                 $modify="<a href='$url_modify'><i class='fa-solid fa-pen-to-square'></i></a>";
+                $delete="<a href=''><i class='fa-solid fa-trash'></i></i></a>";
             }
             $name=$g->name()->first()['fullname'];
             $nb_image=$g->nb_images();
@@ -47,11 +48,16 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
                             <img class='image-article' alt='image' src={$img_src}></img>
                             {$modify}
                         </div>
-                        <div>
-                            <span>{$nb_image}</span>
-                            <span>$name</span>
-                            <span>{$g['created_at']}</span>
-                            $modify
+                        <div class='overlay'>
+                            <div id='image-data'>
+                                <span>{$nb_image}</span>
+                                <span>$name</span>
+                                <span>{$g['created_at']}</span>
+                            </div>
+                            <div id='image-controls'>
+                                $modify
+                                $delete
+                            </div>
                         </div>
                     </div>
                     </a>
