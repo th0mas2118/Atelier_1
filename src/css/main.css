@@ -201,4 +201,9 @@ img {
   object-fit: cover;
 }
 
+#about {
+  padding-top: 1rem;
+  text-align: center;
+}
+
 /*# sourceMappingURL=main.css.map */

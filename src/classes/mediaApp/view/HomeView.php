@@ -11,9 +11,9 @@ class Homeview extends MainView implements Renderer
     public function render(): string
     {
         $res = "<section id='home-list'>";
-        $root=$this->request->root;
+        $root = $this->request->root;
         foreach ($this->data as $g) {
-            $res.=RenderFunction::renderGallery($g,$root);
+            $res .= RenderFunction::renderGallery($g, $root);
         }
         $res .= "</section>";
         return $res;
