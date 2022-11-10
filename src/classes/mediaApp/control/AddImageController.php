@@ -43,6 +43,7 @@ class AddImageController extends AbstractController
                     }
                 }
             }
+            Router::executeRoute('user');
         }
     }
 }
