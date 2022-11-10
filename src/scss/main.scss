@@ -1,3 +1,4 @@
+@import "_mixins.scss";
 @import "reset.scss";
 @import "image.scss";
 @import "gallery.scss";
@@ -49,11 +50,10 @@ main {
 			grid-column: 1/2;
 		}
 
-		&:nth-child(n+1) {
+		&:nth-child(n + 1) {
 			grid-column: 2/3;
 		}
 	}
-
 }
 
 img {
@@ -63,8 +63,6 @@ img {
 }
 
 #about {
-
 	padding-top: 1rem;
 	text-align: center;
-
 }
