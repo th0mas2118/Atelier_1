@@ -19,6 +19,7 @@ class Homeview extends MainView implements Renderer{
                 $index=$image_list[$random]->id;
                 $img_src=$this->request->root.'/img/thumbnails/'.$index.'.jpg';
                 $res.=<<<EOT
+                <section id="home-list">
                     <article class='gallery-article'>
                         <a href={$url_gallery}>
                         <div>
@@ -34,6 +35,7 @@ class Homeview extends MainView implements Renderer{
                         </div>
                         </a>
                     </article>
+                <section>
             EOT;
             }
         }
