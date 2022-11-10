@@ -5,6 +5,7 @@ namespace iutnc\mediaApp\control;
 use iutnc\mediaApp\model\Image;
 use iutnc\mediaApp\utils\UploadManager;
 use \iutnc\mf\control\AbstractController;
+use \iutnc\mf\auth\AbstractAuthentification;
 use \iutnc\mediaApp\view\AddImageView;
 use \iutnc\mf\router\Router;
 
@@ -30,7 +31,7 @@ class AddImageController extends AbstractController
             $gallery_id = $this->request->post["galleryId"];
 
             $exif = exif_read_data($img['tmp_name']);
-            $id = Image::addNew($title, $description, $gallery_id, 0, 0, 0, 0)->id;
+            $id = Image::addNew($title, $description, $gallery_id, 0, 0, 0, 0,AbstractAuthentification::connectedUser())->id;
             UploadManager::saveImage($img, $id);
         }
     }
