@@ -152,6 +152,17 @@ main article {
   aspect-ratio: 1/1;
 }
 
+#burger-button {
+  width: 1rem;
+  height: 1rem;
+  color: white;
+  z-index: 1000;
+}
+#burger-button i {
+  width: 1rem;
+  height: 1rem;
+}
+
 #home-list, #gallery-list {
   display: grid;
   padding: 1rem;
