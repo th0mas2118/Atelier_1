@@ -160,9 +160,14 @@ footer {
 
 .login {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  padding: 2%; }
   .login form {
-    padding: 11%; }
+    margin: 49px; }
+    .login form h1 {
+      font-weight: bold;
+      text-align: center;
+      font-size: 2.5em; }
     .login form input {
       width: 100%;
       padding: 12px 20px;
@@ -251,7 +256,6 @@ img {
 
 #about {
   padding-top: 1rem;
-  text-align: center;
-}
+  text-align: center; }
 
 /*# sourceMappingURL=main.css.map */
