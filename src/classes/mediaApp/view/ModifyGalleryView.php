@@ -11,7 +11,7 @@ class ModifyGalleryView extends MainView Implements Renderer{
         $g=Gallery::select()->where('id','=',$this->request->get['gallery_id'])->first();
         $keyword="";
         foreach($g->keywords()->get() as $key){
-            $keyword.=$key->content.',';
+            $keyword.=$key->content.' ';
         }
         $res=<<<EOT
         <section>
@@ -21,12 +21,11 @@ class ModifyGalleryView extends MainView Implements Renderer{
                 <label name=descr>Description :</label>
                 <input value={$g['description']} type=text name=descr placeholder="Description"><br>
                 <label name=keyword>KeyWords :</label>
-                <input value={$keyword} type=text name=keyword><br>
+                <input value='{$keyword}' type=text name=keyword><br>
 
                 <button name=sign_button type="submit">Confirm</button>
             </form>
             <a href=$url_addimage>AddImage</a>
-            <a href=''>Modify gallery info</a>
         </section>
         EOT;
         return $res;

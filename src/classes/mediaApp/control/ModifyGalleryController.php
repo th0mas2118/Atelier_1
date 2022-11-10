@@ -5,6 +5,8 @@ namespace iutnc\mediaApp\control;
 use \iutnc\mf\control\AbstractController;
 use \iutnc\mf\router\Router;
 use \iutnc\mediaApp\view\ModifyGalleryView;
+use \iutnc\mediaApp\model\Gallery;
+use \iutnc\mediaApp\model\Keyword;
 
 class ModifyGalleryController extends AbstractController{
     public function execute():void{
@@ -15,13 +17,28 @@ class ModifyGalleryController extends AbstractController{
         if($this->request->method==='POST'){
             $title=$this->request->post['title'];
             $descr=$this->request->post['descr'];
-            $keywords=$this->request->post['keyword'];
-            $galery_id=$this->request->get['gallery_id'];
+            $gallery_id=$this->request->get['gallery_id'];
+            $kDB=Gallery::where('id','=',$gallery_id)->first()->keywords();
+            foreach($kDB->get() as $k){
+                echo $k;
+                $k->delete();
+            }
 
-            $g=Gallery::select()->where('id','=',$galery_id)->first();
+            $g=Gallery::select()->where('id','=',$gallery_id)->first();
             $g->name=$title;
             $g->description=$descr;
-            
+            $var=$this->request->post['keyword'];
+            $var= str_replace(' ',',',$var);
+            echo $var;
+            $keywords = explode(",", $var);
+            var_dump($keywords);
+            foreach ($keywords as $keyword) {
+                if (!empty($keyword)) {
+                    echo $keyword;
+                    Keyword::create(['content' => trim($keyword), 'gallery_id' => $gallery_id]);
+                }
+            }
+            $g->save();
         }
     }
 }
