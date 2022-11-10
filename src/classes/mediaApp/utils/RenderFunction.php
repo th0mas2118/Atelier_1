@@ -55,7 +55,7 @@ class RenderFunction
         return $res;
     }
 
-    public static function renderImage($root,$image,$url_image){
+    public static function renderImage($image,$root,$url_image){
         $img_src=$root.'/img/thumbnails/'.$image->id.'.jpg';
         $res=<<<EOT
         <article class='image-aticle'>

@@ -16,7 +16,7 @@ class GalleryView extends MainView implements Renderer {
         $root=$this->request->root;
         foreach($liste_images as $image){
             $url_image=$this->router->urlFor('image',[['id',$image->id]]);
-            $html.=RenderFunction::renderImage($root,$image,$url_image);
+            $html.=RenderFunction::renderImage($image,$root,$url_image);
         $html.="</section>";
         return $html;
     }
