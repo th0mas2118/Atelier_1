@@ -34,7 +34,7 @@ class UploadManager
         $sourceImage = imagecreatefromjpeg($src);
         $orgWidth = imagesx($sourceImage);
         $orgHeight = imagesy($sourceImage);
-        $thumbWidth = $orgWidth / 2;
+        $thumbWidth = floor($orgWidth / 2);
         $thumbHeight = floor($orgHeight * ($thumbWidth / $orgWidth));
         $destImage = imagecreatetruecolor($thumbWidth, $thumbHeight);
         imagecopyresampled($destImage, $sourceImage, 0, 0, 0, 0, $thumbWidth, $thumbHeight, $orgWidth, $orgHeight);
