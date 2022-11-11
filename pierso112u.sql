@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 11 nov. 2022 à 12:04
+-- Généré le : ven. 11 nov. 2022 à 12:08
 -- Version du serveur : 5.7.31
 -- Version de PHP : 8.1.12
 
@@ -676,8 +676,7 @@ INSERT INTO `atelier1__gallery` (`id`, `name`, `description`, `author`, `isPriva
 (298, 'Il se trouvait à.', 'La veilleuse de porcelaine à baguette de cuivre, elle s\'assoupit doucement à la façon des culs de basse-fosse, sa famille en pleurs, la pharmacie vendue, tous les autres, et représentaient à eux.', 6, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
 (299, 'Charles la battît.', 'Il était vêtu d\'une redingote de velours noir. Ses cheveux châtains tombaient dessus, plats et bien d\'autres choses encore où Charles rentrait. Ils avaient chaud; on apportait du cidre doux, et.', 37, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
 (300, 'Sa chevelure rouge.', 'Le soleil brillait sur la pointe ardente de ses lunettes, et ses façons graves, Emma, presque tous les tiroirs des meubles, elle se précipita et, comme il y a dans la netteté d\'une sensation presque.', 14, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
-(301, 'Un matin, qu\'elle.', 'Les yeux fatigués à la nuque, avaient, en effet, que d\'être mère. Mais, ne pouvant faire les dépenses de l\'enterrement. Il s\'emporta si fort à ne vouloir point s\'arrêter. Il essayait quelquefois, et.', 30, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
-(303, 'titre', 'desc', 56, 0, 1, '2022-11-11 09:49:59', '2022-11-11 10:47:35');
+(301, 'Un matin, qu\'elle.', 'Les yeux fatigués à la nuque, avaient, en effet, que d\'être mère. Mais, ne pouvant faire les dépenses de l\'enterrement. Il s\'emporta si fort à ne vouloir point s\'arrêter. Il essayait quelquefois, et.', 30, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14');
 
 -- --------------------------------------------------------
 
@@ -1004,8 +1003,7 @@ INSERT INTO `atelier1__image` (`id`, `title`, `author`, `description`, `gallery_
 (402, 'Regardez-moi.', 0, 'Et Emma se souvint qu\'au château de son argent. Mais sa fierté se révolta. -- Eh! eh! qui sait? En effet, Bovary pouvait réussir; rien n\'affirmait à Emma de cette hypocrisie. Des tentations la.', 264, '2022-11-08 12:23:48', '2022-11-08 12:23:48', 84, -55, 5, '1980-11-01 07:50:39'),
 (403, 'Ce n\'est pas.', 0, 'Allons, mon pauvre garçon, par là-dessus, avait des dégoûts, cependant, de cette réunion d\'aujourd\'hui, et ce fut tout. Un quart d\'heure après: -- Sors-tu ce soir? -- Eh! ce n\'est pas moi, c\'est le.', 227, '2022-11-08 12:23:48', '2022-11-08 12:23:48', 74, -30, -2, '2007-06-20 21:53:25'),
 (404, 'Elle demanda.', 0, 'J\'en perds la tête! on se moquerait de toi, sais-tu bien? J\'ai quelquefois des envies de volupté et des cours, qu\'il lut sur l\'affiche, lui fit des plaisanteries sur les dalles, entre des caisses.', 257, '2022-11-08 12:23:48', '2022-11-08 12:23:48', 81, -7, -54, '2009-09-05 18:32:46'),
-(405, 'Vingt francs.', 0, 'Qu\'est-ce que cela vous amuse? dit-il en refermant la porte. Elle lui en mouillait les tempes à petits plis et la plus belle de ses feuilles. Elle avait fait encadrer de cadres très larges et.', 219, '2022-11-08 12:23:48', '2022-11-08 12:23:48', 84, -14, 49, '1996-04-27 07:37:46'),
-(409, 'nouveau titre', 56, 'salut ca va', 303, '2022-11-11 11:48:03', '2022-11-11 10:48:03', 0, 0, 0, '2022-11-11 10:47:35');
+(405, 'Vingt francs.', 0, 'Qu\'est-ce que cela vous amuse? dit-il en refermant la porte. Elle lui en mouillait les tempes à petits plis et la plus belle de ses feuilles. Elle avait fait encadrer de cadres très larges et.', 219, '2022-11-08 12:23:48', '2022-11-08 12:23:48', 84, -14, 49, '1996-04-27 07:37:46');
 
 -- --------------------------------------------------------
 
@@ -1524,16 +1522,7 @@ INSERT INTO `atelier1__keyword` (`id`, `gallery_id`, `image_id`, `content`) VALU
 (497, 237, NULL, 'aut'),
 (498, 206, NULL, 'nesciunt'),
 (499, NULL, 132, 'omnis'),
-(500, 264, NULL, 'eum'),
-(501, 302, NULL, 'abc salut test'),
-(502, NULL, 406, 'super'),
-(503, NULL, 406, 'image'),
-(504, 303, NULL, 'abc salut test'),
-(510, NULL, 407, 'ILS'),
-(511, NULL, 407, 'CROYAIENT'),
-(512, NULL, 407, 'QUE'),
-(520, NULL, 409, 'et'),
-(521, NULL, 409, 'oui');
+(500, 264, NULL, 'eum');
 
 -- --------------------------------------------------------
 
@@ -1603,8 +1592,7 @@ INSERT INTO `atelier1__user` (`id`, `username`, `fullname`, `password`, `user_le
 (47, 'unde', 'Maggie Garnier', '', 0),
 (48, 'dolor2', 'Thibaut Marchal', '', 0),
 (49, 'corporis3', 'Gilbert Roussel', '', 0),
-(50, 'ipsam', 'Grégoire Morvan-Charrier', '', 0),
-(56, 'test', 'Dragun Anthony', '$2y$12$0E3iif./oZ8Oxxc9jYDoOe2pXuNSaICI0t5CGSRa1/PD7r7e3uDsG', 1);
+(50, 'ipsam', 'Grégoire Morvan-Charrier', '', 0);
 
 -- --------------------------------------------------------
 
