@@ -29,11 +29,15 @@ class SignUpController extends AbstractController
 
             if (empty($username) || empty($fullname) || empty($password) || empty($passwordConfirmation)) {
                 echo "Veuillez remplir tout les champs";
+                $this->request->method='GET';
+                $this->execute();
                 return;
             }
 
             if ($password !== $passwordConfirmation) {
                 echo "Les mots de passes ne correspondent pas";
+                $this->request->method='GET';
+                $this->execute();
                 return;
             }
 
@@ -41,7 +45,7 @@ class SignUpController extends AbstractController
                 Authentification::register($username, $fullname, $password);
                 Router::executeRoute("home");
             } catch (\Throwable $th) {
-                echo 'username too used';
+                echo $th->getMessage();
                 $this->request->method='GET';
                 $this->execute();
             }
