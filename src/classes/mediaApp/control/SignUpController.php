@@ -12,7 +12,7 @@ class SignUpController extends AbstractController
     public function execute(): void
     {
         if (Authentification::connectedUser()) {
-            Router::executeRoute('login');
+            Router::executeRoute('home');
             return;
         }
 
