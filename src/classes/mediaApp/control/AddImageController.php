@@ -33,7 +33,7 @@ class AddImageController extends AbstractController
             $id = Image::addNew($title, $description, $gallery_id, 0, 0, 0, date("Y-m-d H:i:s"), AbstractAuthentification::connectedUser())->id;
             UploadManager::saveImage($img, $id);
 
-            $gallery = Gallery::where('id', '=', $gallery_id);
+            $gallery = Gallery::where('id', '=', $gallery_id)->first();
 
             if ($gallery->nb_images() > 0) {
                 $gallery->hasImage = true;
