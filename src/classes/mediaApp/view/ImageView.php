@@ -34,7 +34,7 @@ class ImageView extends MainView implements Renderer{
         $comments="";
         $galery_name=$image->galleryName()->first()->name;
         $r=new Router();
-        $url_gallery=$r->urlFor('gallery',[['id',$image->galleryName()->first()->id]]);
+        $url_gallery=$r->urlFor('gallery',[['gallery_id',$image->galleryName()->first()->id]]);
         $res=<<<EOT
         <section class='img-fullsize'>
             <div class='title'>
