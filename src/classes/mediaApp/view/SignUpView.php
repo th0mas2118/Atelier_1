@@ -8,6 +8,8 @@ class SignUpView extends MainView implements Renderer
 {
     public function render(): string
     {
+        $error = $this->data;
+        $errorMessage = $error ? "<span>$error</span>" : "";
         $res = <<<EOT
             <section class="signup">
         
@@ -23,6 +25,7 @@ class SignUpView extends MainView implements Renderer
                     <input type="password" name="password-verify" placeholder="retype password">
 
                     <button class="forms-button" name=sign_button type="submit">Create</button>
+                    {$errorMessage}
                 </form>
             </section>
             EOT;

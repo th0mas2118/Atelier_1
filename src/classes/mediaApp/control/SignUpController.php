@@ -17,7 +17,7 @@ class SignUpController extends AbstractController
         }
 
         if ($this->request->method === 'GET') {
-            $sv = new SignUpView();
+            $sv = new SignUpView($error);
             $sv->makePage();
         }
 
@@ -28,16 +28,14 @@ class SignUpController extends AbstractController
             $passwordConfirmation = $this->request->post['password-verify'];
 
             if (empty($username) || empty($fullname) || empty($password) || empty($passwordConfirmation)) {
-                echo "Veuillez remplir tout les champs";
                 $this->request->method = 'GET';
-                $this->execute();
+                $this->execute("Veuillez remplir tout les champs");
                 return;
             }
 
             if ($password !== $passwordConfirmation) {
-                echo "Les mots de passes ne correspondent pas";
                 $this->request->method = 'GET';
-                $this->execute();
+                $this->execute("Les mots de passes ne correspondent pas");
                 return;
             }
 
@@ -45,9 +43,8 @@ class SignUpController extends AbstractController
                 Authentification::register($username, $fullname, $password);
                 Router::executeRoute("home");
             } catch (\Throwable $th) {
-                echo $th->getMessage();
                 $this->request->method = 'GET';
-                $this->execute();
+                $this->execute($th->getMessage());
             }
         }
     }
