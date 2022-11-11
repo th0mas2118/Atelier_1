@@ -13,6 +13,7 @@ class SignUpController extends AbstractController
     {
         if (Authentification::connectedUser()) {
             Router::executeRoute('home');
+            return;
         }
 
         if ($this->request->method === 'GET') {

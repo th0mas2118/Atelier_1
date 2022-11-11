@@ -6,24 +6,28 @@ use \iutnc\mediaApp\model\User;
 use \iutnc\mf\router\Router;
 use \iutnc\mf\auth\AbstractAuthentification;
 
-class UserController extends \iutnc\mf\control\AbstractController{
-    public function execute():void{
-        if(!isset($this->request->get['id'])){
-            if(AbstractAuthentification::connectedUser()){
-                $u=User::select()->where('id','=',AbstractAuthentification::connectedUser())->first();
-                $uv=new \iutnc\mediaApp\view\UserView($u);
+class UserController extends \iutnc\mf\control\AbstractController
+{
+    public function execute(): void
+    {
+        if (!isset($this->request->get['id'])) {
+            if (AbstractAuthentification::connectedUser()) {
+                $u = User::select()->where('id', '=', AbstractAuthentification::connectedUser())->first();
+                $uv = new \iutnc\mediaApp\view\UserView($u);
                 $uv->makePage();
                 return;
             }
             Router::executeRoute('home');
+            return;
         }
         $id = $this->request->get['id'];
-        if(is_null(User::find($id))){
+        if (is_null(User::find($id))) {
             Router::executeRoute('home');
+            return;
         }
-        $u=User::select()->where('id','=',$id)->first();
+        $u = User::select()->where('id', '=', $id)->first();
         //$g=$g->galleries()->get();
-        $uv=new \iutnc\mediaApp\view\UserView($u);
+        $uv = new \iutnc\mediaApp\view\UserView($u);
         $uv->makePage();
     }
 }

@@ -13,6 +13,7 @@ class LogoutController extends AbstractController
     {
         if (!Authentification::connectedUser()) {
             Router::executeRoute('home');
+            return;
         }
 
         Authentification::logout();
