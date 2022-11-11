@@ -29,7 +29,7 @@ class HomeController extends AbstractController
             $userAccess = User::where('id', '=', Authentification::connectedUser())->first()->access()->pluck('gallery_id')->toArray();
 
             $gl = $gl->filter(function ($k) use ($userAccess) {
-                return ($k['isPrivate'] == 0) || ($k['isPrivate'] == 1 && in_array($k['id'], $userAccess));
+                return ($k['isPrivate'] == 0) || ($k['isPrivate'] == 1 && in_array($k['id'], $userAccess)) || ($k['author'] == Authentification::connectedUser());
             });
         }
 
