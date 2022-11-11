@@ -25,8 +25,14 @@ class LoginController extends AbstractController
             $username = $this->request->post['username'];
             $password = $this->request->post['password'];
 
-            Authentification::login($username, $password);
-            Router::executeRoute('home');
+            try{
+                Authentification::login($username, $password);
+                Router::executeRoute('home');
+            }catch(\iutnc\mf\exceptions\AuthentificationException $e){
+                echo 'username or password erroned';
+                $this->request->method='GET';
+                $this->execute();
+            }
         }
     }
 }

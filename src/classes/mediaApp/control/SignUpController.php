@@ -41,7 +41,9 @@ class SignUpController extends AbstractController
                 Authentification::register($username, $fullname, $password);
                 Router::executeRoute("home");
             } catch (\Throwable $th) {
-                throw new $th;
+                echo 'username too used';
+                $this->request->method='GET';
+                $this->execute();
             }
         }
     }
