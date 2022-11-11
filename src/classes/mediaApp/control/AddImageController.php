@@ -2,6 +2,7 @@
 
 namespace iutnc\mediaApp\control;
 
+use iutnc\mediaApp\model\Gallery;
 use iutnc\mediaApp\model\Image;
 use iutnc\mediaApp\model\Keyword;
 use iutnc\mediaApp\utils\UploadManager;
@@ -31,6 +32,13 @@ class AddImageController extends AbstractController
             $gallery_id = $this->request->post["galleryId"];
             $id = Image::addNew($title, $description, $gallery_id, 0, 0, 0, date("Y-m-d H:i:s"), AbstractAuthentification::connectedUser())->id;
             UploadManager::saveImage($img, $id);
+
+            $gallery = Gallery::where('id', '=', $gallery_id);
+
+            if ($gallery->nb_images() > 0) {
+                $gallery->hasImage = true;
+                $gallery->save();
+            }
 
             if ($this->request->post["keywords"]) {
                 $keywords = explode(" ", $this->request->post["keywords"]);

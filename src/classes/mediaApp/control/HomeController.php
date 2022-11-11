@@ -10,15 +10,15 @@ class HomeController extends AbstractController
 {
     public function execute(): void
     {
-        $gl;
+        $gl = [];
         if (isset($this->request->get['page']) && !empty($this->request->get['page'])) {
             $page = $this->request->get['page'] - 1;
-            $gl = Gallery::select()->orderBy('created_at', 'DESC')->skip($page * 20)->take(20)->get();
+            $gl = Gallery::where('hasImage', '=', true)->orderBy('created_at', 'DESC')->skip($page * 20)->take(20)->get();
         } else {
-            $gl = Gallery::select()->orderBy('created_at', 'DESC')->take(20)->get();
+            $gl = Gallery::where('hasImage', '=', true)->orderBy('created_at', 'DESC')->take(20)->get();
         }
 
-        $nbreArticle = Gallery::count();
+        $nbreArticle = Gallery::where('hasImage', '=', true)->count();
         $hv = new HomeView(["galleryList" => $gl, "nombreArticle" => $nbreArticle]);
         $hv->makePage();
     }

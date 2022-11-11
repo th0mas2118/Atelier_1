@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 10 nov. 2022 à 16:03
--- Version du serveur : 8.0.27
--- Version de PHP : 8.1.0
+-- Généré le : ven. 11 nov. 2022 à 10:41
+-- Version du serveur : 5.7.31
+-- Version de PHP : 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `atelier1__access` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `gallery_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `gallery_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -40,12 +40,12 @@ CREATE TABLE `atelier1__access` (
 --
 
 CREATE TABLE `atelier1__comment` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `content` varchar(512) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `image_id` int NOT NULL,
-  `user_id` int NOT NULL
+  `image_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -562,120 +562,121 @@ INSERT INTO `atelier1__comment` (`id`, `content`, `created_at`, `updated_at`, `i
 --
 
 CREATE TABLE `atelier1__gallery` (
-  `id` int NOT NULL,
-  `name` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `description` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `author` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `name` varchar(256) CHARACTER SET utf8 NOT NULL,
+  `description` varchar(256) CHARACTER SET utf8 NOT NULL,
+  `author` int(11) NOT NULL,
   `isPrivate` tinyint(1) NOT NULL DEFAULT '0',
+  `hasImage` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `atelier1__gallery`
 --
 
-INSERT INTO `atelier1__gallery` (`id`, `name`, `description`, `author`, `isPrivate`, `created_at`, `updated_at`) VALUES
-(202, 'À mesure que l\'on.', 'Puis, ne pensez-vous pas qu\'il y avait véritablement encombrement au seuil de l\'établissement. L\'opération, du reste, agirait à sa mère ne manqua point de perfection où il se perdait, tandis qu\'un.', 3, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(203, 'Qui s\'inquiète de.', 'Rodolphe, une fort longue échéance. Puis il prenait des allures épaisses; il coupait, au dessert, une pièce de blé. C\'était le compte. Elle entendit du bruit au-dessus de sa vie. Ses pommettes.', 6, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(204, 'Vous faites de la.', 'Elle cousait des habits pour les deux bouts; il leur restait, outre Barneville, six cents livres de rente, qu\'elle leur supposait. Son amour s\'agrandissait devant l\'espace, et s\'emplissait de.', 47, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(205, 'L\'histoire de la.', 'Il la remercia. Elle insista. Ce fut moins par le duvet de ses tempêtes, et la mit dans les ténèbres éternelles comme un mage. Il eut de belles idées à propos de leur médecin. La vieille bonne se.', 29, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(206, 'Au coin des rues.', 'Alors il entama l\'éloge de Lagardy dans le salon de quelque chose? Il cherchait, ne trouvait pas non plus de tempérament. Et se penchant à l\'oreille du clerc, qui se fussent réciproquement effacées.', 8, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(207, 'Cujas et Bartole.', 'Il pouvait changer maintenant les heures passent. On se racontait les chagrins de la main en l\'appelant son sauveur; il aimait infiniment sa femme; il était de son bâton, il prenait des inflexions.', 15, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(208, 'Dieu connaît tous.', 'Entre lui et murmurait, comme suffoquée d\'enivrement: -- Oh! non, n\'est-ce pas, demain, à six mois l\'arriéré de votre existence...» -- Après tout, c\'est vrai, disait-elle, le suis folle.', 34, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(209, 'C\'était le docteur.', 'Yonville quelque maison discrète. Rodolphe promit d\'en chercher une. Pendant tout l\'hiver, trois ou quatre fois la semaine. Emma n\'en apercevait que deux minutes. Puis, dès que la terre croulât.', 34, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(210, 'Tostes à Yonville.', 'Madame? Mais Félicité s\'impatientait de le revoir; mais il n\'y eut plus dans leur sclérotique pâle, comme des exhalaisons de soupirs, avec le cri des grillons tapis au loin les deux autres. Ils.', 35, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(211, 'Je le crois très.', 'Il ne pleurait pas comme Edgar, le dernier soir, au fond du verre. Elle se trahissait, elle se mit à balbutier des phrases qu\'il avait eu soin d\'envoyer chez Lheureux son bagage, qui serait assez.', 5, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(212, 'Ah! c\'est atroce.', 'Vous est-il arrivé parfois, reprit Léon, de loin, et comme des qualités morales de patience et d\'énergie, et quand ils entendirent derrière eux un grand mot, le seul moyen qui vous a ouvert, et je.', 29, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(213, 'Les comparaisons.', 'Ah! pensa Rodolphe, qui avait seulement envoyé sa carte, balbutia d\'abord quelques parties de trente-et-un; ensuite M. Hornais jouait à la mine mélancolique du svelte animal qui bâillait avec.', 10, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(214, 'La musique du bal.', 'Charles, à minuit, aux flambeaux; mais le regret s\'étouffa sous l\'habitude; et cette chaleur, cependant, qui à la cuisine aurait suffi pour vingt-cinq plats! Elle rangeait son linge dans sa maison.', 4, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(215, 'Moyen Age, où il.', 'Elle s\'épiait curieusement, pour discerner si elle la remit à sa bouche des gouttes de pluie vinrent à Tostes. Charles étant à prix plus bas et portant des lunettes à branches d\'or et les sentiments.', 36, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(216, 'Le cocher s\'essuya.', 'Cependant, comme Charles, à cheval, lui envoyait un long mugissement de boeuf, ou bien un peu de poussière humide et de roses ses deux genoux. C\'était une comédienne de Rouen, et roulaient vite.', 42, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(217, 'Emma. Elle vient.', 'Est-ce de ton salut. Mais à présent, il grommelait d\'un ton solennel: -- Tu l\'aimes donc? dit-elle. Souffres-tu? Parle-moi! Enfin il lut de ses lectures les plus voisins dans des chaussons. C\'était.', 28, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(218, 'Il le trouva seul.', 'Puis, après son dîner, quand il y avait là-dessous un plan. Le lendemain fut, pour Emma, une journée funèbre. Tout lui parut donc si vertueuse et inaccessible, que toute la journée à se remplir, on.', 23, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(219, 'Charles, en effet.', 'Bovary mère ne cessait, dans chaque lettre, de le retenir davantage, espérant que le gamin eût fait à un jeune homme qui devait faire bon là-bas! Quelle fraîcheur sous la lune, les arbres peints qui.', 34, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(220, 'Monsieur. -- Non!.', 'Lestiboudois, deux trimestres à la porte; on ouvrit toute grande la maison, il était désespéré. Ce qui le pâlissait semblait déposer sur sa belle toilette et jusqu\'à ses souliers de castor, et par.', 3, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(221, 'Soir et matin, les.', 'On avait dû, pensait-il, l\'adorer. Tous les jours, je me retrempe un peu, sans savoir l\'effet singulièrement aphrodisiaque que produit le nepeta cataria, vulgairement appelé herbe-au-chat, sur la.', 44, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(222, 'Basse et couverte.', 'Cours, trotta doucement, au milieu d\'un rêve des Mille et une grosse brioche. Aussi l\'apothicaire, qui s\'impatientait. -- Montons! Et il pleurait. -- Pleurez, reprit le bras de Bovary.', 25, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(223, 'II En arrivant à.', 'On se tournait vers le mur du bout de trois jours. III Ce furent trois jours après, Hippolyte n\'y pouvant plus tenir, ils retirèrent encore une partie véritable de ces vagues conversations où le.', 18, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(224, 'Trois jours après.', 'Voici une journée funèbre. Tout lui parut soudain dans le sourd murmure des arbres suintait dans la rue, tourner à gauche, au-dessous de lui poussaient les billes du billard, escrimaient avec les.', 4, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(225, 'Le dîner n\'était.', 'Rouen, près M le procureur du roi, chevalier de l\'ordre de Saint-Michel, blessé au combat de la Picardie, une sorte de patriarches qui étaient encore à son patron; tout le temps des parties de.', 41, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(226, 'À trois heures du.', 'C\'était un garçon de tempérament plus sentimentale qu\'artiste, cherchant des émotions et non pas nous, s\'écria l\'autre impatienté, qui recommandent la Bible! -- N\'importe! fit-elle en lui frappant.', 19, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(227, 'Fahrenheit (mesure.', 'Emma! du courage! Je ne les réveilla point. C\'était la première fois l\'inexprimable délicatesse des élégances féminines. Jamais il n\'y manquerait pas, ayant d\'ailleurs beaucoup fréquenté les femmes.', 14, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(228, 'Emma se mit là lui.', 'C\'était la quatrième était celle-ci; et chacune s\'était trouvée faire dans sa tête; et, comme Emma, baissée; chancelait un peu chaud, répondit-elle. Ils avisèrent donc, le lendemain, et, sur la.', 27, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(229, 'Lheureux. Et, sûr.', 'Hippolyte, du Lion d\'or? Notez qu\'il ne s\'y fût pas large des épaules, son habit-veste de drap noir, semé de larmes qui coulaient lentement sur l\'oreiller. Sa poitrine aussitôt se mit à le regarder.', 36, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(230, 'Souvent son mari.', 'Bovary. Laquelle? Cependant la neige sur les paupières, tout doucement, un jour ne buvait que du lait pur, et, le long de son pied. Cependant, elle sentait encore la façon d\'un homme; et madame.', 20, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(231, 'Mais on veut faire.', 'Oh! ne bouge pas! ne parle pas à mon oreille! Cependant, madame Lefrançois alla sur la table, à feuilleter l\'Illustration. Elle avait tant dépensé pour les Bertaux. Encore endormi par la place.', 48, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(232, 'Rodolphe, de moins.', 'Toutes les lettres de Léon s\'y trouvaient. Plus de doute, cette fois! Il dévora jusqu\'à la nuit, galopait comme un printemps, certes madame Dubuc ne manquait jamais cette plaisanterie: -- Sa bonté.', 34, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(233, 'L\'apothicaire, à.', 'Elle pensait à louer une petite ferme aux environs, il acceptait aussitôt, saluait Madame et pour éviter ce gros papier. Les fautes d\'orthographe s\'y enlaçaient les unes après les autres, le tout.', 47, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(234, 'Il fut reçu avec.', 'Alors il demandait au médecin des corps, ajouta-t-il avec un mari vêtu d\'un habit court à broderie d\'argent, chauve sur le chemin le plus de tristesse au coeur comme des feuilles de vigne, et.', 37, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(235, 'Va! essaye! il le.', 'Marjolaine, elle s\'éveillait, et écoutant le bruit des charrues; et elle arrivait à pas lourds, la tête enfoncée dans l\'oreiller. Ils étaient brillants, fins du bout, plus nettoyés que les siens.', 30, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(236, 'Mais l\'aubergiste.', 'On lui répondit une fois qu\'il achetait des fleurs par terre ou engraissé des volailles? Mais il y eut quelques réclamations; elle les uns après les autres, dans le lit, tandis qu\'elle montait.', 23, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(237, 'Et, croyant qu\'il.', 'C\'est très curieux! Et comme le ciel, et où elle voulait vivre. Quand elle s\'arrêtait d\'elle-même devant ces bourgeois épanouis, ce demi-siècle de servitude. -- Approchez, approchez! -- Êtes-vous.', 46, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(238, 'M. Bournisien lui.', 'IV Dès les premiers jours, à la façon d\'un homme; et elle observait le bonheur qu\'elle avait tant envié. D\'ailleurs, Emma éprouvait une telle bouffissure, que la paysanne, effrayée de son nez. Elle.', 32, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(239, 'Comment cela? Il.', 'C\'était un homme réussit toujours dans ses voyages à Paris... Eh! quand ce ne serait que cela, nous autres; nous ne sommes pas si bête. Mais trois jours après, dans le jardin; il prenait bien vite.', 27, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(240, 'Moi, à votre mari!.', 'Les forces lui revinrent; elle se perdait avec une facture de deux mille louis à sauter un fossé, en Angleterre. L\'un se plaignait fort de la foule, avait l\'air d\'écouter, tout en pleurs l\'horizon.', 40, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(241, 'Elle connaissait à.', 'Aujourd\'hui cependant, vu la différence de leurs fleurs flétries, ou bien au soulagement de leur fils en l\'attelant à une compagnie que j\'ai rencontré tout à coup, elle s\'élança d\'un bond, il.', 28, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(242, 'Sors-tu ce soir?.', 'Rouault qui s\'essayait à marcher devant lui dans l\'escalier. -- Je la donnerai au curé de son mal, tout en se penchant au bord du chemin, sur les hauteurs de Thibourville, lorsque devant eux, un.', 29, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(243, 'Toutes les preuves.', 'La garde nationale et les empereurs de la sacristie. La lueur du soleil et du beau linge, du fumet des viandes et de reconnaissance. Emma goûtait cet amour d\'une façon tendre. -- Est-ce nourrice qui.', 32, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(244, 'Rodolphe y trempa.', 'Ah! ta robe est mouillée! -- Je sais ce que cette défense de son patron, et à style douceâtre, fabriqués par des pays extraordinaires, et elle lui avait passé à l\'ordre de Saint-Michel, blessé au.', 23, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(245, 'Nous n\'aurons rien.', 'La musique du bal était lourd; les lampes pâlissaient. On refluait dans la compagnie l\'importance future de cet amour, lui réapparurent. D\'abord il aperçut M. Bournisien répondit qu\'il ne manquerait.', 31, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
-(246, 'M. Léon chanta une.', 'Souvent il y avait là, si près et si élégante, de cet appartement était une Renommée soufflant dans des charrettes où ils étaient, ils examinèrent tout, parlèrent de tout désir. Elle connaissait à.', 50, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(247, 'Bovary n\'admirait.', 'Quincampoix. À peine si nous montions en ballon, comme si cet hommage qu\'il destinait à une place haute, solide et immaculée. Mais j\'ai besoin de s\'occuper d\'autrui ne poussait pas seul le savait.', 2, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(248, 'Berthe brisé! Par.', 'Lheureux l\'avait mise dans sa compagnie. Il fuma dans la tête, et la bottine noire, la délicatesse de répondre: -- Ah! ah! Mont-Riboudet! L\'autre jour, j\'ai rapporté ce mot-là à Monseigneur, qui en.', 10, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(249, 'Et pour qui? pour.', 'Modérez-vous! -- Oui, je pense que voilà une robe d\'été à quatre ou cinq autres des invités qui, ayant eu par hasard plusieurs fois ainsi, arpenta toute la provision d\'elle- même que le gamin eût.', 28, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(250, 'Que cherchez-vous?.', 'Elle étouffait. -- Donnez-moi encore... -- Allons chez Bridoux prendre un verre de champagne qu\'il lui en avait dépensé à toutes les lois de la cuisine, seul, en face d\'elle pour la circonstance, il.', 9, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(251, 'Mais tu es sur une.', 'Emma ouvrit la porte entrouverte. De l\'autre côté, à droite, un lion à gauche, au-dessous de la boutique, porte en lettres noires. Elle lut: «En vertu de la terrasse. Elle se levait à demi le.', 33, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(252, 'C\'était l\'heure où.', 'Pour se faire valoir, ou par terre, des taches d\'un violet noir sur le seuil des portes, se distinguaient de la droite, il poussa un cri, Charles accourait. -- Ah! c\'est trop! c\'est trop! disait.', 25, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(253, 'Le dimanche, par.', 'Quel imbécile je suis! fit-il en jurant épouvantablement. N\'importe, c\'était une surprise... -- À gauche! -- N\'aie pas peur! -- Ah! je ne veux pas faire circuler ses billets; il en fit part à sa.', 34, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(254, 'Comme le bal déjà.', 'Du cidre, de sa bouche, comme pour gagner sa gratitude, et empêcher qu\'il ne pouvait s\'absenter plus longtemps. Le père Rouault vint apporter à M. Vinçart? -- Eh bien, quoi? tu trouves que je vous.', 27, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(255, 'Sylphe des salons.', 'Lisez! dit-elle en riant. -- Je vendrai encore... -- Allons donc! fit le signal; elle attendait un événement. Comme les matelots en détresse, elle promenait sur la place), elle prit en dehors des.', 6, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(256, 'Il déclamait: «Le.', 'Trafalgar et toutes sortes de viandes froides avec des ricanements de colère. -- Qu\'as-tu? dit le professeur, et dites-moi votre nom. Le nouveau articula, d\'une voix furieuse, arrêta, comme le.', 1, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(257, 'Yonville; mais on.', 'Enfin, M. Larivière de lui s\'étalait, florissante et hilare, la famille du pharmacien, accoudé sur son cheval, elle restait étendue sur le malfaiteur qui lui manquait, de ses pensionnaires, celui du.', 17, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(258, 'Liégeard. Je lui.', 'Les hommes, plus nombreux, s\'assirent à la hâte, entre un baptême et un fauteuil de bureau. Les tomes du Dictionnaire des sciences médicales, non coupés, mais dont la succession continue.', 2, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(259, 'Quel âge avait-il.', 'Berthe alla tomber au pied de la Gargouille. Mais Léon tira vivement une pièce de six pas de sa fille, qui avait organisé dès le vestibule. Elle sourit involontairement de vanité, en voyant la foule.', 16, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(260, 'Ces jours-là il se.', 'Toutes leurs vaches, je ne peux pas pleurer; ce n\'est avec la raie blanche la couleur du cidre doux, et leurs favoris bouffants s\'échappaient de son fils avec un sourire discret. Mais permettez! car.', 49, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(261, 'C\'était Justin qui.', 'Aussi l\'apothicaire, qui avait conduit Berthe chez madame Liégeard. Je lui ai demandé s\'il t\'avait vue, il m\'a dit que non, mais qu\'il avait oubliée tantôt. Il reconnut Justin escaladant le mur.', 14, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(262, 'Et il eut peur et.', 'Les pires jours d\'autrefois lui réapparaissaient enviables. Tout s\'effaçait sous le rapport de la crème et des regards inquiets, épiant chaque forme qui passait pour avoir oublié de lui prendre.', 2, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(263, 'Elle était là, qui.', 'Louis avec son vêtement blanc peu à peu, ses gémissements furent plus forts. Un hurlement sourd lui échappa; elle prétendit qu\'elle allait mieux et qu\'elle avait raison; il faut se tenir au courant.', 41, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(264, 'Puis les voyageurs.', 'Il cria, pleura, s\'évanouit, mais elle avait désespéré. Elle entrait dans la glace, elle s\'étonna de son corset, qui sifflait autour de lui successivement différentes personnes respectables. Le.', 21, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(265, 'M. Lieuvain venait.', 'Place; car elle avait abandonné la musique pour les solennités; redingotes à grandes basques de son bouquet de fleurs et les pompiers s\'y déployaient, tambour battant, et marquant le pas.', 23, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(266, 'Homais souffrait.', 'Sa figure épouvanta l\'enfant, qui se suivaient en modulations traînantes, coupées de saccades aiguës, comme le vitrage d\'un café. Il fut sur la Place en apercevant le drap où s\'enfonçaient ses.', 23, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(267, 'Madame Bovary mère.', 'Enfin, lorsqu\'il avait mangé sa soupe, un gloussement à chaque angle, entre les dents. Une dame, près d\'elle, sur une chaise et cassa deux vitres; au bruit lointain de grosses pierres vertes.', 28, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(268, 'Ce n\'était point.', 'On entendait le ronflement de la Vallière. Les explications légendaires, coupées çà et là, tout autour d\'elle. Elle avait peur des taches; et les plastrons noirs. Cela ne va guère à lui poser des.', 32, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(269, 'Quelques-uns, vers.', 'Guillaume. Croirait-on qu\'un simple sternutatoire pût exercer de tels ravages dans l\'organisme d\'un quadrupède? C\'est extrêmement curieux, n\'est-il pas vrai? -- Oui, j\'étouffe; partons. M. Léon posa.', 8, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(270, 'Emma sentait son.', 'Le ciel était sombre et un quart, elle s\'en allait! Elle remontait les rues; elle arrivait tout en cherchant partout les occasions. Eh bien, j\'y passerai quelquefois, je leur enverrai du gibier, de.', 38, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(271, 'Il arriva dans le.', 'Lheureux; enfin il perdit patience; on le voyait toujours là, comme le symbole obligé de l\'avertir, pour qu\'il se mît avec nous dans les rues. Le soir, pour partir, les chevaux poussaient devant eux.', 44, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(272, 'Alors Bournisien.', 'Puis, s\'il rencontrait des yeux la boîte à ouvrage, un ruban de soie des gravures, qui se suivent tout d\'une haleine, où l\'on avait pris dans le coin, à terre, comme ce rassemblement d\'imbéciles que.', 14, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(273, 'Emma baissant la.', 'Eh bien, fit Rodolphe en offrit un; elle refusa ses offres; il n\'insista pas; puis, en haut, dans son jardinet, passant et revenant par les mêmes paroles de suavité qu\'elle murmurait jadis à son.', 19, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(274, 'Hippolyte Tautain.', 'La petite fille et de discours, sans compter que je m\'en aille, excuse-moi. Adieu! Il serra sa main, prit la cuvette. Pour la mettre sur mon bureau pour écrire à son magasin; Félicité oublia; il.', 29, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(275, 'Elle se leva d\'un.', 'Ah bah! quand on lui trouverait quelque brave garçon ayant un état solide; il la contemplait tout à coup. Elle se leva comme surpris dans son travail. Le Proviseur nous fit signe de tête. -- À peine.', 46, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(276, 'Elle ne pouvait le.', 'Gargouille. Mais Léon tira vivement une pièce intitulée le _Gamin de Paris_, où l\'on entend le bruit d\'une voiture mêlé à un enfant pleurait agenouillé, et sa mère une longue araignée qui marchait.', 41, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(277, 'Mais elle, sa vie.', 'À côté, sur la berge, le claquement d\'un fouet; toutes les assiettes, était renversée; de la _Guerre des dieux_, le curé se replongèrent dans leurs charrettes, passaient sous ses bandeaux. La nuit.', 47, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(278, 'L\'air, passant par.', 'Elle était debout; ses grands éclats, ne valait la peine d\'un voyage, et, comme il m\'en faudrait une. Le notaire resta fort stupéfait, les yeux étaient petits et le point de laisser, en plus, deux.', 8, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(279, 'Et il la rendrait.', 'On disait qu\'une princesse polonaise, l\'écoutant un soir chanter sur la bouche, dont Charles l\'avait voulu cependant, s\'il s\'en fût douté, si son corps sa robe de satin, dont la tenue fort négligée.', 50, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(280, 'Oh! c\'est que ça.', 'Bovary, rien n\'est plus à son abord; elle lui montra derrière la fenêtre, et, quand Charles rentrait, il trouvait toujours des étourdissements. -- J\'y ai songé quelquefois, reprit-elle. -- Attends.', 47, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(281, 'Quelquefois, dans.', 'M. Hornais jouait à la bouche. Berthe, cependant, restait posée sur le seuil. La bonne ouvrit la lucarne de son amour; comme elle rouvrait les yeux étaient petits et le bonhomme Rouault, debout.', 9, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(282, 'Divers toasts ont.', 'Bovary se trouvait dans une chose si extraordinaire en province, une voiture à stores de soie bleue à quatre heures; les femmes, et il les allait voir son ouvrage, ou arrondissant, sur son assiette.', 17, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(283, 'Allons, va-t\'en!.', 'Et, tout en désordre, et clignait des yeux, éblouie par les bretelles. Il était en relation avec les circonstances. Ses convoitises, ses chagrins, l\'expérience du chagrin, avec la passion des.', 41, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(284, 'Ainsi, elle voulut.', 'Allons, disait-elle, c\'est bien, va-t\'en! Car il savait tout, c\'était le bruit gai d\'un troupeau d\'oies retentissait près de l\'autre, le ventre en avant, la figure si épanouie quand il la prit et.', 40, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(285, 'Il n\'y a pas pour.', 'Le soir, principalement, quand son quinquet est allumé et que Félicité nommait quelqu\'un, Emma répliquait: -- Est-ce que cette curiosité Un grand escalier droit montait vers un corridor. Emma tourna.', 13, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(286, 'Pas encore; mais.', 'C\'était sûr! Il aurait peut-être mieux valu me chasser! J\'ai les mains d\'Emma. -- Au moins, si un magistrat... -- Mais tu es bon, toi! Et elle les mollesses de la rue était déserte. Et elle jeta.', 20, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(287, 'Va! essaye! il le.', 'Yonville pour une dernière pudeur, et alors elle allongea le cou comme quelqu\'un qui a soif, et, collant ses lèvres charnues, qu\'elle avait contractés étant malade. Mais, dès qu\'il fut parti, l\'on.', 26, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(288, 'Emma se servait de.', 'Un horizon de fantaisies réalisables s\'ouvrit alors devant Emma. Elle eut un enfant, à pousser de son peignoir, qui était un bas de la belle cloche d\'Amboise. Elle pesait quarante mille livres. Il.', 33, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(289, 'Donc, il demanda.', 'Je vous en conjure, monsieur Lheureux, quelques jours encore! Elle sanglotait. -- Allons, baisez maîtresse, vous qui n\'avez pas d\'espèces, vous avez beau dire, est plus féroce qu\'un Arabe. Pourtant.', 4, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(290, 'Toutes ses idées.', 'Allez-vous-en donc; je m\'en vais vous faire asseoir sur un album. C\'était le mois d\'août se passa, et, après avoir fait tourner trois moulins vers son embouchure, et où la lune et plus haut que.', 21, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(291, 'Il se dirigea vers.', 'Mais une femme élégante! et, sans s\'interrompre de manger, il s\'était endormi complètement dès que l\'étoffe n\'était plus fraîche, les lui mettait, de temps à autre, avec son vêtement blanc peu à.', 2, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(292, 'Madame se tenait.', 'Et il courut encore vers le Pouvoir. Il rendit secrètement à M. votre époux, à propos du tombeau d\'Emma. Il proposa d\'abord un tronçon de colonne avec une perruque à catogan et un peu par le côté.', 42, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(293, 'Il fallait qu\'elle.', 'Homais souffrait en écoutant ce discours, et il dissimulait son malaise sous un coup de foudre. Cependant elle répondit: -- Chez mademoiselle Lempereur. -- J\'en ai même oublié le spectacle! Ce.', 24, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(294, 'À quoi songent nos.', 'Il le trouva bien débonnaire pour un médecin, c\'est une dame assise sur le banc, contre la religion d\'Emma, trouvait-il, pût, à force d\'acheter, de ne pas employer à des gaillards d\'un tempérament.', 2, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(295, 'Vesta, une manière.', 'Ils sont venus un tas de vieilles ferrailles, de tonneaux vides, d\'instruments de culture hors de la bru, avec un livre de café moulu qui me poursuivait. Il y avait sur la terrasse des villas, seuls.', 29, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(296, 'C\'était pour lui.', 'Boulogne, sur le parquet. Enfin Lheureux expliqua qu\'il avait vu Tamburini, Rubini, Persiani, Grisi; et à repasser, à empeser, à l\'habiller, voulut en faire jaillir une étincelle, incapable, du.', 42, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(297, 'Emma frissonna de.', 'Elle s\'engagea de nouveau, et qui, blanchâtres de chevelure et de Béranger! Je suis ta servante et la cloche, sonnant toujours, continuait dans les visites, quand on lui heurtait les coudes en.', 12, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(298, 'Il se trouvait à.', 'La veilleuse de porcelaine à baguette de cuivre, elle s\'assoupit doucement à la façon des culs de basse-fosse, sa famille en pleurs, la pharmacie vendue, tous les autres, et représentaient à eux.', 6, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(299, 'Charles la battît.', 'Il était vêtu d\'une redingote de velours noir. Ses cheveux châtains tombaient dessus, plats et bien d\'autres choses encore où Charles rentrait. Ils avaient chaud; on apportait du cidre doux, et.', 37, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(300, 'Sa chevelure rouge.', 'Le soleil brillait sur la pointe ardente de ses lunettes, et ses façons graves, Emma, presque tous les tiroirs des meubles, elle se précipita et, comme il y a dans la netteté d\'une sensation presque.', 14, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
-(301, 'Un matin, qu\'elle.', 'Les yeux fatigués à la nuque, avaient, en effet, que d\'être mère. Mais, ne pouvant faire les dépenses de l\'enterrement. Il s\'emporta si fort à ne vouloir point s\'arrêter. Il essayait quelquefois, et.', 30, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18');
+INSERT INTO `atelier1__gallery` (`id`, `name`, `description`, `author`, `isPrivate`, `hasImage`, `created_at`, `updated_at`) VALUES
+(202, 'À mesure que l\'on.', 'Puis, ne pensez-vous pas qu\'il y avait véritablement encombrement au seuil de l\'établissement. L\'opération, du reste, agirait à sa mère ne manqua point de perfection où il se perdait, tandis qu\'un.', 3, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(203, 'Qui s\'inquiète de.', 'Rodolphe, une fort longue échéance. Puis il prenait des allures épaisses; il coupait, au dessert, une pièce de blé. C\'était le compte. Elle entendit du bruit au-dessus de sa vie. Ses pommettes.', 6, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(204, 'Vous faites de la.', 'Elle cousait des habits pour les deux bouts; il leur restait, outre Barneville, six cents livres de rente, qu\'elle leur supposait. Son amour s\'agrandissait devant l\'espace, et s\'emplissait de.', 47, 0, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
+(205, 'L\'histoire de la.', 'Il la remercia. Elle insista. Ce fut moins par le duvet de ses tempêtes, et la mit dans les ténèbres éternelles comme un mage. Il eut de belles idées à propos de leur médecin. La vieille bonne se.', 29, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(206, 'Au coin des rues.', 'Alors il entama l\'éloge de Lagardy dans le salon de quelque chose? Il cherchait, ne trouvait pas non plus de tempérament. Et se penchant à l\'oreille du clerc, qui se fussent réciproquement effacées.', 8, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(207, 'Cujas et Bartole.', 'Il pouvait changer maintenant les heures passent. On se racontait les chagrins de la main en l\'appelant son sauveur; il aimait infiniment sa femme; il était de son bâton, il prenait des inflexions.', 15, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(208, 'Dieu connaît tous.', 'Entre lui et murmurait, comme suffoquée d\'enivrement: -- Oh! non, n\'est-ce pas, demain, à six mois l\'arriéré de votre existence...» -- Après tout, c\'est vrai, disait-elle, le suis folle.', 34, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(209, 'C\'était le docteur.', 'Yonville quelque maison discrète. Rodolphe promit d\'en chercher une. Pendant tout l\'hiver, trois ou quatre fois la semaine. Emma n\'en apercevait que deux minutes. Puis, dès que la terre croulât.', 34, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(210, 'Tostes à Yonville.', 'Madame? Mais Félicité s\'impatientait de le revoir; mais il n\'y eut plus dans leur sclérotique pâle, comme des exhalaisons de soupirs, avec le cri des grillons tapis au loin les deux autres. Ils.', 35, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(211, 'Je le crois très.', 'Il ne pleurait pas comme Edgar, le dernier soir, au fond du verre. Elle se trahissait, elle se mit à balbutier des phrases qu\'il avait eu soin d\'envoyer chez Lheureux son bagage, qui serait assez.', 5, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(212, 'Ah! c\'est atroce.', 'Vous est-il arrivé parfois, reprit Léon, de loin, et comme des qualités morales de patience et d\'énergie, et quand ils entendirent derrière eux un grand mot, le seul moyen qui vous a ouvert, et je.', 29, 0, 0, '2022-11-08 12:15:17', '2022-11-08 12:15:17'),
+(213, 'Les comparaisons.', 'Ah! pensa Rodolphe, qui avait seulement envoyé sa carte, balbutia d\'abord quelques parties de trente-et-un; ensuite M. Hornais jouait à la mine mélancolique du svelte animal qui bâillait avec.', 10, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(214, 'La musique du bal.', 'Charles, à minuit, aux flambeaux; mais le regret s\'étouffa sous l\'habitude; et cette chaleur, cependant, qui à la cuisine aurait suffi pour vingt-cinq plats! Elle rangeait son linge dans sa maison.', 4, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(215, 'Moyen Age, où il.', 'Elle s\'épiait curieusement, pour discerner si elle la remit à sa bouche des gouttes de pluie vinrent à Tostes. Charles étant à prix plus bas et portant des lunettes à branches d\'or et les sentiments.', 36, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(216, 'Le cocher s\'essuya.', 'Cependant, comme Charles, à cheval, lui envoyait un long mugissement de boeuf, ou bien un peu de poussière humide et de roses ses deux genoux. C\'était une comédienne de Rouen, et roulaient vite.', 42, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(217, 'Emma. Elle vient.', 'Est-ce de ton salut. Mais à présent, il grommelait d\'un ton solennel: -- Tu l\'aimes donc? dit-elle. Souffres-tu? Parle-moi! Enfin il lut de ses lectures les plus voisins dans des chaussons. C\'était.', 28, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(218, 'Il le trouva seul.', 'Puis, après son dîner, quand il y avait là-dessous un plan. Le lendemain fut, pour Emma, une journée funèbre. Tout lui parut donc si vertueuse et inaccessible, que toute la journée à se remplir, on.', 23, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(219, 'Charles, en effet.', 'Bovary mère ne cessait, dans chaque lettre, de le retenir davantage, espérant que le gamin eût fait à un jeune homme qui devait faire bon là-bas! Quelle fraîcheur sous la lune, les arbres peints qui.', 34, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(220, 'Monsieur. -- Non!.', 'Lestiboudois, deux trimestres à la porte; on ouvrit toute grande la maison, il était désespéré. Ce qui le pâlissait semblait déposer sur sa belle toilette et jusqu\'à ses souliers de castor, et par.', 3, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(221, 'Soir et matin, les.', 'On avait dû, pensait-il, l\'adorer. Tous les jours, je me retrempe un peu, sans savoir l\'effet singulièrement aphrodisiaque que produit le nepeta cataria, vulgairement appelé herbe-au-chat, sur la.', 44, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(222, 'Basse et couverte.', 'Cours, trotta doucement, au milieu d\'un rêve des Mille et une grosse brioche. Aussi l\'apothicaire, qui s\'impatientait. -- Montons! Et il pleurait. -- Pleurez, reprit le bras de Bovary.', 25, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(223, 'II En arrivant à.', 'On se tournait vers le mur du bout de trois jours. III Ce furent trois jours après, Hippolyte n\'y pouvant plus tenir, ils retirèrent encore une partie véritable de ces vagues conversations où le.', 18, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(224, 'Trois jours après.', 'Voici une journée funèbre. Tout lui parut soudain dans le sourd murmure des arbres suintait dans la rue, tourner à gauche, au-dessous de lui poussaient les billes du billard, escrimaient avec les.', 4, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(225, 'Le dîner n\'était.', 'Rouen, près M le procureur du roi, chevalier de l\'ordre de Saint-Michel, blessé au combat de la Picardie, une sorte de patriarches qui étaient encore à son patron; tout le temps des parties de.', 41, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(226, 'À trois heures du.', 'C\'était un garçon de tempérament plus sentimentale qu\'artiste, cherchant des émotions et non pas nous, s\'écria l\'autre impatienté, qui recommandent la Bible! -- N\'importe! fit-elle en lui frappant.', 19, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(227, 'Fahrenheit (mesure.', 'Emma! du courage! Je ne les réveilla point. C\'était la première fois l\'inexprimable délicatesse des élégances féminines. Jamais il n\'y manquerait pas, ayant d\'ailleurs beaucoup fréquenté les femmes.', 14, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(228, 'Emma se mit là lui.', 'C\'était la quatrième était celle-ci; et chacune s\'était trouvée faire dans sa tête; et, comme Emma, baissée; chancelait un peu chaud, répondit-elle. Ils avisèrent donc, le lendemain, et, sur la.', 27, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(229, 'Lheureux. Et, sûr.', 'Hippolyte, du Lion d\'or? Notez qu\'il ne s\'y fût pas large des épaules, son habit-veste de drap noir, semé de larmes qui coulaient lentement sur l\'oreiller. Sa poitrine aussitôt se mit à le regarder.', 36, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(230, 'Souvent son mari.', 'Bovary. Laquelle? Cependant la neige sur les paupières, tout doucement, un jour ne buvait que du lait pur, et, le long de son pied. Cependant, elle sentait encore la façon d\'un homme; et madame.', 20, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(231, 'Mais on veut faire.', 'Oh! ne bouge pas! ne parle pas à mon oreille! Cependant, madame Lefrançois alla sur la table, à feuilleter l\'Illustration. Elle avait tant dépensé pour les Bertaux. Encore endormi par la place.', 48, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(232, 'Rodolphe, de moins.', 'Toutes les lettres de Léon s\'y trouvaient. Plus de doute, cette fois! Il dévora jusqu\'à la nuit, galopait comme un printemps, certes madame Dubuc ne manquait jamais cette plaisanterie: -- Sa bonté.', 34, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(233, 'L\'apothicaire, à.', 'Elle pensait à louer une petite ferme aux environs, il acceptait aussitôt, saluait Madame et pour éviter ce gros papier. Les fautes d\'orthographe s\'y enlaçaient les unes après les autres, le tout.', 47, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(234, 'Il fut reçu avec.', 'Alors il demandait au médecin des corps, ajouta-t-il avec un mari vêtu d\'un habit court à broderie d\'argent, chauve sur le chemin le plus de tristesse au coeur comme des feuilles de vigne, et.', 37, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(235, 'Va! essaye! il le.', 'Marjolaine, elle s\'éveillait, et écoutant le bruit des charrues; et elle arrivait à pas lourds, la tête enfoncée dans l\'oreiller. Ils étaient brillants, fins du bout, plus nettoyés que les siens.', 30, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(236, 'Mais l\'aubergiste.', 'On lui répondit une fois qu\'il achetait des fleurs par terre ou engraissé des volailles? Mais il y eut quelques réclamations; elle les uns après les autres, dans le lit, tandis qu\'elle montait.', 23, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(237, 'Et, croyant qu\'il.', 'C\'est très curieux! Et comme le ciel, et où elle voulait vivre. Quand elle s\'arrêtait d\'elle-même devant ces bourgeois épanouis, ce demi-siècle de servitude. -- Approchez, approchez! -- Êtes-vous.', 46, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(238, 'M. Bournisien lui.', 'IV Dès les premiers jours, à la façon d\'un homme; et elle observait le bonheur qu\'elle avait tant envié. D\'ailleurs, Emma éprouvait une telle bouffissure, que la paysanne, effrayée de son nez. Elle.', 32, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(239, 'Comment cela? Il.', 'C\'était un homme réussit toujours dans ses voyages à Paris... Eh! quand ce ne serait que cela, nous autres; nous ne sommes pas si bête. Mais trois jours après, dans le jardin; il prenait bien vite.', 27, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(240, 'Moi, à votre mari!.', 'Les forces lui revinrent; elle se perdait avec une facture de deux mille louis à sauter un fossé, en Angleterre. L\'un se plaignait fort de la foule, avait l\'air d\'écouter, tout en pleurs l\'horizon.', 40, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(241, 'Elle connaissait à.', 'Aujourd\'hui cependant, vu la différence de leurs fleurs flétries, ou bien au soulagement de leur fils en l\'attelant à une compagnie que j\'ai rencontré tout à coup, elle s\'élança d\'un bond, il.', 28, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(242, 'Sors-tu ce soir?.', 'Rouault qui s\'essayait à marcher devant lui dans l\'escalier. -- Je la donnerai au curé de son mal, tout en se penchant au bord du chemin, sur les hauteurs de Thibourville, lorsque devant eux, un.', 29, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(243, 'Toutes les preuves.', 'La garde nationale et les empereurs de la sacristie. La lueur du soleil et du beau linge, du fumet des viandes et de reconnaissance. Emma goûtait cet amour d\'une façon tendre. -- Est-ce nourrice qui.', 32, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(244, 'Rodolphe y trempa.', 'Ah! ta robe est mouillée! -- Je sais ce que cette défense de son patron, et à style douceâtre, fabriqués par des pays extraordinaires, et elle lui avait passé à l\'ordre de Saint-Michel, blessé au.', 23, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(245, 'Nous n\'aurons rien.', 'La musique du bal était lourd; les lampes pâlissaient. On refluait dans la compagnie l\'importance future de cet amour, lui réapparurent. D\'abord il aperçut M. Bournisien répondit qu\'il ne manquerait.', 31, 0, 1, '2022-11-08 12:15:17', '2022-11-11 09:30:14'),
+(246, 'M. Léon chanta une.', 'Souvent il y avait là, si près et si élégante, de cet appartement était une Renommée soufflant dans des charrettes où ils étaient, ils examinèrent tout, parlèrent de tout désir. Elle connaissait à.', 50, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(247, 'Bovary n\'admirait.', 'Quincampoix. À peine si nous montions en ballon, comme si cet hommage qu\'il destinait à une place haute, solide et immaculée. Mais j\'ai besoin de s\'occuper d\'autrui ne poussait pas seul le savait.', 2, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(248, 'Berthe brisé! Par.', 'Lheureux l\'avait mise dans sa compagnie. Il fuma dans la tête, et la bottine noire, la délicatesse de répondre: -- Ah! ah! Mont-Riboudet! L\'autre jour, j\'ai rapporté ce mot-là à Monseigneur, qui en.', 10, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(249, 'Et pour qui? pour.', 'Modérez-vous! -- Oui, je pense que voilà une robe d\'été à quatre ou cinq autres des invités qui, ayant eu par hasard plusieurs fois ainsi, arpenta toute la provision d\'elle- même que le gamin eût.', 28, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(250, 'Que cherchez-vous?.', 'Elle étouffait. -- Donnez-moi encore... -- Allons chez Bridoux prendre un verre de champagne qu\'il lui en avait dépensé à toutes les lois de la cuisine, seul, en face d\'elle pour la circonstance, il.', 9, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(251, 'Mais tu es sur une.', 'Emma ouvrit la porte entrouverte. De l\'autre côté, à droite, un lion à gauche, au-dessous de la boutique, porte en lettres noires. Elle lut: «En vertu de la terrasse. Elle se levait à demi le.', 33, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(252, 'C\'était l\'heure où.', 'Pour se faire valoir, ou par terre, des taches d\'un violet noir sur le seuil des portes, se distinguaient de la droite, il poussa un cri, Charles accourait. -- Ah! c\'est trop! c\'est trop! disait.', 25, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(253, 'Le dimanche, par.', 'Quel imbécile je suis! fit-il en jurant épouvantablement. N\'importe, c\'était une surprise... -- À gauche! -- N\'aie pas peur! -- Ah! je ne veux pas faire circuler ses billets; il en fit part à sa.', 34, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(254, 'Comme le bal déjà.', 'Du cidre, de sa bouche, comme pour gagner sa gratitude, et empêcher qu\'il ne pouvait s\'absenter plus longtemps. Le père Rouault vint apporter à M. Vinçart? -- Eh bien, quoi? tu trouves que je vous.', 27, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(255, 'Sylphe des salons.', 'Lisez! dit-elle en riant. -- Je vendrai encore... -- Allons donc! fit le signal; elle attendait un événement. Comme les matelots en détresse, elle promenait sur la place), elle prit en dehors des.', 6, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(256, 'Il déclamait: «Le.', 'Trafalgar et toutes sortes de viandes froides avec des ricanements de colère. -- Qu\'as-tu? dit le professeur, et dites-moi votre nom. Le nouveau articula, d\'une voix furieuse, arrêta, comme le.', 1, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(257, 'Yonville; mais on.', 'Enfin, M. Larivière de lui s\'étalait, florissante et hilare, la famille du pharmacien, accoudé sur son cheval, elle restait étendue sur le malfaiteur qui lui manquait, de ses pensionnaires, celui du.', 17, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(258, 'Liégeard. Je lui.', 'Les hommes, plus nombreux, s\'assirent à la hâte, entre un baptême et un fauteuil de bureau. Les tomes du Dictionnaire des sciences médicales, non coupés, mais dont la succession continue.', 2, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(259, 'Quel âge avait-il.', 'Berthe alla tomber au pied de la Gargouille. Mais Léon tira vivement une pièce de six pas de sa fille, qui avait organisé dès le vestibule. Elle sourit involontairement de vanité, en voyant la foule.', 16, 0, 0, '2022-11-08 12:15:18', '2022-11-08 12:15:18'),
+(260, 'Ces jours-là il se.', 'Toutes leurs vaches, je ne peux pas pleurer; ce n\'est avec la raie blanche la couleur du cidre doux, et leurs favoris bouffants s\'échappaient de son fils avec un sourire discret. Mais permettez! car.', 49, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(261, 'C\'était Justin qui.', 'Aussi l\'apothicaire, qui avait conduit Berthe chez madame Liégeard. Je lui ai demandé s\'il t\'avait vue, il m\'a dit que non, mais qu\'il avait oubliée tantôt. Il reconnut Justin escaladant le mur.', 14, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(262, 'Et il eut peur et.', 'Les pires jours d\'autrefois lui réapparaissaient enviables. Tout s\'effaçait sous le rapport de la crème et des regards inquiets, épiant chaque forme qui passait pour avoir oublié de lui prendre.', 2, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(263, 'Elle était là, qui.', 'Louis avec son vêtement blanc peu à peu, ses gémissements furent plus forts. Un hurlement sourd lui échappa; elle prétendit qu\'elle allait mieux et qu\'elle avait raison; il faut se tenir au courant.', 41, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(264, 'Puis les voyageurs.', 'Il cria, pleura, s\'évanouit, mais elle avait désespéré. Elle entrait dans la glace, elle s\'étonna de son corset, qui sifflait autour de lui successivement différentes personnes respectables. Le.', 21, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(265, 'M. Lieuvain venait.', 'Place; car elle avait abandonné la musique pour les solennités; redingotes à grandes basques de son bouquet de fleurs et les pompiers s\'y déployaient, tambour battant, et marquant le pas.', 23, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(266, 'Homais souffrait.', 'Sa figure épouvanta l\'enfant, qui se suivaient en modulations traînantes, coupées de saccades aiguës, comme le vitrage d\'un café. Il fut sur la Place en apercevant le drap où s\'enfonçaient ses.', 23, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(267, 'Madame Bovary mère.', 'Enfin, lorsqu\'il avait mangé sa soupe, un gloussement à chaque angle, entre les dents. Une dame, près d\'elle, sur une chaise et cassa deux vitres; au bruit lointain de grosses pierres vertes.', 28, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(268, 'Ce n\'était point.', 'On entendait le ronflement de la Vallière. Les explications légendaires, coupées çà et là, tout autour d\'elle. Elle avait peur des taches; et les plastrons noirs. Cela ne va guère à lui poser des.', 32, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(269, 'Quelques-uns, vers.', 'Guillaume. Croirait-on qu\'un simple sternutatoire pût exercer de tels ravages dans l\'organisme d\'un quadrupède? C\'est extrêmement curieux, n\'est-il pas vrai? -- Oui, j\'étouffe; partons. M. Léon posa.', 8, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(270, 'Emma sentait son.', 'Le ciel était sombre et un quart, elle s\'en allait! Elle remontait les rues; elle arrivait tout en cherchant partout les occasions. Eh bien, j\'y passerai quelquefois, je leur enverrai du gibier, de.', 38, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(271, 'Il arriva dans le.', 'Lheureux; enfin il perdit patience; on le voyait toujours là, comme le symbole obligé de l\'avertir, pour qu\'il se mît avec nous dans les rues. Le soir, pour partir, les chevaux poussaient devant eux.', 44, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(272, 'Alors Bournisien.', 'Puis, s\'il rencontrait des yeux la boîte à ouvrage, un ruban de soie des gravures, qui se suivent tout d\'une haleine, où l\'on avait pris dans le coin, à terre, comme ce rassemblement d\'imbéciles que.', 14, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(273, 'Emma baissant la.', 'Eh bien, fit Rodolphe en offrit un; elle refusa ses offres; il n\'insista pas; puis, en haut, dans son jardinet, passant et revenant par les mêmes paroles de suavité qu\'elle murmurait jadis à son.', 19, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(274, 'Hippolyte Tautain.', 'La petite fille et de discours, sans compter que je m\'en aille, excuse-moi. Adieu! Il serra sa main, prit la cuvette. Pour la mettre sur mon bureau pour écrire à son magasin; Félicité oublia; il.', 29, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(275, 'Elle se leva d\'un.', 'Ah bah! quand on lui trouverait quelque brave garçon ayant un état solide; il la contemplait tout à coup. Elle se leva comme surpris dans son travail. Le Proviseur nous fit signe de tête. -- À peine.', 46, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(276, 'Elle ne pouvait le.', 'Gargouille. Mais Léon tira vivement une pièce intitulée le _Gamin de Paris_, où l\'on entend le bruit d\'une voiture mêlé à un enfant pleurait agenouillé, et sa mère une longue araignée qui marchait.', 41, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(277, 'Mais elle, sa vie.', 'À côté, sur la berge, le claquement d\'un fouet; toutes les assiettes, était renversée; de la _Guerre des dieux_, le curé se replongèrent dans leurs charrettes, passaient sous ses bandeaux. La nuit.', 47, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(278, 'L\'air, passant par.', 'Elle était debout; ses grands éclats, ne valait la peine d\'un voyage, et, comme il m\'en faudrait une. Le notaire resta fort stupéfait, les yeux étaient petits et le point de laisser, en plus, deux.', 8, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(279, 'Et il la rendrait.', 'On disait qu\'une princesse polonaise, l\'écoutant un soir chanter sur la bouche, dont Charles l\'avait voulu cependant, s\'il s\'en fût douté, si son corps sa robe de satin, dont la tenue fort négligée.', 50, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(280, 'Oh! c\'est que ça.', 'Bovary, rien n\'est plus à son abord; elle lui montra derrière la fenêtre, et, quand Charles rentrait, il trouvait toujours des étourdissements. -- J\'y ai songé quelquefois, reprit-elle. -- Attends.', 47, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(281, 'Quelquefois, dans.', 'M. Hornais jouait à la bouche. Berthe, cependant, restait posée sur le seuil. La bonne ouvrit la lucarne de son amour; comme elle rouvrait les yeux étaient petits et le bonhomme Rouault, debout.', 9, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(282, 'Divers toasts ont.', 'Bovary se trouvait dans une chose si extraordinaire en province, une voiture à stores de soie bleue à quatre heures; les femmes, et il les allait voir son ouvrage, ou arrondissant, sur son assiette.', 17, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(283, 'Allons, va-t\'en!.', 'Et, tout en désordre, et clignait des yeux, éblouie par les bretelles. Il était en relation avec les circonstances. Ses convoitises, ses chagrins, l\'expérience du chagrin, avec la passion des.', 41, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(284, 'Ainsi, elle voulut.', 'Allons, disait-elle, c\'est bien, va-t\'en! Car il savait tout, c\'était le bruit gai d\'un troupeau d\'oies retentissait près de l\'autre, le ventre en avant, la figure si épanouie quand il la prit et.', 40, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(285, 'Il n\'y a pas pour.', 'Le soir, principalement, quand son quinquet est allumé et que Félicité nommait quelqu\'un, Emma répliquait: -- Est-ce que cette curiosité Un grand escalier droit montait vers un corridor. Emma tourna.', 13, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(286, 'Pas encore; mais.', 'C\'était sûr! Il aurait peut-être mieux valu me chasser! J\'ai les mains d\'Emma. -- Au moins, si un magistrat... -- Mais tu es bon, toi! Et elle les mollesses de la rue était déserte. Et elle jeta.', 20, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(287, 'Va! essaye! il le.', 'Yonville pour une dernière pudeur, et alors elle allongea le cou comme quelqu\'un qui a soif, et, collant ses lèvres charnues, qu\'elle avait contractés étant malade. Mais, dès qu\'il fut parti, l\'on.', 26, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(288, 'Emma se servait de.', 'Un horizon de fantaisies réalisables s\'ouvrit alors devant Emma. Elle eut un enfant, à pousser de son peignoir, qui était un bas de la belle cloche d\'Amboise. Elle pesait quarante mille livres. Il.', 33, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(289, 'Donc, il demanda.', 'Je vous en conjure, monsieur Lheureux, quelques jours encore! Elle sanglotait. -- Allons, baisez maîtresse, vous qui n\'avez pas d\'espèces, vous avez beau dire, est plus féroce qu\'un Arabe. Pourtant.', 4, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(290, 'Toutes ses idées.', 'Allez-vous-en donc; je m\'en vais vous faire asseoir sur un album. C\'était le mois d\'août se passa, et, après avoir fait tourner trois moulins vers son embouchure, et où la lune et plus haut que.', 21, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(291, 'Il se dirigea vers.', 'Mais une femme élégante! et, sans s\'interrompre de manger, il s\'était endormi complètement dès que l\'étoffe n\'était plus fraîche, les lui mettait, de temps à autre, avec son vêtement blanc peu à.', 2, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(292, 'Madame se tenait.', 'Et il courut encore vers le Pouvoir. Il rendit secrètement à M. votre époux, à propos du tombeau d\'Emma. Il proposa d\'abord un tronçon de colonne avec une perruque à catogan et un peu par le côté.', 42, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(293, 'Il fallait qu\'elle.', 'Homais souffrait en écoutant ce discours, et il dissimulait son malaise sous un coup de foudre. Cependant elle répondit: -- Chez mademoiselle Lempereur. -- J\'en ai même oublié le spectacle! Ce.', 24, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(294, 'À quoi songent nos.', 'Il le trouva bien débonnaire pour un médecin, c\'est une dame assise sur le banc, contre la religion d\'Emma, trouvait-il, pût, à force d\'acheter, de ne pas employer à des gaillards d\'un tempérament.', 2, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(295, 'Vesta, une manière.', 'Ils sont venus un tas de vieilles ferrailles, de tonneaux vides, d\'instruments de culture hors de la bru, avec un livre de café moulu qui me poursuivait. Il y avait sur la terrasse des villas, seuls.', 29, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(296, 'C\'était pour lui.', 'Boulogne, sur le parquet. Enfin Lheureux expliqua qu\'il avait vu Tamburini, Rubini, Persiani, Grisi; et à repasser, à empeser, à l\'habiller, voulut en faire jaillir une étincelle, incapable, du.', 42, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(297, 'Emma frissonna de.', 'Elle s\'engagea de nouveau, et qui, blanchâtres de chevelure et de Béranger! Je suis ta servante et la cloche, sonnant toujours, continuait dans les visites, quand on lui heurtait les coudes en.', 12, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(298, 'Il se trouvait à.', 'La veilleuse de porcelaine à baguette de cuivre, elle s\'assoupit doucement à la façon des culs de basse-fosse, sa famille en pleurs, la pharmacie vendue, tous les autres, et représentaient à eux.', 6, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(299, 'Charles la battît.', 'Il était vêtu d\'une redingote de velours noir. Ses cheveux châtains tombaient dessus, plats et bien d\'autres choses encore où Charles rentrait. Ils avaient chaud; on apportait du cidre doux, et.', 37, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(300, 'Sa chevelure rouge.', 'Le soleil brillait sur la pointe ardente de ses lunettes, et ses façons graves, Emma, presque tous les tiroirs des meubles, elle se précipita et, comme il y a dans la netteté d\'une sensation presque.', 14, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14'),
+(301, 'Un matin, qu\'elle.', 'Les yeux fatigués à la nuque, avaient, en effet, que d\'être mère. Mais, ne pouvant faire les dépenses de l\'enterrement. Il s\'emporta si fort à ne vouloir point s\'arrêter. Il essayait quelquefois, et.', 30, 0, 1, '2022-11-08 12:15:18', '2022-11-11 09:30:14');
 
 -- --------------------------------------------------------
 
@@ -684,16 +685,16 @@ INSERT INTO `atelier1__gallery` (`id`, `name`, `description`, `author`, `isPriva
 --
 
 CREATE TABLE `atelier1__image` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `title` varchar(256) NOT NULL,
-  `author` int NOT NULL,
+  `author` int(11) NOT NULL,
   `description` varchar(256) DEFAULT NULL,
-  `gallery_id` int NOT NULL,
+  `gallery_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `altitude` int DEFAULT NULL,
-  `longitude` int DEFAULT NULL,
-  `latitude` int DEFAULT NULL,
+  `altitude` int(11) DEFAULT NULL,
+  `longitude` int(11) DEFAULT NULL,
+  `latitude` int(11) DEFAULT NULL,
   `photo_date` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1011,9 +1012,9 @@ INSERT INTO `atelier1__image` (`id`, `title`, `author`, `description`, `gallery_
 --
 
 CREATE TABLE `atelier1__keyword` (
-  `id` int NOT NULL,
-  `gallery_id` int DEFAULT NULL,
-  `image_id` int DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `gallery_id` int(11) DEFAULT NULL,
+  `image_id` int(11) DEFAULT NULL,
   `content` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1521,7 +1522,10 @@ INSERT INTO `atelier1__keyword` (`id`, `gallery_id`, `image_id`, `content`) VALU
 (497, 237, NULL, 'aut'),
 (498, 206, NULL, 'nesciunt'),
 (499, NULL, 132, 'omnis'),
-(500, 264, NULL, 'eum');
+(500, 264, NULL, 'eum'),
+(501, 302, NULL, 'abc salut test'),
+(502, NULL, 406, 'super'),
+(503, NULL, 406, 'image');
 
 -- --------------------------------------------------------
 
@@ -1530,11 +1534,11 @@ INSERT INTO `atelier1__keyword` (`id`, `gallery_id`, `image_id`, `content`) VALU
 --
 
 CREATE TABLE `atelier1__user` (
-  `id` int NOT NULL,
-  `username` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `fullname` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `password` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `user_level` int DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `username` varchar(256) CHARACTER SET utf8 NOT NULL,
+  `fullname` varchar(256) CHARACTER SET utf8 NOT NULL,
+  `password` varchar(512) CHARACTER SET utf8 NOT NULL,
+  `user_level` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -1591,8 +1595,7 @@ INSERT INTO `atelier1__user` (`id`, `username`, `fullname`, `password`, `user_le
 (47, 'unde', 'Maggie Garnier', '', 0),
 (48, 'dolor2', 'Thibaut Marchal', '', 0),
 (49, 'corporis3', 'Gilbert Roussel', '', 0),
-(50, 'ipsam', 'Grégoire Morvan-Charrier', '', 0),
-(54, 'test', 'test', '$2y$12$VqQ2uzwE2m7oQPj7K2aiFOEaEJ7wRsK1qePmzh/ocv7XZX0oG92QO', 1);
+(50, 'ipsam', 'Grégoire Morvan-Charrier', '', 0);
 
 -- --------------------------------------------------------
 
@@ -1601,10 +1604,10 @@ INSERT INTO `atelier1__user` (`id`, `username`, `fullname`, `password`, `user_le
 --
 
 CREATE TABLE `tweeter__follow` (
-  `id` int NOT NULL,
-  `follower` int NOT NULL,
-  `followee` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `id` int(11) NOT NULL,
+  `follower` int(11) NOT NULL,
+  `followee` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `tweeter__follow`
@@ -1622,10 +1625,10 @@ INSERT INTO `tweeter__follow` (`id`, `follower`, `followee`) VALUES
 --
 
 CREATE TABLE `tweeter__like` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `tweet_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `tweet_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `tweeter__like`
@@ -1641,13 +1644,13 @@ INSERT INTO `tweeter__like` (`id`, `user_id`, `tweet_id`) VALUES
 --
 
 CREATE TABLE `tweeter__tweet` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `text` varchar(256) NOT NULL,
-  `author` int NOT NULL,
-  `score` int NOT NULL DEFAULT '0',
+  `author` int(11) NOT NULL,
+  `score` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `tweeter__tweet`
@@ -1688,13 +1691,13 @@ INSERT INTO `tweeter__tweet` (`id`, `text`, `author`, `score`, `created_at`, `up
 --
 
 CREATE TABLE `tweeter__user` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `fullname` varchar(512) NOT NULL,
   `username` varchar(256) NOT NULL,
   `password` varchar(512) NOT NULL,
-  `level` int NOT NULL,
-  `followers` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `level` int(11) NOT NULL,
+  `followers` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `tweeter__user`
@@ -1784,61 +1787,61 @@ ALTER TABLE `tweeter__user`
 -- AUTO_INCREMENT pour la table `atelier1__access`
 --
 ALTER TABLE `atelier1__access`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `atelier1__comment`
 --
 ALTER TABLE `atelier1__comment`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=501;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=501;
 
 --
 -- AUTO_INCREMENT pour la table `atelier1__gallery`
 --
 ALTER TABLE `atelier1__gallery`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=302;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=303;
 
 --
 -- AUTO_INCREMENT pour la table `atelier1__image`
 --
 ALTER TABLE `atelier1__image`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=412;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=407;
 
 --
 -- AUTO_INCREMENT pour la table `atelier1__keyword`
 --
 ALTER TABLE `atelier1__keyword`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=501;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=504;
 
 --
 -- AUTO_INCREMENT pour la table `atelier1__user`
 --
 ALTER TABLE `atelier1__user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT pour la table `tweeter__follow`
 --
 ALTER TABLE `tweeter__follow`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `tweeter__like`
 --
 ALTER TABLE `tweeter__like`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `tweeter__tweet`
 --
 ALTER TABLE `tweeter__tweet`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT pour la table `tweeter__user`
 --
 ALTER TABLE `tweeter__user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
