@@ -11,7 +11,7 @@
 }
 
 @mixin screen-m() {
-	@media (min-width: 852px) {
+	@media (min-width: 980px) {
 		@content;
 	}
 }

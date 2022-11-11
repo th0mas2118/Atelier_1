@@ -54,13 +54,11 @@ class MainView extends AbstractView
                     <a href='$url_about'>A propos</a>
                     $user_button
                 </nav>
-                <div>
-                    <form action=''>
-                        <input type='hidden' name='action' id='action' value='search' />
-                        <input type='text' name='keywords' id='keywords'/>
-                        <input type='submit' value='search' />
-                    </form>
-                </div>
+                <form action=''>
+                    <input type='hidden' name='action' id='action' value='search' />
+                    <input type='text' name='keywords' id='keywords'/>
+                    <input type='submit' value='search' />
+                </form>
             </header>
         ";
     }

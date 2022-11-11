@@ -83,16 +83,21 @@ li {
 
 header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   background: #333333;
   color: #ffffff;
-  padding: 2%;
+  padding: 1rem;
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 25px;
   line-height: 30px;
   height: 100px;
+  flex-direction: column;
+  align-items: center;
+}
+header h1 {
+  font-size: 1.75rem;
 }
 header #open-menu,
 header #close-menu {
@@ -106,19 +111,14 @@ header #close-menu {
   z-index: 1000;
   text-align: center;
   transition: 0.3s all;
-}
-@media (min-width: 852px) {
-  header #open-menu,
-header #close-menu {
-    display: none;
-  }
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3137254902);
 }
 header #close-menu {
   opacity: 0;
   transform: scale(0);
 }
 header #burger-checkbox {
-  position: absolute;
+  position: fixed;
   z-index: 1001;
   right: 1rem;
   top: 1rem;
@@ -145,7 +145,7 @@ header nav {
   top: 0;
   background: #333333;
   opacity: 0;
-  width: 100vw;
+  width: 100%;
   z-index: -1;
   display: flex;
   flex-direction: column;
@@ -153,40 +153,61 @@ header nav {
   justify-content: center;
   transition: 0.3s all;
 }
-@media (min-width: 852px) {
-  header nav {
-    position: relative;
-    height: 100%;
-    opacity: 1;
-    z-index: 10;
-    width: unset;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-  }
-}
-header div {
+header form {
   display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  justify-content: center;
 }
-header div form input[type=text] {
-  width: 70%;
-  padding: 12px 20px;
+header form input[type=text] {
+  width: 100%;
+  max-width: 300px;
+  padding: 6px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
-header div form input[type=submit] {
+header form input[type=submit] {
   background-color: gray;
   color: white;
-  padding: 14px 20px;
+  padding: 6px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
+@media (min-width: 980px) {
+  header {
+    flex-direction: row;
+  }
+  header #open-menu,
+header #close-menu {
+    display: none;
+  }
+  header nav {
+    position: relative;
+    height: 100%;
+    opacity: 1;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  header form {
+    max-width: 500px;
+    justify-content: flex-end;
+  }
+}
+@media (min-width: 1040px) {
+  header nav {
+    justify-content: flex-start;
+    padding-left: 1rem;
+  }
+}
 #gallery {
   display: flex;
   justify-content: center;
