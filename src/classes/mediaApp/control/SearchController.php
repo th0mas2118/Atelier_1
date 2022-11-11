@@ -2,10 +2,12 @@
 
 namespace iutnc\mediaApp\Control;
 
+use iutnc\mediaApp\auth\Authentification;
 use \iutnc\mf\control\AbstractController;
 use \iutnc\mediaApp\model\Gallery;
 use iutnc\mediaApp\model\Image;
 use iutnc\mediaApp\model\Keyword;
+use iutnc\mediaApp\model\User;
 use \iutnc\mediaApp\view\HomeView;
 use iutnc\mediaApp\view\SearchView;
 use iutnc\mf\router\Router;
@@ -18,6 +20,12 @@ class SearchController extends AbstractController
             if (!isset($this->request->get['keywords']) || empty($this->request->get['keywords'])) {
                 Router::executeRoute('home');
                 return;
+            }
+
+            $galleries = Gallery::where('hasImage', '=', true);
+
+            if (!Authentification::connectedUser()) {
+                $galleries = $galleries->where('isPrivate', '=', false);
             }
 
             $searchKeywords = explode(" ", $this->request->get['keywords']);
@@ -40,6 +48,14 @@ class SearchController extends AbstractController
 
             $images = Image::whereIn('id', $imageIds)->get();
             $galleries = Gallery::whereIn('id', $galleryIds)->get();
+
+            if (Authentification::connectedUser()) {
+                $userAccess = User::where('id', '=', Authentification::connectedUser())->first()->access()->pluck('gallery_id')->toArray();
+
+                $galleries = $galleries->filter(function ($k) use ($userAccess) {
+                    return ($k['isPrivate'] == 0) || ($k['isPrivate'] == 1 && in_array($k['id'], $userAccess)) || ($k['author'] == Authentification::connectedUser());
+                });
+            }
 
             $searchView = new SearchView(['images' => $images, 'galleries' => $galleries]);
             $searchView->makePage();
