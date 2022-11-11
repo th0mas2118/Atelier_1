@@ -21,12 +21,13 @@ class CreateGalleryController extends AbstractController
             $title = $this->request->post['title'];
             $descr = $this->request->post['descr'];
             $keywords = $this->request->post['keyword'];
+            $isPrivate = $this->request->post['isPrivate'] === 'on' ? true : false;
 
             if (empty($title) || empty($descr)) {
                 echo "Veuillez remplir tout les champs";
                 return;
             }
-            $id = Gallery::addNew($title, $descr, AbstractAuthentification::connectedUser())->id;
+            $id = Gallery::addNew($title, $descr, AbstractAuthentification::connectedUser(), $isPrivate)->id;
         }
         if ($this->request->post["keyword"]) {
             $keywords = explode(",", $this->request->post["keyword"]);

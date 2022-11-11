@@ -13,7 +13,14 @@ class ModifyGalleryController extends AbstractController
     public function execute($error = null): void
     {
         if ($this->request->method === 'GET') {
-            $mgv = new ModifyGalleryView();
+            $router = new Router();
+
+            $url_addimage = $router->urlFor('addimage', [['gallery_id', $this->request->get['gallery_id']]]);
+            $g = Gallery::select()->where('id', '=', $this->request->get['gallery_id'])->first();
+            $keywords = $g->keywords()->get();
+            $usersWithAccess = $g->usersWithAccess()->get();
+
+            $mgv = new ModifyGalleryView(['urlAddImage' => $url_addimage, 'gallery' => $g, 'keywords' => $keywords, 'usersWithAcess' => $usersWithAccess]);
             $mgv->makePage();
         }
         if ($this->request->method === 'POST') {
