@@ -49,7 +49,7 @@ class ImageView extends MainView implements Renderer
             </div>
             <div><img alt='image' src='{$img_src}'></img></div>
             <div>
-                <div id='modify-image-button'>
+                <div class='modify-image-gallery-button'>
                     {$modify}
                 </div>
                 <div>

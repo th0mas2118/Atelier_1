@@ -7,7 +7,8 @@
 @import "footer.scss";
 @import "login.scss";
 @import "signup.scss";
-@import "createGallery.scss";
+@import "createGallery.scss"; 	
+@import "button.scss";
 
 html,
 body {
@@ -25,23 +26,6 @@ main {
 	article {
 		width: 100%;
 		aspect-ratio: 1/1;
-	}
-}
-#about a{
-	border: 2px solid black;
-	border-radius: 15px;
-	background-color: grey;
-	padding: 5px;
-	color: white;
-}
-#modify-image-button{
-	margin: 5px;
-	a{
-		border: 1px solid black;
-		border-radius: 15px;
-		background-color: #333333;
-		color: white;
-		padding: 5px;
 	}
 }
 #home-list,
