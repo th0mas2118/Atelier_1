@@ -41,7 +41,7 @@ class ImageView extends MainView implements Renderer{
             <a href=$url_gallery><h1>Gallery name : $galery_name</h1></a>
             <h3>Image name : {$image['title']}</h1>
             </div>
-            <div><img alt='image' src={$img_src}></img></div>
+            <div><img alt='image' src='{$img_src}'></img></div>
             <div>
                 <div>
                     <h3>Description :</h3>

@@ -29,7 +29,7 @@ class Homeview extends MainView implements Renderer
                         <div>
                         <h3>{$g['name']}</h3>
                         <div>
-                            <img alt='image' src=$img_src></img>
+                            <img alt='image' src='$img_src'></img>
                         </div>
                         <div>
                             <span>{$nb_image}</span>

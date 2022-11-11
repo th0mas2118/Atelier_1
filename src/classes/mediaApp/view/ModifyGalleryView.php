@@ -16,16 +16,16 @@ class ModifyGalleryView extends MainView Implements Renderer{
         $res=<<<EOT
         <section>
             <form method=post>
-                <label name=title>Title :</label>
-                <input value={$g['name']} type=text name=title placeholder="Title"><br>
-                <label name=descr>Description :</label>
-                <input value={$g['description']} type=text name=descr placeholder="Description"><br>
-                <label name=keyword>KeyWords :</label>
-                <input value='{$keyword}' type=text name=keyword><br>
+                <label name='title'>Title :</label>
+                <input value='{$g['name']}' type='text' name='title' placeholder="Title"><br>
+                <label name='descr'>Description :</label>
+                <input value='{$g['description']}' type='text' name='descr' placeholder="Description"><br>
+                <label name='keyword'>KeyWords :</label>
+                <input value='{$keyword}' type='text' name='keyword>'<br>
 
-                <button name=sign_button type="submit">Confirm</button>
+                <button name='sign_button' type="submit">Confirm</button>
             </form>
-            <a href=$url_addimage>AddImage</a>
+            <a href='$url_addimage'>AddImage</a>
         </section>
         EOT;
         return $res;

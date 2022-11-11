@@ -12,15 +12,15 @@ class AddImageView extends MainView implements Renderer
             <section>
                 <form method="post" enctype="multipart/form-data">
                 <label for="title">Title : </label>
-                <input class="forms-text" type=text name=title placeholder="title">
+                <input class="forms-text" type='text' name='title' placeholder="title">
                 <label for="description">Description : </label>
-                <input class="forms-text" type=text name=description placeholder="description">
+                <input class="forms-text" type='text' name='description' placeholder="description">
                 <label for="Keywords">Keywords : </label>
-                <input class="forms-text" type=text name=keywords placeholder="keywords">
+                <input class="forms-text" type='text' name='keywords' placeholder="keywords">
                 <label for="img">Choose a new picture to add:</label>
                 <input type="file" id="img" name="img" accept="image/jpeg, image/jpg">
                 <input type="hidden" name="galleryId" value="{$this->data['gallery_id']}">
-                <button class="forms-button" name=add_button type="submit"> Confirm </button>
+                <button class="forms-button" name='add_button' type="submit"> Confirm </button>
                 </form>
             </section>
             EOT;
