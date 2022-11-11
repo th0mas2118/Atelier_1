@@ -7,17 +7,20 @@
 @import "footer.scss";
 @import "login.scss";
 @import "signup.scss";
-@import "createGallery.scss"; 	
+@import "createGallery.scss";
 @import "button.scss";
 
 html,
 body {
 	color: black;
 	font-size: 16px;
-	overflow-x: hidden;
 	width: 100%;
 	height: 100%;
 	font-family: "Roboto", sans-serif;
+}
+
+body {
+	overflow-x: hidden;
 }
 
 main {
@@ -45,11 +48,11 @@ main {
 			}
 		}
 		&:nth-of-type(n) {
-			@include col_xs(1,2);
+			@include col_xs(1, 2);
 		}
 
 		&:nth-child(n + 1) {
-			@include col_xs(2,3)
+			@include col_xs(2, 3);
 		}
 	}
 }
