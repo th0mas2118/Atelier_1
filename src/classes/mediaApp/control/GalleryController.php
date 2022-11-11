@@ -24,13 +24,16 @@ class GalleryController extends AbstractController
         if (!isset($this->request->get['gallery_id'])) {
             Router::executeRoute('home');
         }
+
         $id = $this->request->get['gallery_id'];
         if (is_null(Gallery::find($id))) {
             Router::executeRoute('home');
         }
-        $v = Gallery::where('id', '=', $id)->first();
 
-        $gv = new \iutnc\mediaApp\view\GalleryView($v);
+        $gallery = Gallery::where('id', '=', $id)->first();
+        $liste_images = $gallery->images()->get();
+
+        $gv = new \iutnc\mediaApp\view\GalleryView(['gallery' => $gallery, 'images' => $liste_images]);
         $gv->makePage();
     }
 }

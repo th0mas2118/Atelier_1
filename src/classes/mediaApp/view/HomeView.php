@@ -42,17 +42,17 @@ class Homeview extends MainView implements Renderer
             EOT;
             }
         }
-        $res.="</section>";
+        $res .= "</section>";
         $page = isset($this->request->get['page']) && !empty($this->request->get['page']) ? $this->request->get['page'] : 1;
-        $previousPage = $page-1;
+        $previousPage = $page - 1;
         $nextPage = $page + 1;
         $nbrePage = 20;
         $pageInit = 0;
-        $p = ceil($this->data["nombreArticle"]/$nbrePage);
-        $btnP = $page>1 ? "<a href='?action=home&page={$pageInit}'><i class='fa-solid fa-angles-left'></i></a>
+        $p = ceil($this->data["nombreArticle"] / $nbrePage);
+        $btnP = $page > 1 ? "<a href='?action=home&page={$pageInit}'><i class='fa-solid fa-angles-left'></i></a>
                 <a href='?action=home&page={$previousPage}'><i class='fa-solid fa-chevron-left'></i></a>" : '';
-        $btnN = 
-        $res .= "<section id='gallery'>
+        $btnN =
+            $res .= "<section id='gallery'>
             <div class='pagination'>
                 {$btnP}
                 <a>$page</a>
@@ -60,7 +60,7 @@ class Homeview extends MainView implements Renderer
                 <a href='?action=home&page={$p}''><i class='fa-solid fa-angles-right'></i></a>
             </div>
         </section>";
-        
+
         return $res;
     }
 }

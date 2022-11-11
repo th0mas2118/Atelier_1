@@ -14,9 +14,16 @@ class ImageController extends AbstractController
         if (!isset($this->request->get['id'])) {
             Router::executeRoute('home');
         }
+
         $image_id = $this->request->get['id'];
         $i = Image::select()->where('id', '=', $image_id)->first();
-        $iv = new ImageView($i);
+
+        $r = new Router();
+
+        $url_gallery = $r->urlFor('gallery', [['gallery_id', $i->galleryName()->first()->id]]);
+        $gallery_name = $i->galleryName()->first()->name;
+
+        $iv = new ImageView(['image' => $i, 'galleryUrl' => $url_gallery, 'galleryName' => $gallery_name]);
         $iv->makePage();
     }
 }

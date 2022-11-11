@@ -20,7 +20,7 @@ class ModifyGalleryController extends AbstractController
             $keywords = $g->keywords()->get();
             $usersWithAccess = $g->usersWithAccess()->get();
 
-            $mgv = new ModifyGalleryView(['urlAddImage' => $url_addimage, 'gallery' => $g, 'keywords' => $keywords, 'usersWithAcess' => $usersWithAccess]);
+            $mgv = new ModifyGalleryView(['urlAddImage' => $url_addimage, 'gallery' => $g, 'keywords' => $keywords, 'usersWithAccess' => $usersWithAccess]);
             $mgv->makePage();
         }
         if ($this->request->method === 'POST') {
