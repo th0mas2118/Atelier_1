@@ -16,7 +16,7 @@ class Authentification extends AbstractAuthentification
         $user = User::where('username', '=', $username)->first();
 
         if ($user) {
-            // throw new AuthentificationException("Username already used");
+            throw new AuthentificationException("Username already used");
             return;
         }
 
