@@ -16,7 +16,7 @@ class ModifyImageController extends AbstractController
     {
         if ($this->request->method === 'GET') {
             $image = Image::select()->where('id', '=', $this->request->get['image_id'])->first();
-            $miv = new ModifyImageView($image);
+            $miv = new ModifyImageView(['image' => $image, 'keywords' => $image->keywords()->get()]);
 
             $miv->makePage();
         }
