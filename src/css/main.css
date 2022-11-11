@@ -257,6 +257,13 @@ main {
     width: 100%;
     aspect-ratio: 1/1; }
 
+#about a {
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: grey;
+  padding: 5px;
+  color: white; }
+
 #home-list,
 #gallery-list {
   display: grid;
