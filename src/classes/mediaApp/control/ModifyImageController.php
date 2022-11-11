@@ -15,7 +15,9 @@ class ModifyImageController extends AbstractController
     public function execute($error = null): void
     {
         if ($this->request->method === 'GET') {
-            $miv = new ModifyImageView();
+            $image = Image::select()->where('id', '=', $this->request->get['image_id'])->first();
+            $miv = new ModifyImageView($image);
+
             $miv->makePage();
         }
         if ($this->request->method === 'POST') {

@@ -17,7 +17,7 @@ class ModifyGalleryView extends MainView implements Renderer
 
         $users = "";
 
-        foreach ($this->data['usersWithAcess'] as $user) {
+        foreach ($this->data['usersWithAccess'] as $user) {
             $users .= $user->username;
         }
 
