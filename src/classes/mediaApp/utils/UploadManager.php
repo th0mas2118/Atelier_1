@@ -30,8 +30,6 @@ class UploadManager
 
     public static function createThumb($src, $destImagePath)
     {
-        echo $src;
-        echo $destImagePath;
         $sourceImage = imagecreatefromjpeg($src);
         $orgWidth = imagesx($sourceImage);
         $orgHeight = imagesy($sourceImage);
