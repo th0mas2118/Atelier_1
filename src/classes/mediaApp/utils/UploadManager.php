@@ -23,7 +23,6 @@ class UploadManager
         if (empty($errors) == true) {
             move_uploaded_file($file_tmp, realpath(".") . "/img/full_size/" . $id . ".jpg");
             self::createThumb(realpath(".") . "/img/full_size/" . $id . ".jpg", realpath(".") . "/img/thumbnails/" . $id . ".jpg");
-            //echo "Success";
         } else {
             print_r($errors);
         }
@@ -31,6 +30,8 @@ class UploadManager
 
     public static function createThumb($src, $destImagePath)
     {
+        echo $src;
+        echo $destImagePath;
         $sourceImage = imagecreatefromjpeg($src);
         $orgWidth = imagesx($sourceImage);
         $orgHeight = imagesy($sourceImage);

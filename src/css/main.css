@@ -264,6 +264,15 @@ main {
   padding: 5px;
   color: white; }
 
+#modify-image-button {
+  margin: 5px; }
+  #modify-image-button a {
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: #333333;
+    color: white;
+    padding: 5px; }
+
 #home-list,
 #gallery-list {
   display: grid;

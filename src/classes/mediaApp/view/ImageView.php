@@ -4,6 +4,7 @@ namespace iutnc\mediaApp\view;
 
 use  iutnc\mf\view\Renderer;
 use iutnc\mf\router\Router;
+use \iutnc\mf\auth\AbstractAuthentification;
 
 class ImageView extends MainView implements Renderer{
     public function render():string{
@@ -32,9 +33,15 @@ class ImageView extends MainView implements Renderer{
         EOT;
         //*comments as list of article of comment
         $comments="";
+        if(AbstractAuthentification::connectedUser()===$image['author']){
+            $m=$this->router->urlFor('modifyImage',[['image_id',$image['id']]]);
+            $modify="<a href='$m'>Modify</a>";
+        }
+        else{
+            $modify="";
+        }
         $galery_name=$image->galleryName()->first()->name;
-        $r=new Router();
-        $url_gallery=$r->urlFor('gallery',[['gallery_id',$image->galleryName()->first()->id]]);
+        $url_gallery=$this->router->urlFor('gallery',[['gallery_id',$image->galleryName()->first()->id]]);
         $res=<<<EOT
         <section class='img-fullsize'>
             <div class='title'>
@@ -43,6 +50,9 @@ class ImageView extends MainView implements Renderer{
             </div>
             <div><img alt='image' src='{$img_src}'></img></div>
             <div>
+                <div id='modify-image-button'>
+                    {$modify}
+                </div>
                 <div>
                     <h3>Description :</h3>
                     {$image['description']}
