@@ -19,6 +19,7 @@ class LoginController extends AbstractController
         if ($this->request->method === 'GET') {
             $lv = new LoginView($error);
             $lv->makePage();
+            $error = null;
         }
 
         if ($this->request->method === 'POST') {

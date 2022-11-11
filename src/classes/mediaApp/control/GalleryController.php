@@ -1,12 +1,13 @@
 <?php
 
-namespace iutnc\mediaApp\control; 
+namespace iutnc\mediaApp\control;
 
 use \iutnc\mf\control\AbstractController;
 use \iutnc\mediaApp\model\Gallery;
 use \iutnc\mf\router\Router;
 
-class GalleryController extends AbstractController{
+class GalleryController extends AbstractController
+{
 
     /* Algorithme de execute:
  *
@@ -18,12 +19,13 @@ class GalleryController extends AbstractController{
  *
  */
 
-    public function execute():void{
-        if(!isset($this->request->get['gallery_id'])){
+    public function execute($error = null): void
+    {
+        if (!isset($this->request->get['gallery_id'])) {
             Router::executeRoute('home');
         }
         $id = $this->request->get['gallery_id'];
-        if(is_null(Gallery::find($id))){
+        if (is_null(Gallery::find($id))) {
             Router::executeRoute('home');
         }
         $v = Gallery::where('id', '=', $id)->first();

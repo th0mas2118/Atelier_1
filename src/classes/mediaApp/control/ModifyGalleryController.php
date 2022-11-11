@@ -10,7 +10,7 @@ use \iutnc\mediaApp\model\Keyword;
 
 class ModifyGalleryController extends AbstractController
 {
-    public function execute(): void
+    public function execute($error = null): void
     {
         if ($this->request->method === 'GET') {
             $mgv = new ModifyGalleryView();
