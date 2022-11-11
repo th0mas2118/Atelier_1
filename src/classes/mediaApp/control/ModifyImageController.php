@@ -6,21 +6,23 @@ use \iutnc\mf\control\AbstractController;
 use \iutnc\mf\router\Router;
 use \iutnc\mediaApp\view\ModifyGalleryView;
 use \iutnc\mediaApp\model\Gallery;
+use iutnc\mediaApp\model\Image;
 use \iutnc\mediaApp\model\Keyword;
+use iutnc\mediaApp\view\ModifyImageView;
 
-class ModifyGalleryController extends AbstractController
+class ModifyImageController extends AbstractController
 {
     public function execute($error = null): void
     {
         if ($this->request->method === 'GET') {
-            $mgv = new ModifyGalleryView();
-            $mgv->makePage();
+            $miv = new ModifyImageView();
+            $miv->makePage();
         }
         if ($this->request->method === 'POST') {
             $title = $this->request->post['title'];
             $descr = $this->request->post['descr'];
-            $gallery_id = $this->request->get['gallery_id'];
-            $kDB = Gallery::where('id', '=', $gallery_id)->first()->keywords();
+            $image_id = $this->request->get['image_id'];
+            $kDB = Image::where('id', '=', $image_id)->first()->keywords();
             $kDBIds = [];
 
             foreach ($kDB->get() as $k) {
@@ -29,18 +31,18 @@ class ModifyGalleryController extends AbstractController
 
             Keyword::whereIn('id', $kDBIds)->delete();
 
-            $g = Gallery::select()->where('id', '=', $gallery_id)->first();
-            $g->name = $title;
-            $g->description = $descr;
+            $image = Image::select()->where('id', '=', $image_id)->first();
+            $image->title = $title;
+            $image->description = $descr;
             $var = $this->request->post['keyword'];
             $var = str_replace(' ', ',', $var);
             $keywords = explode(",", $var);
             foreach ($keywords as $keyword) {
                 if (!empty($keyword)) {
-                    Keyword::create(['content' => trim($keyword), 'gallery_id' => $gallery_id]);
+                    Keyword::create(['content' => trim($keyword), 'image_id' => $image_id]);
                 }
             }
-            $g->save();
+            $image->save();
             Router::executeRoute('user');
         }
     }
