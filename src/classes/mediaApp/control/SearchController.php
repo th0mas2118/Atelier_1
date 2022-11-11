@@ -12,7 +12,7 @@ use iutnc\mf\router\Router;
 
 class SearchController extends AbstractController
 {
-    public function execute(): void
+    public function execute($error = null): void
     {
         if ($this->request->method === 'GET') {
             if (!isset($this->request->get['keywords']) || empty($this->request->get['keywords'])) {

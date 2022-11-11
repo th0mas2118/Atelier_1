@@ -9,7 +9,7 @@ use iutnc\mf\router\Router;
 
 class SignUpController extends AbstractController
 {
-    public function execute(): void
+    public function execute($error = null): void
     {
         if (Authentification::connectedUser()) {
             Router::executeRoute('home');
@@ -29,14 +29,14 @@ class SignUpController extends AbstractController
 
             if (empty($username) || empty($fullname) || empty($password) || empty($passwordConfirmation)) {
                 echo "Veuillez remplir tout les champs";
-                $this->request->method='GET';
+                $this->request->method = 'GET';
                 $this->execute();
                 return;
             }
 
             if ($password !== $passwordConfirmation) {
                 echo "Les mots de passes ne correspondent pas";
-                $this->request->method='GET';
+                $this->request->method = 'GET';
                 $this->execute();
                 return;
             }
@@ -46,7 +46,7 @@ class SignUpController extends AbstractController
                 Router::executeRoute("home");
             } catch (\Throwable $th) {
                 echo $th->getMessage();
-                $this->request->method='GET';
+                $this->request->method = 'GET';
                 $this->execute();
             }
         }

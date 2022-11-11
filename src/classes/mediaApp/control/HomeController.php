@@ -8,7 +8,7 @@ use \iutnc\mediaApp\view\HomeView;
 
 class HomeController extends AbstractController
 {
-    public function execute(): void
+    public function execute($error = null): void
     {
         $gl = [];
         if (isset($this->request->get['page']) && !empty($this->request->get['page'])) {

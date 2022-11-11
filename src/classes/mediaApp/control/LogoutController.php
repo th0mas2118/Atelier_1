@@ -9,7 +9,7 @@ use iutnc\mf\router\Router;
 
 class LogoutController extends AbstractController
 {
-    public function execute(): void
+    public function execute($error = null): void
     {
         if (!Authentification::connectedUser()) {
             Router::executeRoute('home');

@@ -8,7 +8,7 @@ use \iutnc\mf\auth\AbstractAuthentification;
 
 class UserController extends \iutnc\mf\control\AbstractController
 {
-    public function execute(): void
+    public function execute($error = null): void
     {
         if (!isset($this->request->get['id'])) {
             if (AbstractAuthentification::connectedUser()) {

@@ -9,7 +9,7 @@ use iutnc\mf\router\Router;
 
 class LoginController extends AbstractController
 {
-    public function execute(): void
+    public function execute($error = null): void
     {
         if (Authentification::connectedUser()) {
             Router::executeRoute('home');
@@ -17,7 +17,7 @@ class LoginController extends AbstractController
         }
 
         if ($this->request->method === 'GET') {
-            $lv = new LoginView();
+            $lv = new LoginView($error);
             $lv->makePage();
         }
 
@@ -25,13 +25,12 @@ class LoginController extends AbstractController
             $username = $this->request->post['username'];
             $password = $this->request->post['password'];
 
-            try{
+            try {
                 Authentification::login($username, $password);
                 Router::executeRoute('home');
-            }catch(\iutnc\mf\exceptions\AuthentificationException $e){
-                echo $e->getMessage();
-                $this->request->method='GET';
-                $this->execute();
+            } catch (\iutnc\mf\exceptions\AuthentificationException $e) {
+                $this->request->method = 'GET';
+                $this->execute($e->getMessage());
             }
         }
     }

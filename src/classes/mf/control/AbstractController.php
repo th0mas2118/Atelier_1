@@ -4,11 +4,12 @@ namespace iutnc\mf\control;
 
 use \iutnc\mf\utils\HttpRequest;
 
-abstract class AbstractController {
-    
-    /* Attribut pour stocker l'objet HttpRequest */ 
-    protected ?HttpRequest $request = null; 
-    
+abstract class AbstractController
+{
+
+    /* Attribut pour stocker l'objet HttpRequest */
+    protected ?HttpRequest $request = null;
+
     /*
      * Constructeur :
      * 
@@ -19,9 +20,10 @@ abstract class AbstractController {
      * GET, POST, la racine (pour les liens html) etc.
      *  
      */
-    
-    public function __construct(){
-        $this->request = new HttpRequest() ;
+
+    public function __construct()
+    {
+        $this->request = new HttpRequest();
     }
 
 
@@ -34,10 +36,6 @@ abstract class AbstractController {
      *   2 Exécuter le traitement nécessaire
      *   3 Créer la vue liée à la fonctionnalité et l'affiche 
      */
-    
-    abstract public function execute() : void; 
-      
+
+    abstract public function execute($error = null): void;
 }
-
-
-  

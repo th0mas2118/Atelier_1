@@ -22,20 +22,20 @@ class MainView extends AbstractView
     public function renderHeader(): string
     {
         $url_home = $this->router->urlFor('home');
-        $url_login = $this->router->urlFor('login',[['code_erreur', null]]);
+        $url_login = $this->router->urlFor('login', [['code_erreur', null]]);
         $url_about = $this->router->urlFor('about');
         $url_logout = $this->router->urlFor('logout');
         $url_user = $this->router->urlFor('user', [['id', AbstractAuthentification::connectedUser()]]);
-        $url_register=$this->router->urlFor('signup');
+        $url_register = $this->router->urlFor('signup');
 
         if (AbstractAuthentification::connectedUser()) {
             $user_button = "<a href=$url_user>My Profile</a>";
             $log = "<a href=$url_logout>Logout</a>";
-            $register='';
+            $register = '';
         } else {
             $user_button = "";
             $log = "<a href=$url_login>Login</a>";
-            $register="<a href=$url_register>Register</a>";
+            $register = "<a href=$url_register>Register</a>";
         }
         return "
             <header>

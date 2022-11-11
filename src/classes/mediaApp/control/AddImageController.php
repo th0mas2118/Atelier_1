@@ -15,7 +15,7 @@ class AddImageController extends AbstractController
 {
 
 
-    public function execute(): void
+    public function execute($error = null): void
     {
         if ($this->request->method === 'GET') {
             $imgView = new AddImageView($this->request->get);
