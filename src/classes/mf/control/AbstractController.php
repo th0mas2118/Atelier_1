@@ -26,6 +26,29 @@ abstract class AbstractController
         $this->request = new HttpRequest();
     }
 
+    public function validateParams($params)
+    {
+        $missingPost = [];
+        $missingGet = [];
+        foreach ($params['get'] as $param) {
+            if (!isset($this->request->get[$param]) || empty($this->request->get[$param])) {
+                array_push($missingGet, $param);
+            }
+        }
+
+        foreach ($params['post'] as $param) {
+            if (!isset($this->request->post[$param]) || empty($this->request->post[$param])) {
+                array_push($missingPost, $param);
+            }
+        }
+
+        if (count($missingPost) > 0 || count($missingGet) > 0) {
+            return ['get' => $missingGet, 'post' => $missingPost];
+        }
+
+        return true;
+    }
+
 
     /*
      * Méthod execute : a concrétiser dans chaque contrôleur.

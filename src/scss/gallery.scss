@@ -38,7 +38,8 @@
 			transition: 0.25s all;
 		}
 
-		&:hover {
+		&:hover,
+		&:active {
 			h3,
 			div:last-of-type {
 				opacity: 100;

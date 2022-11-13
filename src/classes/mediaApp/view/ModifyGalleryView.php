@@ -18,10 +18,11 @@ class ModifyGalleryView extends MainView implements Renderer
         $users = "";
 
         foreach ($this->data['usersWithAccess'] as $user) {
-            $users .= $user->username;
+            $users .= $user->username . "\n";
         }
 
-        $accessInput = $this->data['gallery']->isPrivate ? "<label for='isPrivate'>Accès utilisateurs: </label><input type='text' name='title' value='{$users}'><br>" : "";
+        $accessInput = $this->data['gallery']->isPrivate ? "<label for='isPrivate'>Accès utilisateurs (1 par ligne): </label><br><textarea rows='10' cols='50' type='text' name='usersAccess' id='usersAccess'>$users</textarea><br>" : "";
+        $isPrivateCheckboxValue = $this->data['gallery']->isPrivate ? "checked" : "";
         $res = <<<EOT
         <section>
             <form method=post>
@@ -32,7 +33,7 @@ class ModifyGalleryView extends MainView implements Renderer
                 <label name='keyword'>KeyWords :</label>
                 <input value='{$keyword}' type='text' name='keyword'><br>
                 <label for='isPrivate'>Galerie privée :</label>
-                <input type="checkbox" id="isPrivate" name="isPrivate" /><br>
+                <input type="checkbox" id="isPrivate" name="isPrivate" $isPrivateCheckboxValue/><br>
                 $accessInput
                 <button name='sign_button' type="submit">Confirm</button>
             </form>
