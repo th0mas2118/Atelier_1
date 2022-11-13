@@ -13,7 +13,11 @@
 
 .img-fullsize .title {
 	h1,
-	h3 {
+	h3{
+		text-align: center;
+	}
+	span{
+		display: block;
 		text-align: center;
 	}
 }

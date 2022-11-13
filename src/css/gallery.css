@@ -29,9 +29,10 @@
     opacity: 0;
     transition: 0.25s all; }
   .gallery-article div:hover h3,
-  .gallery-article div:hover div:last-of-type {
+  .gallery-article div:hover div:last-of-type, .gallery-article div:active h3,
+  .gallery-article div:active div:last-of-type {
     opacity: 100; }
-  .gallery-article div:hover img {
+  .gallery-article div:hover img, .gallery-article div:active img {
     filter: blur(2px); }
 
 /*# sourceMappingURL=gallery.css.map */

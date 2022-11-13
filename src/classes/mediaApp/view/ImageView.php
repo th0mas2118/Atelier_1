@@ -43,11 +43,16 @@ class ImageView extends MainView implements Renderer
         } else {
             $modify = "";
         }
+        $keywords="";
+        foreach ($this->data['image']->keywords()->get() as $key) {
+            $keywords .= $key->content . ' ';
+        }
         $res = <<<EOT
         <section class='img-fullsize'>
             <div class='title'>
             <a href='{$this->data['galleryUrl']}'><h1>Gallery name : {$this->data['galleryName']}</h1></a>
             <h3>Image name : {$image['title']}</h1>
+            <span>Keywords : $keywords</span>
             </div>
             <div><img alt='image' src='{$img_src}'></img></div>
             <div>

@@ -11,5 +11,8 @@
 .img-fullsize .title h1,
 .img-fullsize .title h3 {
   text-align: center; }
+.img-fullsize .title span {
+  display: block;
+  text-align: center; }
 
 /*# sourceMappingURL=image.css.map */
