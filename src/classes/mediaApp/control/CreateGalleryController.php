@@ -28,16 +28,17 @@ class CreateGalleryController extends AbstractController
                 return;
             }
             $id = Gallery::addNew($title, $descr, AbstractAuthentification::connectedUser(), $isPrivate)->id;
-        }
-        if ($this->request->post["keyword"]) {
-            $keywords = explode(",", $this->request->post["keyword"]);
-
-            foreach ($keywords as $keyword) {
-                if (!empty($keyword)) {
-                    Keyword::create(['content' => trim($keyword), 'gallery_id' => $id]);
+            if ($this->request->post["keyword"]) {
+                $keywords = explode(",", $this->request->post["keyword"]);
+    
+                foreach ($keywords as $keyword) {
+                    if (!empty($keyword)) {
+                        Keyword::create(['content' => trim($keyword), 'gallery_id' => $id]);
+                    }
                 }
             }
+            Router::executeRoute('user');
+            return;
         }
-        Router::executeRoute('user');
     }
 }

@@ -23,11 +23,13 @@ class GalleryController extends AbstractController
     {
         if (!isset($this->request->get['gallery_id'])) {
             Router::executeRoute('home');
+            return;
         }
 
         $id = $this->request->get['gallery_id'];
         if (is_null(Gallery::find($id))) {
             Router::executeRoute('home');
+            return;
         }
 
         $gallery = Gallery::where('id', '=', $id)->first();
