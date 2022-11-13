@@ -4,6 +4,7 @@ namespace iutnc\mediaApp\view;
 
 use \iutnc\mf\view\Renderer;
 use \iutnc\mediaApp\model\Gallery;
+use \iutnc\mediaApp\utils\RenderFunction;
 
 class ModifyGalleryView extends MainView implements Renderer
 {
@@ -41,6 +42,15 @@ class ModifyGalleryView extends MainView implements Renderer
             <div>
         </section>
         EOT;
+        $title = $this->data['gallery']->name;
+        $res.= "<h1>{$title}</h1>";
+        $res.="<section id='gallery-list'>";
+        $root = $this->request->root;
+        foreach($this->data['gallery']->images()->get() as $image){
+            $url_image = $this->router->urlFor('image', [['id', $image->id]]);
+            $res .= RenderFunction::renderImage($image, $root, $url_image);
+        }
+        $res .= "</section>";
         return $res;
     }
 }
