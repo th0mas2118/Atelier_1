@@ -29,7 +29,7 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
         foreach($gal as $g){
             if($bool==1){
                 $url_modify=$this->router->urlFor('modifyGallery',[['gallery_id',$g->id]]);
-                $url_delete="";
+                $url_delete=$this->router->urlFor('deleteGallery',[['gallery_id',$g->id]]);
                 $urls=['modify'=>$url_modify,'delete'=>$url_delete];
             }else{
                 $urls=null;

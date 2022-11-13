@@ -49,6 +49,7 @@ class AddImageController extends AbstractController
                     }
                 }
             }
+            $this->request->method = 'GET';
             Router::executeRoute('user');
         }
     }
