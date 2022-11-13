@@ -28,7 +28,7 @@ class ModifyGalleryController extends AbstractController
         }
         if ($this->request->method === 'POST') {
             if ($this->validateParams(['get' => ['gallery_id'], 'post' => ['title', 'descr', 'usersAccess']]) !== true) {
-                // FAIRE UN TRUC ICI
+                // AFFICHER UNE ERREUR
                 return;
             }
 
@@ -77,7 +77,6 @@ class ModifyGalleryController extends AbstractController
                 if (!empty($user)) {
                     $u = User::where('username', '=', trim($user))->first();
                     if ($u) {
-                        echo $u->id;
                         Access::create(['user_id' => $u->id, 'gallery_id' => $gallery_id]);
                     }
                 }
