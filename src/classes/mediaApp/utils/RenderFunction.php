@@ -33,6 +33,9 @@ class RenderFunction
         } else {
             $img_src = '';
         }
+        if($count ==0){
+            $img_src = $root . '/img/thumbnails/no-image.jpg';
+        }
         $res = <<<EOT
         <article class='gallery-article'>
             <div>
