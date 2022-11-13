@@ -37,7 +37,8 @@ $router->addRoute('about', 'about', '\iutnc\mediaApp\control\AboutController');
 $router->addRoute('modifyGallery', 'modify_gallery', '\iutnc\mediaApp\control\ModifyGalleryController');
 $router->addRoute('createGallery', 'create_gallery', '\iutnc\mediaApp\control\CreateGalleryController');
 $router->addRoute('search', 'search', '\iutnc\mediaApp\control\SearchController');
-$router->addRoute('deleteGallery', 'delete_Gallery', '\iutnc\mediaApp\control\DeleteGalleryController');
+$router->addRoute('modifyImage', 'modify_image', '\iutnc\mediaApp\control\ModifyImageController');
+$router->addRoute('deleteGallery', 'delete_gallery', '\iutnc\mediaApp\control\DeleteGalleryController');
 
 
 

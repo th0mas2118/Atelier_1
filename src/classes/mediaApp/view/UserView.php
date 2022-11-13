@@ -22,6 +22,7 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
             <div class='modify-image-gallery-button'>
             <a href='$url_create_gallery'>Create Gallery</a>
             </div>
+            <h1>Hello {$this->data['fullname']}</h1>
             EOT;
             $res.=$create_gallery;
             $res.="<section id='user-list'>";
