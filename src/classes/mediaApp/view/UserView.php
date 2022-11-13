@@ -25,8 +25,8 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
             <h1>Hello {$this->data['fullname']}</h1>
             EOT;
             $res.=$create_gallery;
-            $res.="<section id='user-list'>";
         }
+        $res.="<section id='user-list'>";
         foreach($gal as $g){
             if($bool==1){
                 $url_modify=$this->router->urlFor('modifyGallery',[['gallery_id',$g->id]]);
