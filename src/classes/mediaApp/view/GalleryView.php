@@ -10,9 +10,9 @@ class GalleryView extends MainView implements Renderer
 {
     public function render(): string
     {
-        $html = '<section id="gallery-list">';
         $title = $this->data['gallery']->name;
-        $html .= `<h1>{$title}</h1>`;
+        $html = "<h1>{$title}</h1>";
+        $html .= '<section id="gallery-list">';
         $root = $this->request->root;
         foreach ($this->data['images'] as $image) {
             $url_image = $this->router->urlFor('image', [['id', $image->id]]);
