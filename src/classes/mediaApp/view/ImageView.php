@@ -37,7 +37,9 @@ class ImageView extends MainView implements Renderer
         $comments = "";
         if (AbstractAuthentification::connectedUser() === $image['author']) {
             $m = $this->router->urlFor('modifyImage', [['image_id', $image['id']]]);
+            $d = $this->router->urlFor('deleteImage', [['image_id', $image['id']]]);
             $modify = "<a href='$m'>Modify</a>";
+            $delete = "<a href='$d'>Delete</a>";
         } else {
             $modify = "";
         }
@@ -51,6 +53,7 @@ class ImageView extends MainView implements Renderer
             <div>
                 <div class='modify-image-gallery-button'>
                     {$modify}
+                    {$delete}
                 </div>
                 <div>
                     <h3>Description :</h3>

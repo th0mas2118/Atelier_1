@@ -11,7 +11,6 @@ use \iutnc\mediaApp\controller\User;
 
 class DeleteGalleryController extends AbstractController{
     public function execute($error = null): void{
-        $root=$root=$this->request->root;
         $g=Gallery::where('id','=',$this->request->get['gallery_id']);
         $il=$g->first()->images();
         $kl=$g->first()->keywords();
@@ -26,5 +25,6 @@ class DeleteGalleryController extends AbstractController{
         $il->delete();
         $kl->delete();
         $g->delete();
+        Router::executeRoute('user');
     }
 }
