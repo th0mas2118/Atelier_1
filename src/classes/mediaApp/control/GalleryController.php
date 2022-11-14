@@ -32,12 +32,17 @@ class GalleryController extends AbstractController
             return;
         }
 
-        $gallery = Gallery::where('id', '=', $id)->first();
-        $liste_images = $gallery->images()->get();
-
+        if (isset($this->request->get['page']) && !empty($this->request->get['page'])) {
+            $page = $this->request->get['page'] - 1;
+            $gallery = Gallery::where('id', '=', $id)->first();
+            $liste_images = $gallery->images()->orderBy('created_at', 'DESC')->skip($page * 20)->take(20)->get();
+        }else{
+            $gallery = Gallery::where('id', '=', $id)->first();
+            $liste_images = $gallery->images()->orderBy('created_at', 'DESC')->take(20)->get();
+        }
         $nbreArticle = Gallery::where('id', '=', $id)->first()->nb_images();
 
-        $gv = new \iutnc\mediaApp\view\GalleryView(['gallery' => $gallery, 'images' => $liste_images, 'nbreArticle' => $nbreArticle]);
+        $gv = new \iutnc\mediaApp\view\GalleryView(['gallery' => $gallery, 'images' => $liste_images, 'nombreArticle' => $nbreArticle]);
         $gv->makePage();
     }
 }

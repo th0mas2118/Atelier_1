@@ -2,6 +2,7 @@
 
 namespace iutnc\mediaApp\control;
 
+use iutnc\mediaApp\auth\Authentification;
 use \iutnc\mf\control\AbstractController;
 use \iutnc\mf\router\Router;
 use \iutnc\mediaApp\view\ModifyGalleryView;
@@ -16,6 +17,12 @@ class ModifyImageController extends AbstractController
     {
         if ($this->request->method === 'GET') {
             $image = Image::select()->where('id', '=', $this->request->get['image_id'])->first();
+
+            if (!$image || $image->author !== Authentification::connectedUser()) {
+                Router::executeRoute('user');
+                return;
+            }
+
             $miv = new ModifyImageView(['image' => $image, 'keywords' => $image->keywords()->get()]);
 
             $miv->makePage();
@@ -34,6 +41,12 @@ class ModifyImageController extends AbstractController
             Keyword::whereIn('id', $kDBIds)->delete();
 
             $image = Image::select()->where('id', '=', $image_id)->first();
+
+            if (!$image || $image->author !== Authentification::connectedUser()) {
+                Router::executeRoute('user');
+                return;
+            }
+
             $image->title = $title;
             $image->description = $descr;
             $var = $this->request->post['keyword'];

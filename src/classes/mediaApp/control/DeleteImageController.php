@@ -2,21 +2,30 @@
 
 namespace iutnc\mediaApp\control;
 
+use iutnc\mediaApp\auth\Authentification;
 use \iutnc\mf\control\AbstractController;
 use \iutnc\mf\router\Router;
 use \iutnc\mediaApp\model\Keyword;
 use \iutnc\mediaApp\model\Image;
 use \iutnc\mediaApp\controller\User;
 
-class DeleteImageController extends AbstractController{
-    public function execute($error = null): void{
-        $i=Image::where('id','=',$this->request->get['image_id']);
-        $kl=$i->first()->keywords();
-        if(is_file(realpath(".") . "/img/full_size/".$i->first()['id'].".jpg")){
-            unlink(realpath(".") . "/img/full_size/".$i->first()['id'].".jpg");
+class DeleteImageController extends AbstractController
+{
+    public function execute($error = null): void
+    {
+        $i = Image::where('id', '=', $this->request->get['image_id'])->first();
+
+        if (!$i || $i->author !== Authentification::connectedUser()) {
+            Router::executeRoute('user');
+            return;
         }
-        if(is_file(realpath(".") . "/img/thumbnails/".$i->first()['id'].".jpg")){
-            unlink(realpath(".") . "/img/thumbnails/".$i->first()['id'].".jpg");
+
+        $kl = $i->keywords();
+        if (is_file(realpath(".") . "/img/full_size/" . $i['id'] . ".jpg")) {
+            unlink(realpath(".") . "/img/full_size/" . $i['id'] . ".jpg");
+        }
+        if (is_file(realpath(".") . "/img/thumbnails/" . $i['id'] . ".jpg")) {
+            unlink(realpath(".") . "/img/thumbnails/" . $i['id'] . ".jpg");
         }
         $kl->delete();
         $i->delete();
