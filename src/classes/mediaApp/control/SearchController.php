@@ -17,7 +17,7 @@ class SearchController extends AbstractController
     public function execute($error = null): void
     {
         if ($this->request->method === 'GET') {
-            if (!isset($this->request->get['keywords']) || empty($this->request->get['keywords'])) {
+            if ($this->validateParams(['get' => ['keywords']]) !== true) {
                 Router::executeRoute('home');
                 return;
             }
