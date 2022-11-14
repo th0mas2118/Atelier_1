@@ -337,7 +337,6 @@ footer nav {
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
 }
 .createGallery form button {
   width: 100%;
@@ -351,6 +350,10 @@ footer nav {
 }
 .createGallery form #isPrivate {
   width: auto;
+}
+.createGallery form textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .modify-image-gallery-button, #about {
