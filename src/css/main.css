@@ -355,6 +355,9 @@ footer nav {
   border-radius: 10px;
   cursor: pointer;
 }
+.createGallery form #isPrivate {
+  width: auto;
+}
 
 .modify-image-gallery-button, #about {
   margin: 5px;
