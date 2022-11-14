@@ -51,7 +51,7 @@ class MainView extends AbstractView
                     <a href='$url_home'>Home</a>
                     $register
                     $log
-                    <a href='$url_about'>A propos</a>
+                    <a href='$url_about'>About</a>
                     $user_button
                 </nav>
                 <form action=''>
@@ -77,7 +77,7 @@ class MainView extends AbstractView
                 </div>    
                 <nav>
                     <a href='$url_home'>Home</a>
-                    <a href='$url_about'>A propos</a>
+                    <a href='$url_about'>About</a>
                     <a href='$url_contact'>Contact</a>
                 </nav
         ";
