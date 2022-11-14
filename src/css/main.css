@@ -348,6 +348,7 @@ footer nav {
 .createGallery {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   padding: 2%;
 }
 .createGallery form {
@@ -382,6 +383,9 @@ footer nav {
 .createGallery form textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+.createGallery .modify-image-gallery-button {
+  text-align: center;
 }
 
 .modify-image-gallery-button, #about {

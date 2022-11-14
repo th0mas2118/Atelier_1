@@ -1,6 +1,7 @@
 .createGallery {
 	display: flex;
 	justify-content: center;
+	flex-direction: column;
 	padding: 2%;
 
 	form {
@@ -40,5 +41,9 @@
 			border: 1px solid #ccc;
 			border-radius: 4px;
 		}
+	}
+
+	.modify-image-gallery-button {
+		text-align: center;
 	}
 }
