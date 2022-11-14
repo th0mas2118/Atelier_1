@@ -42,6 +42,7 @@ class ImageView extends MainView implements Renderer
             $delete = "<a href='$d'>Delete</a>";
         } else {
             $modify = "";
+            $delete="";
         }
         $keywords="";
         foreach ($this->data['image']->keywords()->get() as $key) {
