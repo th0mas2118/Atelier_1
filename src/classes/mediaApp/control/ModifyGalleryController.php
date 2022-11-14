@@ -22,6 +22,9 @@ class ModifyGalleryController extends AbstractController
             }
 
             $g = Gallery::select()->where('id', '=', $this->request->get['gallery_id'])->first();
+            $test = $g->usersWithAccess()->pluck('id');
+
+            echo $test;
 
             if (!$g || $g->author !== Authentification::connectedUser()) {
                 Router::executeRoute('user');
@@ -38,7 +41,7 @@ class ModifyGalleryController extends AbstractController
             $mgv->makePage();
         }
         if ($this->request->method === 'POST') {
-            $tmp = $this->validateParams(['get' => ['gallery_id'], 'post' => ['title', 'descr', 'usersAccess']]);
+            $tmp = $this->validateParams(['get' => ['gallery_id'], 'post' => ['title', 'descr']]);
 
             if ($tmp !== true) {
                 $error;
@@ -100,14 +103,15 @@ class ModifyGalleryController extends AbstractController
                 }
             }
 
+            if (isset($this->request->post['usersAccess']) && !empty($this->request->post['usersAccess'])) {
+                $usersAccess = explode("\n", $this->request->post['usersAccess']);
 
-            $usersAccess = explode("\n", $this->request->post['usersAccess']);
-
-            foreach ($usersAccess as $user) {
-                if (!empty($user)) {
-                    $u = User::where('username', '=', trim($user))->first();
-                    if ($u) {
-                        Access::create(['user_id' => $u->id, 'gallery_id' => $gallery_id]);
+                foreach ($usersAccess as $user) {
+                    if (!empty($user)) {
+                        $u = User::where('username', '=', trim($user))->first();
+                        if ($u) {
+                            Access::create(['user_id' => $u->id, 'gallery_id' => $gallery_id]);
+                        }
                     }
                 }
             }
