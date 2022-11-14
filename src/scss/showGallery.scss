@@ -1,0 +1,15 @@
+#gallery-info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 0.5rem;
+
+	h1 {
+		text-align: center;
+		margin: 0.5rem;
+	}
+
+	span {
+		font-style: italic;
+	}
+}

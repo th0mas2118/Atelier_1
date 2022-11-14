@@ -23,9 +23,16 @@ class AddImageController extends AbstractController
         }
 
         if ($this->request->method === 'POST') {
-            if (!isset($_FILES["img"])) return;
+            if (!isset($_FILES["img"])) {
+                Router::executeRoute('user');
+                return;
+            }
 
-            if (!isset($this->request->post["title"]) || !isset($this->request->post["description"]) || !isset($this->request->post["galleryId"])) return;
+            if (!isset($this->request->post["title"]) || !isset($this->request->post["description"]) || !isset($this->request->post["galleryId"])) {
+                Router::executeRoute('user');
+                return;
+            }
+
             $img = $_FILES["img"];
             $title = $this->request->post["title"];
             $description = $this->request->post["description"];

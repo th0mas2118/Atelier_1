@@ -5,18 +5,13 @@
 		overflow: hidden;
 	}
 }
-.image-article img:hover {
-	transition: 0.5s ease-in;
-	z-index: 10;
-	filter: blur(2px);
-}
 
 .img-fullsize .title {
 	h1,
-	h3{
+	h3 {
 		text-align: center;
 	}
-	span{
+	span {
 		display: block;
 		text-align: center;
 	}
