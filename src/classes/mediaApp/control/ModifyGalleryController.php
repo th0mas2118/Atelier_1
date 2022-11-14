@@ -17,9 +17,7 @@ class ModifyGalleryController extends AbstractController
     {
         if ($this->request->method === 'GET') {
             if ($this->validateParams(['get' => ['gallery_id']]) !== true) {
-                $error = 'gallery_id not found';
-                $this->request->method = 'GET';
-                $this->execute($error);
+                Router::executeRoute('user');
                 return;
             }
 
@@ -44,7 +42,7 @@ class ModifyGalleryController extends AbstractController
 
             if ($tmp !== true) {
                 $error;
-
+                echo $tmp;
                 if (in_array('gallery_id', $tmp)) {
                     Router::executeRoute('user');
                     return;
