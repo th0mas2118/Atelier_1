@@ -63,7 +63,7 @@ header nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: 0.3s right, 0.3s opacity;
+  transition: 0.3s all;
 }
 header form {
   display: flex;
@@ -91,12 +91,12 @@ header form input[type=submit] {
   cursor: pointer;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 980px) {
   header {
     flex-direction: row;
   }
   header #open-menu,
-header #close-menu {
+  header #close-menu {
     display: none;
   }
   header nav {

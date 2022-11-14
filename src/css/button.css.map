@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"version":3,"sourceRoot":"","sources":["../scss/button.scss"],"names":[],"mappings":"AAAA;EACC;;AACA;EACC;EACA;EACA;EACA;EACA;;;AAIF;EACC;EACA;EACA","file":"button.css"}
-=======
 {"version":3,"sourceRoot":"","sources":["../scss/button.scss"],"names":[],"mappings":"AAAA;EACC;;AACA;EACC;EACA;EACA;EACA;EACA;;;AAIF;EACC;EACA;EACA;;;AAED;EACC;IACC;IACA;IAIA;;EAHA;IACC","file":"button.css"}
->>>>>>> 5aae7ff795fb0b4562b8881971d4f8ea7d7b6571
