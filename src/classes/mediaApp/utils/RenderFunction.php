@@ -38,24 +38,20 @@ class RenderFunction
         }
         $res = <<<EOT
         <article class='gallery-article'>
-            <div>
-                <h3>{$gal['name']}</h3>
-                <div>
-                    <a href='$url_gallery'>
-                    <img class='image-article' alt='image' src='$img_src'></img>
-                    </a>
-                    <a><i></i></a>
-                </div>
-                <div class='overlay'>
-                    <div id='image-data'>
-                        <span>{$gal->nb_images()} Images</span><br>
-                        <span>Author: $name</span><br>
-                        <span>Creation date : {$gal['created_at']}</span>
-                    </div>
-                    {$image_controls}
-                </div>
-            </div>
-        </article>
+                        <a href='{$url_gallery}'>
+                        <div>
+                        <h3>{$gal['name']}</h3>
+                        <div>
+                            <img alt='image' src='$img_src'></img>
+                        </div>
+                        <div>
+                            <span>{$gal->nb_images()} Images<br></span>
+                            <span>Author :  $name<br></span>
+                            <span>Creation date : {$gal['created_at']}</span>
+                        </div>
+                        </div>
+                        </a>
+                    </article>
         EOT;
         return $res;
     }

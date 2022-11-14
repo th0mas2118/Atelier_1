@@ -24,7 +24,7 @@ class Homeview extends MainView implements Renderer
                 $img_src = $this->request->root . '/img/thumbnails/' . $index . '.jpg';
                 $res .= <<<EOT
                     <article class='gallery-article'>
-                        <a href={$url_gallery}>
+                        <a href='{$url_gallery}'>
                         <div>
                         <h3>{$g['name']}</h3>
                         <div>
