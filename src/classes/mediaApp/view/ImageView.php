@@ -37,6 +37,7 @@ class ImageView extends MainView implements Renderer
 
         //*comments as list of article of comment
         $comments = "";
+
         if (AbstractAuthentification::connectedUser() === $image['author']) {
             $m = $this->router->urlFor('modifyImage', [['image_id', $image['id']]]);
             $d = $this->router->urlFor('deleteImage', [['image_id', $image['id']]]);
@@ -44,22 +45,26 @@ class ImageView extends MainView implements Renderer
             $delete = "<a href='$d'>Delete</a>";
         } else {
             $modify = "";
-            $delete="";
+            $delete = "";
         }
-        $keywords="";
+
+        $keywords = "";
+
         foreach ($this->data['image']->keywords()->get() as $key) {
             $keywords .= $key->content . ' ';
         }
-        $user=User::where('id','=',$this->data['image']['author'])->first();
-        $url_user=$this->router->urlFor('user',[['id', $this->data['image']['author']]]);
+
+        $user = User::where('id', '=', $this->data['image']['author'])->first();
+        $url_user = $this->router->urlFor('user', [['id', $this->data['image']['author']]]);
+
         $res = <<<EOT
         <section class='img-fullsize'>
+            <div><img alt='image' src='{$img_src}'></img></div>
             <div class='title'>
             <a href='{$this->data['galleryUrl']}'><h1>Gallery name : {$this->data['galleryName']}</h1></a>
             <h3>Image name : {$image['title']}</h1>
             <span>Keywords : $keywords</span>
             </div>
-            <div><img alt='image' src='{$img_src}'></img></div>
             <div>
                 <div class='modify-image-gallery-button'>
                     {$modify}

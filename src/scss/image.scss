@@ -16,3 +16,11 @@
 		text-align: center;
 	}
 }
+
+.img-fullsize {
+	& > div:first-of-type {
+		height: calc(100vh - 100px);
+		overflow: hidden;
+		width: 100%;
+	}
+}
