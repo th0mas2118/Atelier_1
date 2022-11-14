@@ -32,7 +32,6 @@ class HomeController extends AbstractController
                 return ($k['isPrivate'] == 0) || ($k['isPrivate'] == 1 && in_array($k['id'], $userAccess)) || ($k['author'] == Authentification::connectedUser());
             });
         }
-
         $nbreArticle = Gallery::where('hasImage', '=', true)->count();
         $hv = new HomeView(["galleryList" => $gl, "nombreArticle" => $nbreArticle]);
         $hv->makePage();
