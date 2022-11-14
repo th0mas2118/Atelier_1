@@ -11,7 +11,6 @@ class Homeview extends MainView implements Renderer
     public function render(): string
     {
         $res = "<section id='home-list'>";
-
         foreach ($this->data["galleryList"] as $g) {
             $name = $g->name()->first()['fullname'];
             $nb_image = $g->nb_images();
@@ -32,9 +31,9 @@ class Homeview extends MainView implements Renderer
                             <img alt='image' src='$img_src'></img>
                         </div>
                         <div>
-                            <span>{$nb_image}</span>
-                            <span>$name</span>
-                            <span>{$g['created_at']}</span>
+                            <span>Number of images in the gallery : {$nb_image}<br></span>
+                            <span>Author :  $name<br></span>
+                            <span>Creation date : {$g['created_at']}</span>
                         </div>
                         </div>
                         </a>
