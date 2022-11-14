@@ -12,13 +12,13 @@ class GalleryView extends MainView implements Renderer
     {
         $url_gallery = $_GET['gallery_id'];
         $title = $this->data['gallery']->name;
-        $keyword="";
-        $html = "<h1>{$title}</h1>";
-        $html .= "<h3>Description : {$this->data['gallery']->description}</h3>";
+        $keyword = "";
+        $html = "<div id='gallery-info'><h1>{$title}</h1>";
+        $html .= "<p>Description : {$this->data['gallery']->description}</p>";
         foreach ($this->data['gallery']->keywords as $key) {
             $keyword .= $key->content . ' ';
         }
-        $html .="<span>Keywords :$keyword</span>";
+        $html .= "<span>Keywords: $keyword</span></div>";
         $html .= "";
         $html .= '<section id="gallery-list">';
         $root = $this->request->root;
@@ -37,7 +37,7 @@ class GalleryView extends MainView implements Renderer
                 <a href='?action=gallery&gallery_id={$url_gallery}&page={$previousPage}'><i class='fa-solid fa-chevron-left'></i></a>" : '';
         $btnN = $page < $p ? "<a href='?action=gallery&gallery_id={$url_gallery}&page={$nextPage}'><i class='fa-solid fa-chevron-right'></i></a>
         <a href='?action=gallery&gallery_id={$url_gallery}&page={$p}'><i class='fa-solid fa-angles-right'></i></a>" : '';
-            $html .= "<section id='gallery'>
+        $html .= "<section id='gallery'>
             <div class='pagination'>
                 {$btnP}
                 <a>$page</a>
