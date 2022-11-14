@@ -13,8 +13,9 @@ class GalleryView extends MainView implements Renderer
         $url_gallery = $_GET['gallery_id'];
         $title = $this->data['gallery']->name;
         $keyword = "";
+        $url_user=$this->router->urlFor('user',[['id', $this->data['gallery']->author]]);
         $html = "<div id='gallery-info'><h1>{$title}</h1>";
-        $html.="<h4>Author : {$this->data['gallery']->name()->first()['fullname']}</h4>";
+        $html.="<h4>Author : <a href='{$url_user}'>{$this->data['gallery']->name()->first()['username']}</a></h4>";
         $html .= "<p>Description : {$this->data['gallery']->description}</p>";
         foreach ($this->data['gallery']->keywords as $key) {
             $keyword .= $key->content . ' ';

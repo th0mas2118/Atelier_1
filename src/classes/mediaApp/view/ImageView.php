@@ -5,6 +5,7 @@ namespace iutnc\mediaApp\view;
 use  iutnc\mf\view\Renderer;
 use iutnc\mf\router\Router;
 use \iutnc\mf\auth\AbstractAuthentification;
+use \iutnc\mediaApp\model\User;
 
 class ImageView extends MainView implements Renderer
 {
@@ -33,6 +34,7 @@ class ImageView extends MainView implements Renderer
                 </tr>
             </table>
         EOT;
+
         //*comments as list of article of comment
         $comments = "";
         if (AbstractAuthentification::connectedUser() === $image['author']) {
@@ -48,6 +50,8 @@ class ImageView extends MainView implements Renderer
         foreach ($this->data['image']->keywords()->get() as $key) {
             $keywords .= $key->content . ' ';
         }
+        $user=User::where('id','=',$this->data['image']['author'])->first();
+        $url_user=$this->router->urlFor('user',[['image_id', $this->data['image']['author']]]);
         $res = <<<EOT
         <section class='img-fullsize'>
             <div class='title'>
@@ -60,6 +64,9 @@ class ImageView extends MainView implements Renderer
                 <div class='modify-image-gallery-button'>
                     {$modify}
                     {$delete}
+                </div>
+                <div>
+                    <h3>Author : <a href="$url_user">@{$user['username']}</a></h3>
                 </div>
                 <div>
                     <h3>Description :</h3>
