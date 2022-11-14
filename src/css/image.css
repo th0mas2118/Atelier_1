@@ -1,18 +1,22 @@
 .image-article div {
   width: 100%;
   height: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .image-article img:hover {
   transition: 0.5s ease-in;
   z-index: 10;
-  filter: blur(2px); }
+  filter: blur(2px);
+}
 
 .img-fullsize .title h1,
 .img-fullsize .title h3 {
-  text-align: center; }
+  text-align: center;
+}
 .img-fullsize .title span {
   display: block;
-  text-align: center; }
+  text-align: center;
+}
 
 /*# sourceMappingURL=image.css.map */

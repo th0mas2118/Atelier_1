@@ -6,100 +6,119 @@ header {
   padding: 1rem;
   height: 100px;
   flex-direction: column;
-  align-items: center; }
-  header h1 {
-    font-size: 1.75rem; }
-  header #open-menu,
-  header #close-menu {
-    position: fixed;
-    right: 1rem;
-    font-size: 2rem;
-    width: 2rem;
-    height: 2rem;
-    top: 1rem;
-    color: white;
-    z-index: 1000;
-    text-align: center;
-    transition: 0.3s all;
-    text-shadow: 0 0 5px #00000050; }
-  header #close-menu {
-    opacity: 0;
-    transform: scale(0); }
-  header #burger-checkbox {
-    position: fixed;
-    z-index: 1001;
-    right: 1rem;
-    top: 1rem;
-    width: 2rem;
-    height: 2rem;
-    opacity: 0; }
-    header #burger-checkbox:checked ~ nav {
-      z-index: 100;
-      opacity: 0.9; }
-    header #burger-checkbox:checked ~ #open-menu {
-      opacity: 0;
-      transform: scale(0); }
-    header #burger-checkbox:checked ~ #close-menu {
-      opacity: 1;
-      transform: scale(1); }
-  header nav {
-    position: fixed;
-    height: 100vh;
-    right: 0;
-    top: 0;
-    background: #333333;
-    opacity: 0;
-    width: 100%;
-    z-index: -1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s all; }
-  header form {
-    display: flex;
-    gap: 0.5rem;
-    width: 100%;
-    justify-content: center; }
-    header form input[type="text"] {
-      width: 100%;
-      max-width: 300px;
-      padding: 6px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box; }
-    header form input[type="submit"] {
-      background-color: gray;
-      color: white;
-      padding: 6px 20px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer; }
+  align-items: center;
+}
+header h1 {
+  font-size: 1.75rem;
+}
+header #open-menu,
+header #close-menu {
+  position: fixed;
+  right: 1rem;
+  font-size: 2rem;
+  width: 2rem;
+  height: 2rem;
+  top: 1rem;
+  color: white;
+  z-index: 1000;
+  text-align: center;
+  transition: 0.3s all;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3137254902);
+}
+header #close-menu {
+  opacity: 0;
+  transform: scale(0);
+}
+header #burger-checkbox {
+  position: fixed;
+  z-index: 1001;
+  right: 1rem;
+  top: 1rem;
+  width: 2rem;
+  height: 2rem;
+  opacity: 0;
+}
+header #burger-checkbox:checked ~ nav {
+  z-index: 100;
+  opacity: 0.9;
+}
+header #burger-checkbox:checked ~ #open-menu {
+  opacity: 0;
+  transform: scale(0);
+}
+header #burger-checkbox:checked ~ #close-menu {
+  opacity: 1;
+  transform: scale(1);
+}
+header nav {
+  position: fixed;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  background: #333333;
+  opacity: 0;
+  width: 100%;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s all;
+}
+header form {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  justify-content: center;
+}
+header form input[type=text] {
+  width: 100%;
+  max-width: 300px;
+  padding: 6px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+header form input[type=submit] {
+  background-color: gray;
+  color: white;
+  padding: 6px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
 @media (min-width: 980px) {
   header {
-    flex-direction: row; }
-    header #open-menu,
-    header #close-menu {
-      display: none; }
-    header nav {
-      position: relative;
-      height: 100%;
-      opacity: 1;
-      z-index: 10;
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      gap: 1rem; }
-    header form {
-      max-width: 500px;
-      justify-content: flex-end; } }
+    flex-direction: row;
+  }
+  header #open-menu,
+  header #close-menu {
+    display: none;
+  }
+  header nav {
+    position: relative;
+    height: 100%;
+    opacity: 1;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  header form {
+    max-width: 500px;
+    justify-content: flex-end;
+  }
+}
 @media (min-width: 1040px) {
   header nav {
     justify-content: flex-start;
-    padding-left: 1rem; } }
+    padding-left: 1rem;
+  }
+}
 
 /*# sourceMappingURL=header.css.map */
