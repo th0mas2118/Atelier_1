@@ -19,10 +19,10 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
         if($bool){
             $url_create_gallery=$this->router->urlFor('createGallery');
             $create_gallery=<<<EOT
-            <div class='modify-image-gallery-button'>
+            <h1>Hello, {$this->data['fullname']}</h1>
+            <div id='create-gallery' class='modify-image-gallery-button'>
             <a href='$url_create_gallery'>Create Gallery</a>
             </div>
-            <h1>Hello {$this->data['fullname']}</h1>
             EOT;
             $res.=$create_gallery;
         }
