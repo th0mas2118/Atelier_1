@@ -30,15 +30,20 @@ abstract class AbstractController
     {
         $missingPost = [];
         $missingGet = [];
-        foreach ($params['get'] as $param) {
-            if (!isset($this->request->get[$param]) || empty($this->request->get[$param])) {
-                array_push($missingGet, $param);
+
+        if (isset($params['get'])) {
+            foreach ($params['get'] as $param) {
+                if (!isset($this->request->get[$param]) || empty($this->request->get[$param])) {
+                    array_push($missingGet, $param);
+                }
             }
         }
 
-        foreach ($params['post'] as $param) {
-            if (!isset($this->request->post[$param]) || empty($this->request->post[$param])) {
-                array_push($missingPost, $param);
+        if (isset($params['post'])) {
+            foreach ($params['post'] as $param) {
+                if (!isset($this->request->post[$param]) || empty($this->request->post[$param])) {
+                    array_push($missingPost, $param);
+                }
             }
         }
 
