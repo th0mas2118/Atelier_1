@@ -67,7 +67,7 @@ class MainView extends AbstractView
     {
         $url_home = $this->router->urlFor('home');
         $url_about = $this->router->urlFor('about');
-        $url_contact = "";
+        $url_contact = $this->router->urlFor('contact');
         return "
             <footer>
                 <div>
