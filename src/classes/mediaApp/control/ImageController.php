@@ -2,6 +2,7 @@
 
 namespace iutnc\mediaApp\control;
 
+use iutnc\mediaApp\auth\Authentification;
 use \iutnc\mf\control\AbstractController;
 use \iutnc\mediaApp\view\ImageView;
 use \iutnc\mf\router\Router;
@@ -13,10 +14,16 @@ class ImageController extends AbstractController
     {
         if (!isset($this->request->get['id'])) {
             Router::executeRoute('home');
+            return;
         }
 
         $image_id = $this->request->get['id'];
         $i = Image::select()->where('id', '=', $image_id)->first();
+
+        if (!$i) {
+            Router::executeRoute('home');
+            return;
+        }
 
         $r = new Router();
 
