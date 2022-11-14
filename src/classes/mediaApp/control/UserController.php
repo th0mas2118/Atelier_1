@@ -12,7 +12,7 @@ class UserController extends \iutnc\mf\control\AbstractController
 {
     public function execute($error = null): void
     {
-        if ($this->validateParams(['get' => ['gallery_id']]) !== true) {
+        if ($this->validateParams(['get' => ['id']]) !== true) {
             if (Authentification::connectedUser()) {
                 $u = User::select()->where('id', '=', Authentification::connectedUser())->first();
                 $uv = new \iutnc\mediaApp\view\UserView(['user' => $u, 'galleries' => $u->galleries()->get()]);
