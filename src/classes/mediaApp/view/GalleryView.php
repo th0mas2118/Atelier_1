@@ -27,18 +27,22 @@ class GalleryView extends MainView implements Renderer
             $html .= RenderFunction::renderImage($image, $root, $url_image);
         }
         $html .= "</section>";
+
+
         $page = isset($this->request->get['page']) && !empty($this->request->get['page']) ? $this->request->get['page'] : 1;
         $previousPage = $page - 1;
         $nextPage = $page + 1;
         $nbrePage = 20;
         $pageInit = 0;
-        $p = ceil($this->data["nbreArticle"] / $nbrePage);
+        $p = ceil($this->data["nombreArticle"] / $nbrePage);
         $btnP = $page > 1 ? "<a href='?action=gallery&gallery_id={$url_gallery}&page={$pageInit}'><i class='fa-solid fa-angles-left'></i></a>
                 <a href='?action=gallery&gallery_id={$url_gallery}&page={$previousPage}'><i class='fa-solid fa-chevron-left'></i></a>" : '';
+
         $btnN = $page < $p ? "<a href='?action=gallery&gallery_id={$url_gallery}&page={$nextPage}'><i class='fa-solid fa-chevron-right'></i></a>
         <a href='?action=gallery&gallery_id={$url_gallery}&page={$p}'><i class='fa-solid fa-angles-right'></i></a>" : '';
-            $html .= "<section id='gallery'>
-            <div class='pagination'>
+
+        $html .= "<section id='gallery'>
+             <div class='pagination'>
                 {$btnP}
                 <a>$page</a>
                 {$btnN}

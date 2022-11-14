@@ -40,6 +40,7 @@ class Homeview extends MainView implements Renderer
                         </a>
                     </article>
             EOT;
+            
             }
         }
         $res .= "</section>";
