@@ -21,7 +21,7 @@ class GalleryController extends AbstractController
 
     public function execute($error = null): void
     {
-        if (!isset($this->request->get['gallery_id'])) {
+        if ($this->validateParams(['get' => ['gallery_id']]) !== true) {
             Router::executeRoute('home');
             return;
         }

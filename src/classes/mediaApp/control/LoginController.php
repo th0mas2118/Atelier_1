@@ -23,18 +23,6 @@ class LoginController extends AbstractController
         }
 
         if ($this->request->method === 'POST') {
-            $tmp = $this->validateParams(['post' => ['username', 'password']]);
-            if ($tmp !== true) {
-                $error;
-
-                foreach ($tmp as $t) {
-                    $error .= $t . '<br>';
-                }
-
-                $this->request->method = 'GET';
-                $this->execute($error);
-                return;
-            }
             $username = $this->request->post['username'];
             $password = $this->request->post['password'];
 

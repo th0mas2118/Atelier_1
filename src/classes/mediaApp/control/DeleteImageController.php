@@ -13,7 +13,12 @@ class DeleteImageController extends AbstractController
 {
     public function execute($error = null): void
     {
-        $i = Image::where('id', '=', $this->request->get['image_id'])->first();
+        if ($this->validateParams(['get' => ['image_id']]) !== true) {
+            Router::executeRoute('user');
+            return;
+        }else{
+            $i = Image::where('id', '=', $this->request->get['image_id'])->first();
+        }
 
         if (!$i || $i->author !== Authentification::connectedUser()) {
             Router::executeRoute('user');

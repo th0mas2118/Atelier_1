@@ -14,8 +14,13 @@ class DeleteGalleryController extends AbstractController
 {
     public function execute($error = null): void
     {
-        $g = Gallery::where('id', '=', $this->request->get['gallery_id'])->first();
-
+        if ($this->validateParams(['get' => ['gallery_id']]) !== true) {
+            Router::executeRoute('user');
+            return;
+        }else{
+            $g = Gallery::where('id', '=', $this->request->get['gallery_id'])->first();
+        }
+    
         if (!$g || $g->author !== Authentification::connectedUser()) {
             Router::executeRoute('user');
             return;

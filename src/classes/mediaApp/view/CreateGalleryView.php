@@ -8,8 +8,11 @@ class CreateGalleryView extends MainView implements Renderer
 {
     public function render(): string
     {
+        $error = $this->data['error'];
+        $errorMessage = $error ? "<div>not informed : $error</div>" : "";
         $res = <<<EOT
         <section class="createGallery">
+            $errorMessage
                 <form method='post'>
                 <h1>CREATE GALLERY</h1>
                     <label name='title'>Title :</label>
