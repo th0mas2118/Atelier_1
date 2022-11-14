@@ -26,6 +26,7 @@ class GalleryView extends MainView implements Renderer
             $url_image = $this->router->urlFor('image', [['id', $image->id]]);
             $html .= RenderFunction::renderImage($image, $root, $url_image);
         }
+        $html .= "</section>";
         $page = isset($this->request->get['page']) && !empty($this->request->get['page']) ? $this->request->get['page'] : 1;
         $previousPage = $page - 1;
         $nextPage = $page + 1;
