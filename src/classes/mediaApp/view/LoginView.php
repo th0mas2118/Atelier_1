@@ -9,7 +9,7 @@ class LoginView extends MainView implements Renderer
     public function render(): string
     {
         $error = $this->data;
-        $errorMessage = $error ? "<div>not informed : $error</div>" : "";
+        $errorMessage = $error ? "<span>$error</span>" : "";
 
         $res = <<<EOT
             <section class="login">

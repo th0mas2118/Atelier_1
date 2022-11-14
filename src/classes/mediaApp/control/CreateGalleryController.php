@@ -14,10 +14,21 @@ class CreateGalleryController extends AbstractController
     public function execute($error = null): void
     {
         if ($this->request->method === 'GET') {
-            $cv = new CreateGalleryView();
+            $cv = new CreateGalleryView(['error'=>$error]);
             $cv->makePage();
         }
         if ($this->request->method === 'POST') {
+            $tmp = $this->validateParams(['post' => ['title', 'descr']]);
+            if ($tmp !== true) {
+                $error;
+                foreach ($tmp as $t) {
+                    $error .= $t . '<br>';
+                }
+
+                $this->request->method = 'GET';
+                $this->execute($error);
+                return;
+            }
             $title = $this->request->post['title'];
             $descr = $this->request->post['descr'];
             $keywords = $this->request->post['keyword'];
