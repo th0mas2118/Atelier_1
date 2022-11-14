@@ -35,7 +35,7 @@ class GalleryView extends MainView implements Renderer
         $btnP = $page > 1 ? "<a href='?action=gallery&gallery_id={$url_gallery}&page={$pageInit}'><i class='fa-solid fa-angles-left'></i></a>
                 <a href='?action=gallery&gallery_id={$url_gallery}&page={$previousPage}'><i class='fa-solid fa-chevron-left'></i></a>" : '';
         $btnN = $page < $p ? "<a href='?action=gallery&gallery_id={$url_gallery}&page={$nextPage}'><i class='fa-solid fa-chevron-right'></i></a>
-        <a href='?action=gallery&gallery_id={$url_gallery}&page={$p}''><i class='fa-solid fa-angles-right'></i></a>" : '';
+        <a href='?action=gallery&gallery_id={$url_gallery}&page={$p}'><i class='fa-solid fa-angles-right'></i></a>" : '';
             $html .= "<section id='gallery'>
             <div class='pagination'>
                 {$btnP}

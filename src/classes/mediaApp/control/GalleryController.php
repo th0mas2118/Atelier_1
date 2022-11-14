@@ -35,7 +35,7 @@ class GalleryController extends AbstractController
         $gallery = Gallery::where('id', '=', $id)->first();
         $liste_images = $gallery->images()->get();
 
-        $nbreArticle = Gallery::count();
+        $nbreArticle = Gallery::where('id', '=', $id)->first()->nb_images();
 
         $gv = new \iutnc\mediaApp\view\GalleryView(['gallery' => $gallery, 'images' => $liste_images, 'nbreArticle' => $nbreArticle]);
         $gv->makePage();
