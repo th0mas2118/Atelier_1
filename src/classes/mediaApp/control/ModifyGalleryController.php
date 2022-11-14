@@ -16,6 +16,12 @@ class ModifyGalleryController extends AbstractController
     public function execute($error = null): void
     {
         if ($this->request->method === 'GET') {
+            if ($this->validateParams(['get' => ['gallery_id']]) !== true) {
+                $error='gallery_id not found';
+                $this->request->method = 'GET';
+                $this->execute($error);
+                return;
+            }
             $router = new Router();
 
             $url_addimage = $router->urlFor('addimage', [['gallery_id', $this->request->get['gallery_id']]]);
@@ -27,8 +33,14 @@ class ModifyGalleryController extends AbstractController
             $mgv->makePage();
         }
         if ($this->request->method === 'POST') {
-            if ($this->validateParams(['get' => ['gallery_id'], 'post' => ['title', 'descr', 'usersAccess']]) !== true) {
-                // AFFICHER UNE ERREUR
+            $tmp=$this->validateParams(['get' => ['gallery_id'], 'post' => ['title', 'descr', 'usersAccess']]);
+            if ($tmp !== true) {
+                $error;
+                foreach($tmp as $t){
+                    $error.=$t.'<br>';
+                }
+                $this->request->method = 'GET';
+                $this->execute($error);
                 return;
             }
 
