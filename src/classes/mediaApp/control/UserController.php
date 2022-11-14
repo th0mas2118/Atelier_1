@@ -12,7 +12,7 @@ class UserController extends \iutnc\mf\control\AbstractController
 {
     public function execute($error = null): void
     {
-        if (!isset($this->request->get['id'])) {
+        if ($this->validateParams(['get' => ['gallery_id']]) !== true) {
             if (Authentification::connectedUser()) {
                 $u = User::select()->where('id', '=', Authentification::connectedUser())->first();
                 $uv = new \iutnc\mediaApp\view\UserView(['user' => $u, 'galleries' => $u->galleries()->get()]);
@@ -22,7 +22,6 @@ class UserController extends \iutnc\mf\control\AbstractController
             Router::executeRoute('home');
             return;
         }
-
         $id = $this->request->get['id'];
 
         if (is_null(User::find($id))) {
