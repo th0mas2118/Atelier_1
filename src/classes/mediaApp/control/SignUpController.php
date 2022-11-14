@@ -29,13 +29,13 @@ class SignUpController extends AbstractController
 
             if (empty($username) || empty($fullname) || empty($password) || empty($passwordConfirmation)) {
                 $this->request->method = 'GET';
-                $this->execute("Veuillez remplir tout les champs");
+                $this->execute("Please fill all fields");
                 return;
             }
 
             if ($password !== $passwordConfirmation) {
                 $this->request->method = 'GET';
-                $this->execute("Les mots de passes ne correspondent pas");
+                $this->execute("Passwords does not match");
                 return;
             }
 
