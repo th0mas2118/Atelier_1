@@ -67,12 +67,21 @@ $faker = Faker\Factory::create('fr_FR');
 
 $g = Gallery::select()->get();
 
-foreach ($g as $gal) {
-    if ($gal->nb_images() > 0) {
-        $gal->hasImage = true;
-    } else {
-        $gal->hasImage = false;
-    }
+// foreach ($g as $gal) {
+//     if ($gal->nb_images() > 0) {
+//         $gal->hasImage = true;
+//     } else {
+//         $gal->hasImage = false;
+//     }
 
-    $gal->save();
+//     $gal->save();
+// }
+
+foreach ($g as $gal) {
+    $images = $gal->images()->get();
+
+    foreach ($images as $img) {
+        $img->author = $gal->author;
+        $img->save();
+    }
 }
