@@ -12,6 +12,13 @@ class ImageController extends AbstractController
 {
     public function execute($error = null): void
     {
+        if ($this->validateParams(['get' => ['id']]) !== true) {
+                Router::executeRoute('home');
+                return;
+        }else{
+            $image_id = $this->request->get['id'];
+            $i = Image::select()->where('id', '=', $image_id)->first();
+        }
         if (!isset($this->request->get['id'])) {
             Router::executeRoute('home');
             return;
