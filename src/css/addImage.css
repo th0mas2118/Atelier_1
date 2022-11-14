@@ -1,21 +1,22 @@
-.createGallery {
+.addImage {
   display: flex;
   justify-content: center;
   padding: 2%; }
-  .createGallery form {
+  .addImage form {
     margin: 49px; }
-    .createGallery form h1 {
+    .addImage form h1 {
       font-weight: bold;
       text-align: center;
       font-size: 2.5em; }
-    .createGallery form input {
+    .addImage form input {
       width: 100%;
       padding: 12px 20px;
       margin: 8px 0;
       display: inline-block;
       border: 1px solid #ccc;
-      border-radius: 4px; }
-    .createGallery form button {
+      border-radius: 4px;
+      box-sizing: border-box; }
+    .addImage form button {
       width: 100%;
       background-color: #333333;
       color: white;
@@ -24,10 +25,5 @@
       border: none;
       border-radius: 10px;
       cursor: pointer; }
-    .createGallery form #isPrivate {
-      width: auto; }
-    .createGallery form textarea {
-      border: 1px solid #ccc;
-      border-radius: 4px; }
 
-/*# sourceMappingURL=createGallery.css.map */
+/*# sourceMappingURL=addImage.css.map */

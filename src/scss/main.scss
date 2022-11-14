@@ -10,6 +10,7 @@
 @import "createGallery.scss";
 @import "button.scss";
 @import "showGallery.scss";
+@import "addImage.scss";
 
 html,
 body {
@@ -62,6 +63,7 @@ main {
 		a {
 			width: 100%;
 		}
+
 		&:nth-of-type(odd) {
 			@include col_xs(1, 2);
 		}
@@ -77,6 +79,7 @@ main {
 			@include row_m(1);
 			@include row_el(1);
 		}
+
 		&:nth-of-type(2) {
 			@include col_m(3, 4);
 			@include col_el(4, 7);
@@ -84,6 +87,7 @@ main {
 			@include row_m(1);
 			@include row_el(1);
 		}
+
 		&:nth-of-type(3) {
 			@include col_m(4, 6);
 			@include col_el(7, 10);
@@ -91,6 +95,7 @@ main {
 			@include row_m(1);
 			@include row_el(1);
 		}
+
 		&:nth-of-type(4) {
 			@include col_m(1, 4);
 			@include col_el(10, 13);
@@ -98,6 +103,7 @@ main {
 			@include row_m(2);
 			@include row_el(1);
 		}
+
 		&:nth-of-type(5) {
 			@include col_m(4, 6);
 			@include col_el(1, 5);
@@ -105,6 +111,7 @@ main {
 			@include row_m(2);
 			@include row_el(2);
 		}
+
 		&:nth-of-type(6) {
 			@include col_m(1, 3);
 			@include col_el(5, 9);
@@ -112,6 +119,7 @@ main {
 			@include row_m(3);
 			@include row_el(2);
 		}
+
 		&:nth-of-type(7) {
 			@include col_m(3, 6);
 			@include col_el(9, 13);
@@ -119,6 +127,7 @@ main {
 			@include row_m(3);
 			@include row_el(2);
 		}
+
 		&:nth-of-type(8) {
 			@include col_m(1, 3);
 			@include col_el(1, 4);
@@ -126,6 +135,7 @@ main {
 			@include row_m(4);
 			@include row_el(3);
 		}
+
 		&:nth-of-type(9) {
 			@include col_m(3, 4);
 			@include col_el(4, 7);
@@ -133,6 +143,7 @@ main {
 			@include row_m(4);
 			@include row_el(3);
 		}
+
 		&:nth-of-type(10) {
 			@include col_m(4, 6);
 			@include col_el(7, 10);
@@ -140,6 +151,7 @@ main {
 			@include row_m(4);
 			@include row_el(3);
 		}
+
 		&:nth-of-type(11) {
 			@include col_m(1, 4);
 			@include col_el(10, 13);
@@ -147,6 +159,7 @@ main {
 			@include row_m(5);
 			@include row_el(3);
 		}
+
 		&:nth-of-type(12) {
 			@include col_m(4, 6);
 			@include col_el(1, 4);
@@ -154,6 +167,7 @@ main {
 			@include row_m(5);
 			@include row_el(4);
 		}
+
 		&:nth-of-type(13) {
 			@include col_m(1, 3);
 			@include col_el(4, 7);
@@ -161,6 +175,7 @@ main {
 			@include row_m(6);
 			@include row_el(4);
 		}
+
 		&:nth-of-type(14) {
 			@include col_m(3, 6);
 			@include col_el(7, 10);
@@ -168,6 +183,7 @@ main {
 			@include row_m(6);
 			@include row_el(4);
 		}
+
 		&:nth-of-type(15) {
 			@include col_m(1, 3);
 			@include col_el(10, 13);
@@ -175,6 +191,7 @@ main {
 			@include row_m(7);
 			@include row_el(4);
 		}
+
 		&:nth-of-type(16) {
 			@include col_m(3, 4);
 			@include col_el(1, 5);
@@ -182,6 +199,7 @@ main {
 			@include row_m(7);
 			@include row_el(5);
 		}
+
 		&:nth-of-type(17) {
 			@include col_m(4, 6);
 			@include col_el(5, 9);
@@ -189,6 +207,7 @@ main {
 			@include row_m(7);
 			@include row_el(5);
 		}
+
 		&:nth-of-type(18) {
 			@include col_m(1, 3);
 			@include col_el(9, 13);
@@ -196,6 +215,7 @@ main {
 			@include row_m(8);
 			@include row_el(5);
 		}
+
 		&:nth-of-type(19) {
 			@include col_m(3, 4);
 			@include col_el(1, 7);
@@ -203,6 +223,7 @@ main {
 			@include row_m(8);
 			@include row_el(6);
 		}
+
 		&:nth-of-type(20) {
 			@include col_m(4, 6);
 			@include col_el(7, 13);
@@ -225,6 +246,7 @@ img {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
 	a {
 		width: 15rem;
 		margin: 5px;
