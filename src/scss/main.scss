@@ -49,7 +49,7 @@ main {
 		grid-template-columns: repeat(5, 1fr);
 	}
 
-	@include screen-l() {
+	@include screen-el() {
 		grid-template-columns: repeat(12, 1fr);
 	}
 
@@ -68,143 +68,143 @@ main {
 
 		&:nth-of-type(1) {
 			@include col_m(1, 3);
-			@include col_l(1,4);
+			@include col_el(1,4);
 			@include row_xs(1);
 			@include row_m(1);
-			@include row_l(1);
+			@include row_el(1);
 		}
 		&:nth-of-type(2) {
 			@include col_m(3, 4);
-			@include col_l(4,7);
+			@include col_el(4,7);
 			@include row_xs(1);
 			@include row_m(1);
-			@include row_l(1);
+			@include row_el(1);
 		}
 		&:nth-of-type(3) {
 			@include col_m(4, 6);
-			@include col_l(7,10);
+			@include col_el(7,10);
 			@include row_xs(2);
 			@include row_m(1);
-			@include row_l(1);
+			@include row_el(1);
 		}
 		&:nth-of-type(4) {
 			@include col_m(1, 4);
-			@include col_l(10,13);
+			@include col_el(10,13);
 			@include row_xs(2);
 			@include row_m(2);
-			@include row_l(1);
+			@include row_el(1);
 		}
 		&:nth-of-type(5) {
 			@include col_m(4, 6);
-			@include col_l(1,5);
+			@include col_el(1,5);
 			@include row_xs(3);
 			@include row_m(2);
-			@include row_l(2);
+			@include row_el(2);
 		}
 		&:nth-of-type(6) {
 			@include col_m(1, 3);
-			@include col_l(5,9);
+			@include col_el(5,9);
 			@include row_xs(3);
 			@include row_m(3);
-			@include row_l(2);
+			@include row_el(2);
 		}
 		&:nth-of-type(7) {
 			@include col_m(3, 6);
-			@include col_l(9,13);
+			@include col_el(9,13);
 			@include row_xs(4);
 			@include row_m(3);
-			@include row_l(2);
+			@include row_el(2);
 		}
 		&:nth-of-type(8) {
 			@include col_m(1, 3);
-			@include col_l(1,4);
+			@include col_el(1,4);
 			@include row_xs(4);
 			@include row_m(4);
-			@include row_l(3);
+			@include row_el(3);
 		}
 		&:nth-of-type(9) {
 			@include col_m(3, 4);
-			@include col_l(4,7);
+			@include col_el(4,7);
 			@include row_xs(5);
 			@include row_m(4);
-			@include row_l(3);
+			@include row_el(3);
 		}
 		&:nth-of-type(10) {
 			@include col_m(4, 6);
-			@include col_l(7,10);
+			@include col_el(7,10);
 			@include row_xs(5);
 			@include row_m(4);
-			@include row_l(3);
+			@include row_el(3);
 		}
 		&:nth-of-type(11) {
 			@include col_m(1, 4);
-			@include col_l(10,13);
+			@include col_el(10,13);
 			@include row_xs(6);
 			@include row_m(5);
-			@include row_l(3);
+			@include row_el(3);
 		}
 		&:nth-of-type(12) {
 			@include col_m(4, 6);
-			@include col_l(1,4);
+			@include col_el(1,4);
 			@include row_xs(6);
 			@include row_m(5);
-			@include row_l(4);
+			@include row_el(4);
 		}
 		&:nth-of-type(13) {
 			@include col_m(1, 3);
-			@include col_l(4,7);
+			@include col_el(4,7);
 			@include row_xs(7);
 			@include row_m(6);
-			@include row_l(4);
+			@include row_el(4);
 		}
 		&:nth-of-type(14) {
 			@include col_m(3, 6);
-			@include col_l(7,10);
+			@include col_el(7,10);
 			@include row_xs(7);
 			@include row_m(6);
-			@include row_l(4);
+			@include row_el(4);
 		}
 		&:nth-of-type(15) {
 			@include col_m(1, 3);
-			@include col_l(10,13);
+			@include col_el(10,13);
 			@include row_xs(8);
 			@include row_m(7);
-			@include row_l(4);
+			@include row_el(4);
 		}
 		&:nth-of-type(16) {
 			@include col_m(3, 4);
-			@include col_l(1,5);
+			@include col_el(1,5);
 			@include row_xs(8);
 			@include row_m(7);
-			@include row_l(5);
+			@include row_el(5);
 		}
 		&:nth-of-type(17) {
 			@include col_m(4, 6);
-			@include col_l(5,9);
+			@include col_el(5,9);
 			@include row_xs(9);
 			@include row_m(7);
-			@include row_l(5);
+			@include row_el(5);
 		}
 		&:nth-of-type(18) {
 			@include col_m(1, 3);
-			@include col_l(9,13);
+			@include col_el(9,13);
 			@include row_xs(9);
 			@include row_m(8);
-			@include row_l(5);
+			@include row_el(5);
 		}
 		&:nth-of-type(19) {
 			@include col_m(3, 4);
-			@include col_l(1,7);
+			@include col_el(1,7);
 			@include row_xs(10);
 			@include row_m(8);
-			@include row_l(6);
+			@include row_el(6);
 		}
 		&:nth-of-type(20) {
 			@include col_m(4, 6);
-			@include col_l(7,13);
+			@include col_el(7,13);
 			@include row_xs(10);
 			@include row_m(8);
-			@include row_l(6);
+			@include row_el(6);
 		}
 	}
 }

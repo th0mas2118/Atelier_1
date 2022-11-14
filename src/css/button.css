@@ -1,15 +1,18 @@
 .modify-image-gallery-button, #about {
-  margin: 5px; }
-  .modify-image-gallery-button a, #about a {
-    border: 2px solid black;
-    border-radius: 15px;
-    background-color: #333333;
-    color: white;
-    padding: 5px; }
+  margin: 5px;
+}
+.modify-image-gallery-button a, #about a {
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: #333333;
+  color: white;
+  padding: 5px;
+}
 
 #create-gallery a {
   display: block;
   width: 100%;
-  text-align: center; }
+  text-align: center;
+}
 
 /*# sourceMappingURL=button.css.map */
