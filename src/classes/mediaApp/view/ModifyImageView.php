@@ -14,8 +14,11 @@ class ModifyImageView extends MainView implements Renderer
         foreach ($this->data['keywords'] as $key) {
             $keyword .= $key->content . ' ';
         }
+        $error = $this->data['error'];
+        $errorMessage = $error ? "<div>not informed : $error</div>" : "";
         $res = <<<EOT
         <section>
+            $errorMessage
             <form method=post>
                 <label name=title>Title :</label>
                 <input value='{$this->data['image']->title}' type=text name=title placeholder="Title"><br>
