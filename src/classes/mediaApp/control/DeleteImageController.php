@@ -15,6 +15,9 @@ class DeleteImageController extends AbstractController{
         if(is_file(realpath(".") . "/img/full_size/".$i->first()['id'].".jpg")){
             unlink(realpath(".") . "/img/full_size/".$i->first()['id'].".jpg");
         }
+        if(is_file(realpath(".") . "/img/thumbnails/".$i->first()['id'].".jpg")){
+            unlink(realpath(".") . "/img/thumbnails/".$i->first()['id'].".jpg");
+        }
         $kl->delete();
         $i->delete();
         Router::executeRoute('user');
