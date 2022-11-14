@@ -14,7 +14,7 @@ class CreateGalleryController extends AbstractController
     public function execute($error = null): void
     {
         if ($this->request->method === 'GET') {
-            $cv = new CreateGalleryView(['error'=>$error]);
+            $cv = new CreateGalleryView(['error' => $error]);
             $cv->makePage();
         }
         if ($this->request->method === 'POST') {

@@ -30,8 +30,13 @@
   padding: 1rem;
   z-index: 10;
   text-align: center;
-  opacity: 0;
-  transition: 0.25s all;
+  opacity: 1;
+}
+@media (min-width: 768px) {
+  .gallery-article div div:last-of-type {
+    opacity: 0;
+    transition: 0.25s all;
+  }
 }
 .gallery-article div:hover h3,
 .gallery-article div:hover div:last-of-type, .gallery-article div:active h3,
