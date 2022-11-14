@@ -51,7 +51,7 @@ class ImageView extends MainView implements Renderer
             $keywords .= $key->content . ' ';
         }
         $user=User::where('id','=',$this->data['image']['author'])->first();
-        $url_user=$this->router->urlFor('user',[['image_id', $this->data['image']['author']]]);
+        $url_user=$this->router->urlFor('user',[['id', $this->data['image']['author']]]);
         $res = <<<EOT
         <section class='img-fullsize'>
             <div class='title'>
