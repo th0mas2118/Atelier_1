@@ -14,6 +14,21 @@ class AboutView extends MainView implements Renderer{
                <a href="{$this->request->root}/img/conception/modele_donnee.jpg" target="blank">Modèle de données</a>
                <a href="{$this->request->root}/img/conception/scenario.jpg" target="blank">Scenario</a>
                <a href="https://www.figma.com/file/7TLLcaVJWpi2rd0KFP6kYk/MediaPhoto" target="blank">Maquette</a>
+               <table id='table-user'>
+                <caption>User</caption>
+                <tr>
+                    <td>username</td>
+                    <td>password</td>
+                </tr>
+                <tr>
+                    <td>thomas</td>
+                    <td>1234</td>
+                </tr>
+                <tr>
+                    <td>dragun.anthony</td>
+                    <td>123456789</td>
+                </tr>
+            </table>
             </div>
             </section>
             EOT;
