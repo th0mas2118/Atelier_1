@@ -377,9 +377,12 @@ footer nav {
   #create-gallery {
     display: flex;
     flex-direction: row;
-    justify-content: space-between; }
-    #create-gallery a {
-      width: 10rem; } }
+    justify-content: space-between;
+  }
+  #create-gallery a {
+    width: 10rem;
+  }
+}
 html,
 body {
   color: black;
