@@ -401,8 +401,6 @@ main {
 }
 main article {
   width: 100%;
-  aspect-ratio: 1/1;
-  height: 100%;
 }
 
 #home-list,
@@ -412,6 +410,7 @@ main article {
   padding: 1rem;
   width: 100%;
   grid-gap: 8px;
+  grid-template-rows: 1fr;
   grid-template-columns: repeat(2, 1fr);
 }
 @media (min-width: 768px) {

@@ -28,8 +28,7 @@ main {
 
 	article {
 		width: 100%;
-		aspect-ratio: 1/1;
-		height: 100%;
+		// aspect-ratio: 1/1;
 	}
 }
 
@@ -40,6 +39,7 @@ main {
 	padding: 1rem;
 	width: 100%;
 	grid-gap: 8px;
+	grid-template-rows: 1fr;
 
 	@include screen-xs() {
 		grid-template-columns: repeat(2, 1fr);
