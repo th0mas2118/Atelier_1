@@ -47,7 +47,7 @@ class ModifyGalleryView extends MainView implements Renderer
                 <button name='sign_button' type="submit">Confirm</button>
             </form>
             <div class='modify-image-gallery-button'>
-            <a href='{$this->data['urlAddImage']}'>AddImage</a>
+            <a href='{$this->data['urlAddImage']}'>Add Image</a>
             <div>
         </section>
         EOT;
