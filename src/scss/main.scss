@@ -28,7 +28,11 @@ main {
 
 	article {
 		width: 100%;
-		// aspect-ratio: 1/1;
+		aspect-ratio: 1/1;
+
+		@include screen-m {
+			aspect-ratio: auto;
+		}
 	}
 }
 
@@ -54,7 +58,6 @@ main {
 	}
 
 	article {
-		width: 100%;
 		a {
 			width: 100%;
 		}

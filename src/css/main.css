@@ -401,6 +401,12 @@ main {
 }
 main article {
   width: 100%;
+  aspect-ratio: 1/1;
+}
+@media (min-width: 768px) {
+  main article {
+    aspect-ratio: auto;
+  }
 }
 
 #home-list,
@@ -426,11 +432,6 @@ main article {
 #gallery-list {
     grid-template-columns: repeat(12, 1fr);
   }
-}
-#home-list article,
-#user-list article,
-#gallery-list article {
-  width: 100%;
 }
 #home-list article a,
 #user-list article a,
