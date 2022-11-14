@@ -51,13 +51,13 @@ class Homeview extends MainView implements Renderer
         $p = ceil($this->data["nombreArticle"] / $nbrePage);
         $btnP = $page > 1 ? "<a href='?action=home&page={$pageInit}'><i class='fa-solid fa-angles-left'></i></a>
                 <a href='?action=home&page={$previousPage}'><i class='fa-solid fa-chevron-left'></i></a>" : '';
-        $btnN =
+        $btnN = $page < $p ? "<a href='?action=home&page={$nextPage}'><i class='fa-solid fa-chevron-right'></i></a>
+        <a href='?action=home&page={$p}''><i class='fa-solid fa-angles-right'></i></a>" : '';
             $res .= "<section id='gallery'>
             <div class='pagination'>
                 {$btnP}
                 <a>$page</a>
-                <a href='?action=home&page={$nextPage}'><i class='fa-solid fa-chevron-right'></i></a>
-                <a href='?action=home&page={$p}''><i class='fa-solid fa-angles-right'></i></a>
+                {$btnN}
             </div>
         </section>";
 
