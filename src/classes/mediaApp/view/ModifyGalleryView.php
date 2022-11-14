@@ -6,6 +6,10 @@ use \iutnc\mf\view\Renderer;
 use \iutnc\mediaApp\model\Gallery;
 use \iutnc\mediaApp\utils\RenderFunction;
 
+function jsonPrint($printable){
+    $json=json_encode($printable,JSON_PRETTY_PRINT);
+    return "<pre>{$json}</pre>";
+}
 class ModifyGalleryView extends MainView implements Renderer
 {
     public function render(): string
@@ -24,8 +28,11 @@ class ModifyGalleryView extends MainView implements Renderer
 
         $accessInput = $this->data['gallery']->isPrivate ? "<label for='isPrivate'>Accès utilisateurs (1 par ligne): </label><br><textarea rows='10' cols='50' type='text' name='usersAccess' id='usersAccess'>$users</textarea><br>" : "";
         $isPrivateCheckboxValue = $this->data['gallery']->isPrivate ? "checked" : "";
+        $error=$this->data['error'];
+        $errorMessage = $error ? "<div>not informed : $error</div>" : "";
         $res = <<<EOT
         <section>
+            $errorMessage
             <form method=post>
                 <label name='title'>Title :</label>
                 <input value='{$this->data['gallery']['name']}' type='text' name='title' placeholder="Title"><br>
@@ -45,7 +52,7 @@ class ModifyGalleryView extends MainView implements Renderer
         EOT;
         $title = $this->data['gallery']->name;
         $res.= "<h1>{$title}</h1>";
-        $res.="<section id='gallery-list'>";
+        $res.="<section id='user-list'>";
         $root = $this->request->root;
         foreach($this->data['gallery']->images()->get() as $image){
             $url_image = $this->router->urlFor('image', [['id', $image->id]]);
