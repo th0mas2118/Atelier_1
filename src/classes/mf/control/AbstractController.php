@@ -48,7 +48,7 @@ abstract class AbstractController
         }
 
         if (count($missingPost) > 0 || count($missingGet) > 0) {
-            return ['get' => $missingGet, 'post' => $missingPost];
+            return $missingGet + $missingPost;
         }
 
         return true;
