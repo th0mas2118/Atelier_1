@@ -12,6 +12,7 @@ class AboutView extends MainView implements Renderer{
                <a href="{$this->request->root}/img/conception/cas_utilisation.jpg" target="blank">Cas d'utilisation</a>
                <a href="{$this->request->root}/img/conception/modele_donnee.jpg" target="blank">Modèle de données</a>
                <a href="{$this->request->root}/img/conception/scenario.jpg" target="blank">Scenario</a>
+               <a href="https://www.figma.com/file/7TLLcaVJWpi2rd0KFP6kYk/MediaPhoto" target="blank">Maquette</a>
             </section>
             EOT;
         return $res;
