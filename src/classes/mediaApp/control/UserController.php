@@ -31,7 +31,7 @@ class UserController extends \iutnc\mf\control\AbstractController
 
         $u = User::select()->where('id', '=', $id)->first();
 
-        $gl = Gallery::where('hasImage', '=', true)->where('author', '=', $id);
+        $gl = Gallery::where('author', '=', $id);
 
         if (!Authentification::connectedUser()) {
             $gl = $gl->where('isPrivate', '=', false)->get();

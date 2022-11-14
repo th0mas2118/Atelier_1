@@ -34,8 +34,11 @@
 			padding: 1rem;
 			z-index: 10;
 			text-align: center;
-			opacity: 0;
-			transition: 0.25s all;
+
+			@include screen-m {
+				opacity: 0;
+				transition: 0.25s all;
+			}
 		}
 
 		&:hover,
