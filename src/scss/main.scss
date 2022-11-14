@@ -58,11 +58,11 @@ main {
 		a {
 			width: 100%;
 		}
-		&:nth-of-type(even) {
+		&:nth-of-type(odd) {
 			@include col_xs(1, 2);
 		}
 
-		&:nth-of-type(odd) {
+		&:nth-of-type(even) {
 			@include col_xs(2, 3);
 		}
 
