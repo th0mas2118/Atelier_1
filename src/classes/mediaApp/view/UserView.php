@@ -16,7 +16,7 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
         $bool = 0;
 
         if (Authentification::connectedUser()) {
-            if ($this->data['id'] == Authentification::connectedUser()) {
+            if ($this->data['user']['id'] == Authentification::connectedUser()) {
                 $bool = 1;
             }
         }
@@ -27,7 +27,7 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
             $url_create_gallery = $this->router->urlFor('createGallery');
             $create_gallery = <<<EOT
             <div id='create-gallery' class='modify-image-gallery-button'>
-            <h1>Hello, {$this->data['fullname']}</h1>
+            <h1>Hello, {$this->data['user']['fullname']}</h1>
             <a href='$url_create_gallery'>Create Gallery</a>
             </div>
             EOT;
