@@ -34,7 +34,7 @@ class ModifyGalleryController extends AbstractController
             $keywords = $g->keywords()->get();
             $usersWithAccess = $g->usersWithAccess()->get();
 
-            $mgv = new ModifyGalleryView(['urlAddImage' => $url_addimage, 'gallery' => $g, 'keywords' => $keywords, 'usersWithAccess' => $usersWithAccess,'error'=>$error]);
+            $mgv = new ModifyGalleryView(['urlAddImage' => $url_addimage, 'gallery' => $g, 'keywords' => $keywords, 'usersWithAccess' => $usersWithAccess, 'error' => $error]);
             $mgv->makePage();
         }
         if ($this->request->method === 'POST') {
@@ -42,7 +42,7 @@ class ModifyGalleryController extends AbstractController
 
             if ($tmp !== true) {
                 $error;
-                echo $tmp;
+
                 if (in_array('gallery_id', $tmp)) {
                     Router::executeRoute('user');
                     return;
