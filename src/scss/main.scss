@@ -215,14 +215,14 @@ img {
 	object-fit: cover;
 }
 
-#about {
+#about div {
 	padding-top: 1rem;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	a {
-		width: auto;
+		width: 15rem;
 		margin: 5px;
 	}
 }
