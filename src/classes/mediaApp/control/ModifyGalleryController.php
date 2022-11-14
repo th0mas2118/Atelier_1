@@ -38,9 +38,9 @@ class ModifyGalleryController extends AbstractController
             $mgv = new ModifyGalleryView(['urlAddImage' => $url_addimage, 'gallery' => $g, 'keywords' => $keywords, 'usersWithAccess' => $usersWithAccess, 'error' => $error]);
             $mgv->makePage();
         }
+
         if ($this->request->method === 'POST') {
             $tmp = $this->validateParams(['get' => ['gallery_id'], 'post' => ['title', 'descr']]);
-
             if ($tmp !== true) {
                 $error;
 
@@ -61,6 +61,7 @@ class ModifyGalleryController extends AbstractController
             $title = $this->request->post['title'];
             $descr = $this->request->post['descr'];
             $gallery_id = $this->request->get['gallery_id'];
+            $isPrivate = isset($this->request->post['isPrivate']) ? $this->request->post['isPrivate'] : "off";
 
             $g = Gallery::where('id', '=', $gallery_id)->first();
 
@@ -89,6 +90,7 @@ class ModifyGalleryController extends AbstractController
 
             $g->name = $title;
             $g->description = $descr;
+            $g->isPrivate = $isPrivate === "on" ? 1 : 0;
 
             $var = $this->request->post['keyword'];
             $var = str_replace(' ', ',', $var);

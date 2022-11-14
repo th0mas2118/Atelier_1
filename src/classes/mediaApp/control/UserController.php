@@ -15,7 +15,7 @@ class UserController extends \iutnc\mf\control\AbstractController
         if (!isset($this->request->get['id'])) {
             if (Authentification::connectedUser()) {
                 $u = User::select()->where('id', '=', Authentification::connectedUser())->first();
-                $uv = new \iutnc\mediaApp\view\UserView($u);
+                $uv = new \iutnc\mediaApp\view\UserView(['user' => $u, 'galleries' => $u->galleries()->get()]);
                 $uv->makePage();
                 return;
             }
