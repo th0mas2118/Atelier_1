@@ -22,9 +22,9 @@ class ModifyGalleryController extends AbstractController
             }
 
             $g = Gallery::select()->where('id', '=', $this->request->get['gallery_id'])->first();
-            $test = $g->usersWithAccess()->pluck("user_id");
+            $access = $g->usersWithAccess()->pluck("user_id");
 
-            if (!$g || $g->author !== Authentification::connectedUser()) {
+            if (!$g || ($g->author !== Authentification::connectedUser() && !in_array(Authentification::connectedUser(), $access))) {
                 Router::executeRoute('user');
                 return;
             }
