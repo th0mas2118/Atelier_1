@@ -383,6 +383,7 @@ footer nav {
 .createGallery form textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 100%;
 }
 .createGallery .modify-image-gallery-button {
   text-align: center;

@@ -27,7 +27,7 @@ class ModifyGalleryView extends MainView implements Renderer
             $users .= $user->username . "\n";
         }
 
-        $accessInput = $this->data['gallery']->isPrivate ? "<label for='isPrivate'>Accès utilisateurs (1 par ligne): </label><br><textarea rows='10' cols='50' type='text' name='usersAccess' id='usersAccess'>$users</textarea><br>" : "";
+        $accessInput = $this->data['gallery']->isPrivate ? "<label for='isPrivate'>Accès utilisateurs (1 par ligne): </label><br><textarea rows='10' type='text' name='usersAccess' id='usersAccess'>$users</textarea><br>" : "";
         $isPrivateCheckboxValue = $this->data['gallery']->isPrivate ? "checked" : "";
         $error = $this->data['error'];
         $errorMessage = $error ? "<div>not informed : $error</div>" : "";
