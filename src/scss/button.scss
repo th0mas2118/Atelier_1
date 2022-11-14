@@ -1,0 +1,26 @@
+.modify-image-gallery-button, #about{
+	margin: 5px;
+	a{
+		border: 2px solid black;
+		border-radius: 15px;
+		background-color: #333333;
+		color: white;
+		padding: 5px;
+	}
+}
+
+#create-gallery a{
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+@media screen and (min-width:1040px) {
+	#create-gallery{
+		display: flex;
+		flex-direction: row;
+		a{
+			width: 10rem;
+		}
+		justify-content: space-between;
+	}
+}

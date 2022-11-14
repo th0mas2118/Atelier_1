@@ -5,7 +5,8 @@ namespace iutnc\mf\view;
 use \iutnc\mf\router\Router;
 use \iutnc\mf\utils\HttpRequest;
 
-abstract class AbstractView {
+abstract class AbstractView
+{
 
     /* Les incontournables requête et routeur (crée par le constructeur);
      *
@@ -15,7 +16,7 @@ abstract class AbstractView {
      * $route : permet de construire les URL des liens des routes
      *          de l'application avec sa méthode urlFor.
      */
-    
+
     protected ?HttpRequest $request = null;
     protected ?Router $router = null;
 
@@ -34,10 +35,10 @@ abstract class AbstractView {
      * Ils seront ajoutés au document HTML dans la méthode render
      * (voir en bas)
      */
-    
-    static protected array $style_sheets = []; 
-    static protected string $app_title = ""; 
-    
+
+    static protected array $style_sheets = [];
+    static protected string $app_title = "";
+
     /* Les données nécessaires à afficher. Elles sont injectées
      * dans le constructeur.
      *
@@ -45,9 +46,9 @@ abstract class AbstractView {
      * création des vues. Ce sera généralement des objets
      * modèles ou des tableau d'objets modèles.
      */
-    
-    protected mixed $data = null; 
-    
+
+    protected mixed $data = null;
+
     /* Constructeur 
      * 
      * Paramètres :  
@@ -57,14 +58,15 @@ abstract class AbstractView {
      * 
      */
 
-    public function __construct( mixed $data=null) {
+    public function __construct(mixed $data = null)
+    {
         $this->request = new HttpRequest();
         $this->router = new Router();
-        
+
         $this->data = $data;
     }
 
-    
+
     /* Méthode addStyleSheet
      * 
      * Permet d'ajouter une feuille de style à la liste.
@@ -76,7 +78,8 @@ abstract class AbstractView {
      *
      */
 
-    static public function addStyleSheet(string $css_files): void {
+    static public function addStyleSheet(string $css_files): void
+    {
         self::$style_sheets[] = $css_files;
     }
 
@@ -90,8 +93,9 @@ abstract class AbstractView {
      * - $title : le titre du document HTML
      * 
      */
-    
-    static public function setAppTitle(string $title): void {
+
+    static public function setAppTitle(string $title): void
+    {
         self::$app_title = $title;
     }
 
@@ -112,13 +116,13 @@ abstract class AbstractView {
      * - Le contenu HTML complet entre les balises <body> </body> 
      *
      */
-    
-    abstract protected function makeBody(): string ;
+
+    abstract protected function makeBody(): string;
 
 
 
 
-    
+
     /* Méthode makePage
      * 
      * cette méthode génère le code HTML d'une page complète depuis
@@ -135,37 +139,40 @@ abstract class AbstractView {
      * http://php.net/manual/fr/language.types.string.php#language.types.string.syntax.heredoc
      *
      */
-    
-    public function makePage() {
+
+    public function makePage()
+    {
 
         /* Fixer le titre du document */
-        
+
         $title = self::$app_title;
 
         /* Lier les feuilles de style */
 
         $app_root = $this->request->root;
         $styles = '';
-        foreach ( self::$style_sheets as $file )
-            $styles .= '<link rel="stylesheet" href="'.$app_root.'/'.$file.'"> ';
+        foreach (self::$style_sheets as $file)
+            $styles .= '<link rel="stylesheet" href="' . $app_root . '/' . $file . '"> ';
 
         /* Appeler la méthode makeBody de la sous-classe */
 
         $body = $this->makeBody();
-        
+
 
         /* Construire la structure de la page 
          * 
          *  Noter l'utilisation des variables ${title} ${style} et ${body}
          * 
          */
-                
+
         $html = <<<EOT
 <!DOCTYPE html>
 <html lang="fr">
             
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${title}</title>
 	    ${styles}
     </head>
@@ -173,9 +180,9 @@ abstract class AbstractView {
     <body>
         
        ${body}
-       <link rel="stylesheet "href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-
     </body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </html>
 EOT;
 
@@ -183,8 +190,7 @@ EOT;
          *
          * C'est la seule instruction echo dans toute l'application 
          */
-        
+
         echo $html;
     }
-    
 }

@@ -4,11 +4,12 @@ namespace iutnc\mf\control;
 
 use \iutnc\mf\utils\HttpRequest;
 
-abstract class AbstractController {
-    
-    /* Attribut pour stocker l'objet HttpRequest */ 
-    protected ?HttpRequest $request = null; 
-    
+abstract class AbstractController
+{
+
+    /* Attribut pour stocker l'objet HttpRequest */
+    protected ?HttpRequest $request = null;
+
     /*
      * Constructeur :
      * 
@@ -19,9 +20,38 @@ abstract class AbstractController {
      * GET, POST, la racine (pour les liens html) etc.
      *  
      */
-    
-    public function __construct(){
-        $this->request = new HttpRequest() ;
+
+    public function __construct()
+    {
+        $this->request = new HttpRequest();
+    }
+
+    public function validateParams($params)
+    {
+        $missingPost = [];
+        $missingGet = [];
+
+        if (isset($params['get'])) {
+            foreach ($params['get'] as $param) {
+                if (!isset($this->request->get[$param]) || empty($this->request->get[$param])) {
+                    array_push($missingGet, $param);
+                }
+            }
+        }
+
+        if (isset($params['post'])) {
+            foreach ($params['post'] as $param) {
+                if (!isset($this->request->post[$param]) || empty($this->request->post[$param])) {
+                    array_push($missingPost, $param);
+                }
+            }
+        }
+
+        if (count($missingPost) > 0 || count($missingGet) > 0) {
+            return $missingGet + $missingPost;
+        }
+
+        return true;
     }
 
 
@@ -34,10 +64,6 @@ abstract class AbstractController {
      *   2 Exécuter le traitement nécessaire
      *   3 Créer la vue liée à la fonctionnalité et l'affiche 
      */
-    
-    abstract public function execute() : void; 
-      
+
+    abstract public function execute($error = null): void;
 }
-
-
-  
