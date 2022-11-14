@@ -31,7 +31,7 @@ class Homeview extends MainView implements Renderer
                             <img alt='image' src='$img_src'></img>
                         </div>
                         <div>
-                            <span>Number of images in the gallery : {$nb_image}<br></span>
+                            <span>{$nb_image} Images<br></span>
                             <span>Author :  $name<br></span>
                             <span>Creation date : {$g['created_at']}</span>
                         </div>
