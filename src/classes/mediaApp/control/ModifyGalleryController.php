@@ -16,10 +16,21 @@ class ModifyGalleryController extends AbstractController
     public function execute($error = null): void
     {
         if ($this->request->method === 'GET') {
-            $router = new Router();
+            if ($this->validateParams(['get' => ['gallery_id']]) !== true) {
+                Router::executeRoute('user');
+                return;
+            }
 
-            $url_addimage = $router->urlFor('addimage', [['gallery_id', $this->request->get['gallery_id']]]);
             $g = Gallery::select()->where('id', '=', $this->request->get['gallery_id'])->first();
+
+            if (!$g || $g->author !== Authentification::connectedUser()) {
+                Router::executeRoute('user');
+                return;
+            }
+
+            $router = new Router();
+            $url_addimage = $router->urlFor('addimage', [['gallery_id', $this->request->get['gallery_id']]]);
+
             $keywords = $g->keywords()->get();
             $usersWithAccess = $g->usersWithAccess()->get();
 
@@ -27,8 +38,22 @@ class ModifyGalleryController extends AbstractController
             $mgv->makePage();
         }
         if ($this->request->method === 'POST') {
-            if ($this->validateParams(['get' => ['gallery_id'], 'post' => ['title', 'descr', 'usersAccess']]) !== true) {
-                // AFFICHER UNE ERREUR
+            $tmp = $this->validateParams(['get' => ['gallery_id'], 'post' => ['title', 'descr', 'usersAccess']]);
+
+            if ($tmp !== true) {
+                $error;
+                echo $tmp;
+                if (in_array('gallery_id', $tmp)) {
+                    Router::executeRoute('user');
+                    return;
+                }
+
+                foreach ($tmp as $t) {
+                    $error .= $t . '<br>';
+                }
+
+                $this->request->method = 'GET';
+                $this->execute($error);
                 return;
             }
 
@@ -37,6 +62,11 @@ class ModifyGalleryController extends AbstractController
             $gallery_id = $this->request->get['gallery_id'];
 
             $g = Gallery::where('id', '=', $gallery_id)->first();
+
+            if (!$g || $g->author !== Authentification::connectedUser()) {
+                Router::executeRoute('user');
+                return;
+            }
 
             $kDB = $g->keywords();
             $kDBIds = [];
