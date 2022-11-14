@@ -2,6 +2,7 @@
 
 namespace iutnc\mediaApp\view;
 
+use iutnc\mediaApp\auth\Authentification;
 use \iutnc\mf\auth\AbstractAuthentification;
 use \iutnc\mediaApp\model\User;
 use \iutnc\mf\router\Router;
@@ -14,8 +15,8 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
         $res = "";
         $bool = 0;
 
-        if (AbstractAuthentification::connectedUser()) {
-            if ($this->data['user']['id'] == AbstractAuthentification::connectedUser()) {
+        if (Authentification::connectedUser()) {
+            if ($this->data['user']['id'] == Authentification::connectedUser()) {
                 $bool = 1;
             }
         }
