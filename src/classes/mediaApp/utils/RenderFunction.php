@@ -48,9 +48,9 @@ class RenderFunction
                 </div>
                 <div class='overlay'>
                     <div id='image-data'>
-                        <span>{$gal->nb_images()}</span>
-                        <span>$name</span>
-                        <span>{$gal['created_at']}</span>
+                        <span>{$gal->nb_images()} Images</span><br>
+                        <span>Author: $name</span><br>
+                        <span>Creation date : {$gal['created_at']}</span>
                     </div>
                     {$image_controls}
                 </div>
