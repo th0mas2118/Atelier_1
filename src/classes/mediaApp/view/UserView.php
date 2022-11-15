@@ -44,7 +44,11 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
                 $url_delete = $this->router->urlFor('deleteGallery', [['gallery_id', $g->id]]);
                 $urls = ['modify' => $url_modify, 'delete' => $url_delete];
             } else {
-                $urls = null;
+                if ($g->canUserAccess(Authentification::connectedUser())) {
+                    $url_modify = $this->router->urlFor('modifyGallery', [['gallery_id', $g->id]]);
+                } else {
+                    $urls = null;
+                }
             }
             $root = $this->request->root;
             $res .= RenderFunction::renderGallery($g, $root, $urls);
