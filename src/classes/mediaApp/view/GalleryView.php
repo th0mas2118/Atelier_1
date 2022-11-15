@@ -21,7 +21,7 @@ class GalleryView extends MainView implements Renderer
             $keyword .= $key->content . ' ';
         }
         $html .= "<span>Keywords: $keyword</span></div>";
-        $html .= "<div class='modify-image-gallery-button'><a href='{$thi->data['url_modify']}' >Modify</a></div>";
+        $html .= "<div class='modify-image-gallery-button'><a href='{$this->data['url_modify']}' >Modify</a></div>";
         $html .= '<section id="gallery-list">';
         $root = $this->request->root;
         foreach ($this->data['images'] as $image) {
