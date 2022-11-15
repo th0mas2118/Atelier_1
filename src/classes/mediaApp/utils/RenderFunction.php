@@ -8,14 +8,26 @@ class RenderFunction
 {
     public static function renderGallery($gal, $root, $urls = null)
     {
-        $url_modify = "";
+        $url_modify = null;
+        $url_delete = null;
         if ($urls) {
-            $url_modify = $urls['modify'];
-            $url_delete = $urls['delete'];
+            if($urls['modify']){
+                $tmp_modif=" <a href='{$urls['modify']}'><i class='fa-solid fa-pen-to-square'></i></a>";
+            }
+            else{
+                $tmp_modif=$url_modify;
+            }
+            if($urls['delete']){
+                $tmp_delete="<a href='{$urls['delete']}'><i class='fa-solid fa-trash'></i></a>";
+            }
+            else{
+                $tmp_delete=$url_delete;
+            }
+            
             $image_controls = <<<EOT
             <div id='image-controls'>
-            <a href='{$url_modify}'><i class='fa-solid fa-pen-to-square'></i></a>
-            <a href='{$url_delete}'><i class='fa-solid fa-trash'></i></a>
+            {$tmp_modify}
+            {$tmp_delete}
             </div>
             EOT;
         } else {
