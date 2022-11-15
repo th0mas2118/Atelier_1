@@ -82,6 +82,10 @@ header {
 		gap: 0.5rem;
 		width: 100%;
 		justify-content: center;
+
+		input[type="submit"] {
+			max-width: 100px;
+		}
 	}
 }
 
