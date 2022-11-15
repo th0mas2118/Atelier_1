@@ -14,8 +14,8 @@ class RenderFunction
             $url_delete = $urls['delete'];
             $image_controls = <<<EOT
             <div id='image-controls'>
-            <a href={$url_modify}><i class='fa-solid fa-pen-to-square'></i></a>
-            <a href={$url_delete}><i class='fa-solid fa-trash'></i></a>
+            <a href='{$url_modify}'><i class='fa-solid fa-pen-to-square'></i></a>
+            <a href='{$url_delete}'><i class='fa-solid fa-trash'></i></a>
             </div>
             EOT;
         } else {
@@ -33,27 +33,25 @@ class RenderFunction
         } else {
             $img_src = '';
         }
-        if($count ==0){
+        if ($count == 0) {
             $img_src = $root . '/img/thumbnails/no-image.jpg';
         }
         $res = <<<EOT
         <article class='gallery-article'>
-            <div>
-                <h3>{$gal['name']}</h3>
+            <a href='{$url_gallery}'>
                 <div>
-                    <a href='$url_gallery'>
-                    <img class='image-article' alt='image' src='$img_src'></img>
-                    </a>
-                </div>
-                <div class='overlay'>
-                    <div id='image-data'>
-                        <span>{$gal->nb_images()} Images</span><br>
-                        <span>Author: $name</span><br>
+                    <h3>{$gal['name']}</h3>
+                    <div>
+                        <img alt='image' src='$img_src'></img>
+                    </div>
+                    <div class="data-container">
+                        <span>{$gal->nb_images()} Images<br></span>
+                        <span>Author :  $name<br></span>
                         <span>Creation date : {$gal['created_at']}</span>
                     </div>
-                    {$image_controls}
                 </div>
-            </div>
+            </a>
+            {$image_controls}
         </article>
         EOT;
         return $res;

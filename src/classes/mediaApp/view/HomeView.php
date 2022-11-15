@@ -25,21 +25,20 @@ class Homeview extends MainView implements Renderer
                 $res .= <<<EOT
                     <article class='gallery-article'>
                         <a href='{$url_gallery}'>
-                        <div>
-                        <h3>{$g['name']}</h3>
-                        <div>
-                            <img alt='image' src='$img_src'></img>
-                        </div>
-                        <div>
-                            <span>{$nb_image} Images<br></span>
-                            <span>Author :  $name<br></span>
-                            <span>Creation date : {$g['created_at']}</span>
-                        </div>
-                        </div>
+                            <div>
+                                <h3>{$g['name']}</h3>
+                                <div>
+                                    <img alt='image' src='$img_src'></img>
+                                </div>
+                                <div class="data-container">
+                                    <span>{$nb_image} Images<br></span>
+                                    <span>Author :  $name<br></span>
+                                    <span>Creation date : {$g['created_at']}</span>
+                                </div>
+                            </div>
                         </a>
                     </article>
             EOT;
-            
             }
         }
         $res .= "</section>";
@@ -53,7 +52,7 @@ class Homeview extends MainView implements Renderer
                 <a href='?action=home&page={$previousPage}'><i class='fa-solid fa-chevron-left'></i></a>" : '';
         $btnN = $page < $p ? "<a href='?action=home&page={$nextPage}'><i class='fa-solid fa-chevron-right'></i></a>
         <a href='?action=home&page={$p}''><i class='fa-solid fa-angles-right'></i></a>" : '';
-            $res .= "<section id='gallery'>
+        $res .= "<section id='gallery'>
             <div class='pagination'>
                 {$btnP}
                 <a>$page</a>
