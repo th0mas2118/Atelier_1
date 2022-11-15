@@ -46,6 +46,7 @@ class UserView extends \iutnc\mediaApp\view\MainView implements \iutnc\mf\view\R
             } else {
                 if ($g->canUserAccess(Authentification::connectedUser())) {
                     $url_modify = $this->router->urlFor('modifyGallery', [['gallery_id', $g->id]]);
+                    $urls = ['modify' => $url_modify];
                 } else {
                     $urls = null;
                 }

@@ -65,7 +65,7 @@ class ModifyGalleryController extends AbstractController
 
             $g = Gallery::where('id', '=', $gallery_id)->first();
 
-            if (!$g || $g->author !== Authentification::connectedUser()) {
+            if (!$g || ($g->author !== Authentification::connectedUser() && !$g->canUserAccess(Authentification::connectedUser()))) {
                 Router::executeRoute('user');
                 return;
             }
