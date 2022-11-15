@@ -6,19 +6,5 @@
 .login form {
   margin: 49px;
 }
-.login form h1 {
-  font-weight: bold;
-  text-align: center;
-  font-size: 2.5em;
-}
-.login form input {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
 
 /*# sourceMappingURL=login.css.map */
