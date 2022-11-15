@@ -11,6 +11,7 @@
 @import "button.scss";
 @import "showGallery.scss";
 @import "addImage.scss";
+@import "input.scss";
 
 html,
 body {
@@ -23,6 +24,14 @@ body {
 
 body {
 	overflow-x: hidden;
+}
+
+form {
+	h1 {
+		font-weight: bold;
+		text-align: center;
+		font-size: 2.5em;
+	}
 }
 
 main {
@@ -42,9 +51,9 @@ main {
 #user-list,
 #gallery-list {
 	display: grid;
-	padding: 1rem;
+	padding: 0.25rem;
 	width: 100%;
-	grid-gap: 8px;
+	grid-gap: 0.25rem;
 	grid-template-rows: 1fr;
 
 	@include screen-xs() {

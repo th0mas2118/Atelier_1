@@ -9,13 +9,25 @@ class RenderFunction
     public static function renderGallery($gal, $root, $urls = null)
     {
         $url_modify = "";
+        $url_delete = "";
         if ($urls) {
-            $url_modify = $urls['modify'];
-            $url_delete = $urls['delete'];
+            if(isset($urls['modify'])){
+                $tmp_modify=" <a href='{$urls['modify']}'><i class='fa-solid fa-pen-to-square'></i></a>";
+            }
+            else{
+                $tmp_modif=$url_modify;
+            }
+            if(isset($urls['delete'])){
+                $tmp_delete="<a href='{$urls['delete']}'><i class='fa-solid fa-trash'></i></a>";
+            }
+            else{
+                $tmp_delete=$url_delete;
+            }
+            
             $image_controls = <<<EOT
             <div id='image-controls'>
-            <a href={$url_modify}><i class='fa-solid fa-pen-to-square'></i></a>
-            <a href={$url_delete}><i class='fa-solid fa-trash'></i></a>
+            {$tmp_modify}
+            {$tmp_delete}
             </div>
             EOT;
         } else {
@@ -33,28 +45,25 @@ class RenderFunction
         } else {
             $img_src = '';
         }
-        if($count ==0){
+        if ($count == 0) {
             $img_src = $root . '/img/thumbnails/no-image.jpg';
         }
         $res = <<<EOT
         <article class='gallery-article'>
-            <div>
-                <h3>{$gal['name']}</h3>
+            <a href='{$url_gallery}'>
                 <div>
-                    <a href='$url_gallery'>
-                    <img class='image-article' alt='image' src='$img_src'></img>
-                    </a>
-                    <a><i></i></a>
-                </div>
-                <div class='overlay'>
-                    <div id='image-data'>
-                        <span>{$gal->nb_images()} Images</span><br>
-                        <span>Author: $name</span><br>
+                    <h3>{$gal['name']}</h3>
+                    <div>
+                        <img alt='image' src='$img_src'></img>
+                    </div>
+                    <div class="data-container">
+                        <span>{$gal->nb_images()} Images<br></span>
+                        <span>Author :  $name<br></span>
                         <span>Creation date : {$gal['created_at']}</span>
                     </div>
-                    {$image_controls}
                 </div>
-            </div>
+            </a>
+            {$image_controls}
         </article>
         EOT;
         return $res;

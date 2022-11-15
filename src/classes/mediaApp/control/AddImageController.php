@@ -37,8 +37,15 @@ class AddImageController extends AbstractController
             $title = $this->request->post["title"];
             $description = $this->request->post["description"];
             $gallery_id = $this->request->post["galleryId"];
-            $id = Image::addNew($title, $description, $gallery_id, 0, 0, 0, date("Y-m-d H:i:s"), AbstractAuthentification::connectedUser())->id;
-            UploadManager::saveImage($img, $id);
+            $image = Image::addNew($title, $description, $gallery_id, 0, 0, 0, date("Y-m-d H:i:s"), AbstractAuthentification::connectedUser());
+
+            $result = UploadManager::saveImage($img, $image->id);
+            echo $result;
+            if (!$result) {
+                $image->delete();
+                Router::executeRoute('user');
+                return;
+            }
 
             $gallery = Gallery::where('id', '=', $gallery_id)->first();
 
@@ -52,7 +59,7 @@ class AddImageController extends AbstractController
 
                 foreach ($keywords as $keyword) {
                     if (!empty($keyword)) {
-                        Keyword::create(['content' => trim($keyword), 'image_id' => $id]);
+                        Keyword::create(['content' => trim($keyword), 'image_id' => $image->id]);
                     }
                 }
             }

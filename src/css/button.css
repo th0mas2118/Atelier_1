@@ -1,23 +1,48 @@
-.modify-image-gallery-button, #about {
-  margin: 5px; }
-  .modify-image-gallery-button a, #about a {
-    border: 2px solid black;
-    border-radius: 15px;
-    background-color: #333333;
-    color: white;
-    padding: 5px; }
+button {
+  width: 100%;
+  background-color: #333333;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.modify-image-gallery-button a,
+#about a,
+#create-gallery a {
+  border-radius: 15px;
+  background-color: #333333;
+  color: white;
+  padding: 5px;
+  transition: 0.2s all;
+}
+.modify-image-gallery-button a:hover,
+#about a:hover,
+#create-gallery a:hover {
+  background-color: #4d4d4d;
+}
 
 #create-gallery a {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  max-width: 150px;
+  margin-left: auto;
+}
 
 @media screen and (min-width: 1040px) {
   #create-gallery {
     display: flex;
     flex-direction: row;
-    justify-content: space-between; }
-    #create-gallery a {
-      width: 10rem; } }
+    justify-content: space-between;
+  }
+  #create-gallery a {
+    width: 10rem;
+  }
+}
 
 /*# sourceMappingURL=button.css.map */
