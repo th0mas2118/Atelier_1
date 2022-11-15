@@ -47,4 +47,15 @@ class Gallery extends \Illuminate\Database\Eloquent\Model
     {
         return $this->belongsToMany(User::class, Access::class, 'gallery_id', 'user_id');
     }
+
+    public function canUserAccess($id): bool
+    {
+        $access = $this->belongsToMany(User::class, Access::class, 'gallery_id', 'user_id')->pluck('user_id')->toArray();
+
+        if (in_array($id, $access)) {
+            return true;
+        }
+
+        return false;
+    }
 }

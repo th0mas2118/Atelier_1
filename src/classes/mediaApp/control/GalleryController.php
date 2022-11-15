@@ -2,6 +2,7 @@
 
 namespace iutnc\mediaApp\control;
 
+use iutnc\mediaApp\auth\Authentification;
 use \iutnc\mf\control\AbstractController;
 use \iutnc\mediaApp\model\Gallery;
 use \iutnc\mf\router\Router;
@@ -32,12 +33,26 @@ class GalleryController extends AbstractController
             return;
         }
 
+        $gallery = Gallery::where('id', '=', $id)->first();
+
+        if ($gallery->isPrivate == true) {
+            if (!Authentification::connectedUser()) {
+                Router::executeRoute('home');
+                return;
+            }
+
+            $canUserAccess = $gallery->canUserAccess(Authentification::connectedUser());
+
+            if (!$canUserAccess) {
+                Router::executeRoute('home');
+                return;
+            }
+        }
+
         if (isset($this->request->get['page']) && !empty($this->request->get['page'])) {
             $page = $this->request->get['page'] - 1;
-            $gallery = Gallery::where('id', '=', $id)->first();
             $liste_images = $gallery->images()->orderBy('created_at', 'DESC')->skip($page * 20)->take(20)->get();
-        }else{
-            $gallery = Gallery::where('id', '=', $id)->first();
+        } else {
             $liste_images = $gallery->images()->orderBy('created_at', 'DESC')->take(20)->get();
         }
         $nbreArticle = Gallery::where('id', '=', $id)->first()->nb_images();
