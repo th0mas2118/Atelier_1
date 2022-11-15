@@ -43,7 +43,7 @@ class GalleryController extends AbstractController
 
             $canUserAccess = $gallery->canUserAccess(Authentification::connectedUser());
 
-            if (!$canUserAccess && $gallery->author!==Authentification::connectedUser()) {
+            if (!$canUserAccess) {
                 Router::executeRoute('home');
                 return;
             }
