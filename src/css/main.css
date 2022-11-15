@@ -222,25 +222,6 @@ header form {
   width: 100%;
   justify-content: center;
 }
-header form input[type=text] {
-  width: 100%;
-  max-width: 300px;
-  padding: 6px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-header form input[type=submit] {
-  background-color: gray;
-  color: white;
-  padding: 6px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
 
 @media (min-width: 768px) {
   header {
@@ -342,16 +323,6 @@ footer nav {
   border-radius: 4px;
   box-sizing: border-box;
 }
-.login form button {
-  width: 100%;
-  background-color: #333333;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
 
 .signup {
   display: flex;
@@ -365,25 +336,6 @@ footer nav {
   font-weight: bold;
   text-align: center;
   font-size: 2.5em;
-}
-.signup form input {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-.signup form button {
-  width: 100%;
-  background-color: #333333;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
 }
 
 .createGallery {
@@ -400,15 +352,14 @@ footer nav {
   text-align: center;
   font-size: 2.5em;
 }
-.createGallery form input {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.createGallery form #isPrivate {
+  width: auto;
 }
-.createGallery form button {
+.createGallery .modify-image-gallery-button {
+  text-align: center;
+}
+
+button {
   width: 100%;
   background-color: #333333;
   color: white;
@@ -418,22 +369,13 @@ footer nav {
   border-radius: 10px;
   cursor: pointer;
 }
-.createGallery form #isPrivate {
-  width: auto;
-}
-.createGallery form textarea {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-}
-.createGallery .modify-image-gallery-button {
-  text-align: center;
-}
 
-.modify-image-gallery-button, #about {
+.modify-image-gallery-button,
+#about {
   margin: 5px;
 }
-.modify-image-gallery-button a, #about a {
+.modify-image-gallery-button a,
+#about a {
   border: 2px solid black;
   border-radius: 15px;
   background-color: #333333;
@@ -445,6 +387,8 @@ footer nav {
   display: block;
   width: 100%;
   text-align: center;
+  max-width: 150px;
+  margin-left: auto;
 }
 
 @media screen and (min-width: 1040px) {
@@ -502,6 +446,42 @@ footer nav {
   border: none;
   border-radius: 10px;
   cursor: pointer;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 6px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  background-color: gray;
+  color: white;
+  padding: 6px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
 }
 
 html,

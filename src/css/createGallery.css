@@ -12,31 +12,8 @@
   text-align: center;
   font-size: 2.5em;
 }
-.createGallery form input {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-.createGallery form button {
-  width: 100%;
-  background-color: #333333;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
 .createGallery form #isPrivate {
   width: auto;
-}
-.createGallery form textarea {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
 }
 .createGallery .modify-image-gallery-button {
   text-align: center;
