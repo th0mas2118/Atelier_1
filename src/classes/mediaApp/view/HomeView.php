@@ -31,8 +31,8 @@ class Homeview extends MainView implements Renderer
                                     <img alt='image' src='$img_src'></img>
                                 </div>
                                 <div class="data-container">
-                                    <span>{$nb_image} Images<br></span>
-                                    <span>Author :  $name<br></span>
+                                    <span>{$nb_image} Images</span>
+                                    <span>Author :  $name</span>
                                     <span>Creation date : {$g['created_at']}</span>
                                 </div>
                             </div>

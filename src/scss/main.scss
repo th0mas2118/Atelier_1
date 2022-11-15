@@ -51,9 +51,9 @@ main {
 #user-list,
 #gallery-list {
 	display: grid;
-	padding: 1rem;
+	padding: 0.25rem;
 	width: 100%;
-	grid-gap: 8px;
+	grid-gap: 0.25rem;
 	grid-template-rows: 1fr;
 
 	@include screen-xs() {
