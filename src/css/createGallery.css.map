@@ -1,1 +1,7 @@
-{"version":3,"sourceRoot":"","sources":["../scss/createGallery.scss"],"names":[],"mappings":"AAAA;EACC;EACA;EACA;EACA;;AAEA;EACC;;AAEA;EACC;;AAIF;EACC","file":"createGallery.css"}
+{
+"version": 3,
+"mappings": "AAAA,cAAe;EACd,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,cAAc,EAAE,MAAM;EACtB,OAAO,EAAE,EAAE;EAEX,mBAAK;IACJ,MAAM,EAAE,IAAI;IAEZ,8BAAW;MACV,KAAK,EAAE,IAAI;EAIb,2CAA6B;IAC5B,UAAU,EAAE,MAAM",
+"sources": ["../scss/createGallery.scss"],
+"names": [],
+"file": "createGallery.css"
+}

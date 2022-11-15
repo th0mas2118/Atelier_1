@@ -48,6 +48,13 @@ class GalleryController extends AbstractController
                 return;
             }
         }
+        if($gallery->canUserAccess(Authentification::connectedUser())){
+            $r = new Router();
+            $url_modify=$r->urlFor('modifyGallery', [['gallery_id', $gallery->id]]);
+        }else{
+            $url_modify="";
+        }
+
 
         if (isset($this->request->get['page']) && !empty($this->request->get['page'])) {
             $page = $this->request->get['page'] - 1;
@@ -57,7 +64,7 @@ class GalleryController extends AbstractController
         }
         $nbreArticle = Gallery::where('id', '=', $id)->first()->nb_images();
 
-        $gv = new \iutnc\mediaApp\view\GalleryView(['gallery' => $gallery, 'images' => $liste_images, 'nombreArticle' => $nbreArticle]);
+        $gv = new \iutnc\mediaApp\view\GalleryView(['gallery' => $gallery, 'images' => $liste_images, 'nombreArticle' => $nbreArticle,'url_modify'=>$url_modify]);
         $gv->makePage();
     }
 }

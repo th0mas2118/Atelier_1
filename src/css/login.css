@@ -1,10 +1,8 @@
 .login {
   display: flex;
   justify-content: center;
-  padding: 2%;
-}
-.login form {
-  margin: 49px;
-}
+  padding: 2%; }
+  .login form {
+    margin: 49px; }
 
 /*# sourceMappingURL=login.css.map */

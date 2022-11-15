@@ -1,15 +1,12 @@
 .addImage {
   display: flex;
   justify-content: center;
-  padding: 2%;
-}
-.addImage form {
-  margin: 49px;
-}
-.addImage form h1 {
-  font-weight: bold;
-  text-align: center;
-  font-size: 2.5em;
-}
+  padding: 2%; }
+  .addImage form {
+    margin: 49px; }
+    .addImage form h1 {
+      font-weight: bold;
+      text-align: center;
+      font-size: 2.5em; }
 
 /*# sourceMappingURL=addImage.css.map */
