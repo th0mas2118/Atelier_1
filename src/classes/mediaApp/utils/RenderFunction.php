@@ -8,11 +8,11 @@ class RenderFunction
 {
     public static function renderGallery($gal, $root, $urls = null)
     {
-        $url_modify = null;
-        $url_delete = null;
+        $url_modify = "";
+        $url_delete = "";
         if ($urls) {
             if($urls['modify']){
-                $tmp_modif=" <a href='{$urls['modify']}'><i class='fa-solid fa-pen-to-square'></i></a>";
+                $tmp_modify=" <a href='{$urls['modify']}'><i class='fa-solid fa-pen-to-square'></i></a>";
             }
             else{
                 $tmp_modif=$url_modify;
