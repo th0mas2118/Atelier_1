@@ -1294,6 +1294,13 @@ img {
   object-fit: cover;
 }
 
+#create-gallery {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 #about div {
   padding-top: 1rem;
   text-align: center;
