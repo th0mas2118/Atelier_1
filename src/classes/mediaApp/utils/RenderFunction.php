@@ -11,13 +11,13 @@ class RenderFunction
         $url_modify = "";
         $url_delete = "";
         if ($urls) {
-            if($urls['modify']){
+            if(isset($urls['modify'])){
                 $tmp_modify=" <a href='{$urls['modify']}'><i class='fa-solid fa-pen-to-square'></i></a>";
             }
             else{
                 $tmp_modif=$url_modify;
             }
-            if($urls['delete']){
+            if(isset($urls['delete'])){
                 $tmp_delete="<a href='{$urls['delete']}'><i class='fa-solid fa-trash'></i></a>";
             }
             else{
