@@ -28,23 +28,31 @@ class UploadManager
                 print_r($errors);
             }
 
+            if (is_file(realpath(".") . "/img/full_size/" . $id . ".jpg")) {
+                return true;
+            } else {
+                return false;
+            }
             return true;
         } catch (\Throwable $th) {
+            echo "b";
             return false;
         }
     }
 
     public static function createThumb($src, $destImagePath)
     {
-        $sourceImage = imagecreatefromjpeg($src);
-        $orgWidth = imagesx($sourceImage);
-        $orgHeight = imagesy($sourceImage);
-        $thumbWidth = floor($orgWidth / 2);
-        $thumbHeight = floor($orgHeight * ($thumbWidth / $orgWidth));
-        $destImage = imagecreatetruecolor($thumbWidth, $thumbHeight);
-        imagecopyresampled($destImage, $sourceImage, 0, 0, 0, 0, $thumbWidth, $thumbHeight, $orgWidth, $orgHeight);
-        imagejpeg($destImage, $destImagePath);
-        imagedestroy($sourceImage);
-        imagedestroy($destImage);
+        if (is_file($src)) {
+            $sourceImage = imagecreatefromjpeg($src);
+            $orgWidth = imagesx($sourceImage);
+            $orgHeight = imagesy($sourceImage);
+            $thumbWidth = floor($orgWidth / 2);
+            $thumbHeight = floor($orgHeight * ($thumbWidth / $orgWidth));
+            $destImage = imagecreatetruecolor($thumbWidth, $thumbHeight);
+            imagecopyresampled($destImage, $sourceImage, 0, 0, 0, 0, $thumbWidth, $thumbHeight, $orgWidth, $orgHeight);
+            imagejpeg($destImage, $destImagePath);
+            imagedestroy($sourceImage);
+            imagedestroy($destImage);
+        }
     }
 }
