@@ -61,7 +61,7 @@ li {
   opacity: 1;
 }
 .gallery-article:hover img, .gallery-article:active img {
-  filter: blur(2px);
+  filter: blur(2px) brightness(0.75);
 }
 .gallery-article #image-data,
 .gallery-article #image-controls {
@@ -229,6 +229,7 @@ header nav {
   align-items: center;
   justify-content: center;
   transition: 0.3s all;
+  font-size: 1.5rem;
 }
 header form {
   display: flex;
@@ -257,6 +258,7 @@ header #close-menu {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    font-size: 1rem;
   }
   header form {
     max-width: 500px;
@@ -363,21 +365,25 @@ button {
   cursor: pointer;
 }
 
-.modify-image-gallery-button,
-#about {
-  margin: 5px;
-}
 .modify-image-gallery-button a,
-#about a {
-  border: 2px solid black;
+#about a,
+#create-gallery a {
   border-radius: 15px;
   background-color: #333333;
   color: white;
   padding: 5px;
+  transition: 0.2s all;
+}
+.modify-image-gallery-button a:hover,
+#about a:hover,
+#create-gallery a:hover {
+  background-color: #4d4d4d;
 }
 
 #create-gallery a {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   text-align: center;
   max-width: 150px;

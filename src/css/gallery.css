@@ -12,7 +12,7 @@
   opacity: 1;
 }
 .gallery-article:hover img, .gallery-article:active img {
-  filter: blur(2px);
+  filter: blur(2px) brightness(0.75);
 }
 .gallery-article #image-data,
 .gallery-article #image-controls {

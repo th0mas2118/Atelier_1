@@ -10,19 +10,25 @@ button {
 }
 
 .modify-image-gallery-button,
-#about {
-	margin: 5px;
+#about,
+#create-gallery {
 	a {
-		border: 2px solid black;
 		border-radius: 15px;
 		background-color: #333333;
 		color: white;
 		padding: 5px;
+		transition: 0.2s all;
+
+		&:hover {
+			background-color: lighten($color: #333333, $amount: 10);
+		}
 	}
 }
 
 #create-gallery a {
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 100%;
 	text-align: center;
 	max-width: 150px;
