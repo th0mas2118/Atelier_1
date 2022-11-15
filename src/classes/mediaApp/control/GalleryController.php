@@ -48,11 +48,11 @@ class GalleryController extends AbstractController
                 return;
             }
         }
-        if($gallery->canUserAccess(Authentification::connectedUser())){
+        if ($gallery->canUserAccess(Authentification::connectedUser())) {
             $r = new Router();
-            $url_modify=$r->urlFor('modifyGallery', [['gallery_id', $gallery->id]]);
-        }else{
-            $url_modify="";
+            $url_modify = $r->urlFor('modifyGallery', [['gallery_id', $gallery->id]]);
+        } else {
+            $url_modify = "";
         }
 
 
@@ -62,9 +62,20 @@ class GalleryController extends AbstractController
         } else {
             $liste_images = $gallery->images()->orderBy('created_at', 'DESC')->take(20)->get();
         }
+
+        if (isset($this->request->get['page']) && $this->request->get['page'] < 0) {
+            $_GET = [];
+            Router::executeRoute('home');
+            return;
+        }
         $nbreArticle = Gallery::where('id', '=', $id)->first()->nb_images();
 
-        $gv = new \iutnc\mediaApp\view\GalleryView(['gallery' => $gallery, 'images' => $liste_images, 'nombreArticle' => $nbreArticle,'url_modify'=>$url_modify]);
-        $gv->makePage();
+        if ($nbreArticle > 0) {
+            $gv = new \iutnc\mediaApp\view\GalleryView(['gallery' => $gallery, 'images' => $liste_images, 'nombreArticle' => $nbreArticle, 'url_modify' => $url_modify]);
+            $gv->makePage();
+        } else {
+            $_GET = [];
+            Router::executeRoute('home');
+        }
     }
 }
