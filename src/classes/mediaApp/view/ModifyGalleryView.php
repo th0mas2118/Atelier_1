@@ -2,6 +2,7 @@
 
 namespace iutnc\mediaApp\view;
 
+use iutnc\mediaApp\auth\Authentification;
 use \iutnc\mf\view\Renderer;
 use \iutnc\mediaApp\model\Gallery;
 use \iutnc\mediaApp\utils\RenderFunction;
@@ -31,6 +32,11 @@ class ModifyGalleryView extends MainView implements Renderer
         $isPrivateCheckboxValue = $this->data['gallery']->isPrivate ? "checked" : "";
         $error = $this->data['error'];
         $errorMessage = $error ? "<div>not informed : $error</div>" : "";
+        $addImage = $this->data['gallery']->author === Authentification::connectedUser() ? "
+        <div class='modify-image-gallery-button'>
+            <a href='{$this->data['urlAddImage']}'>Add Image</a>
+        <div>" : "";
+
         $res = <<<EOT
         <section class="createGallery">
             $errorMessage
@@ -46,9 +52,7 @@ class ModifyGalleryView extends MainView implements Renderer
                 $accessInput
                 <button name='sign_button' type="submit">Confirm</button>
             </form>
-            <div class='modify-image-gallery-button'>
-            <a href='{$this->data['urlAddImage']}'>Add Image</a>
-            <div>
+                $addImage
         </section>
         EOT;
         $title = $this->data['gallery']->name;
