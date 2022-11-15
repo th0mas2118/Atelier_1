@@ -2,10 +2,20 @@
 
 .gallery-article {
 	position: relative;
-	&:hover {
+	&:hover,
+	&:active {
 		#image-data,
 		#image-controls {
 			opacity: 1;
+		}
+
+		h3,
+		.data-container {
+			opacity: 1;
+		}
+
+		img {
+			filter: blur(2px);
 		}
 	}
 
@@ -29,6 +39,8 @@
 		gap: 0.5rem;
 		width: auto;
 		font-size: 1rem;
+		color: white;
+		text-shadow: 2px 2px 1px black;
 
 		@media screen and (max-width: 360px) {
 			top: unset;
@@ -95,18 +107,6 @@
 
 			@media screen and (max-width: 360px) {
 				display: none;
-			}
-		}
-
-		&:hover,
-		&:active {
-			h3,
-			.data-container {
-				opacity: 1;
-			}
-
-			img {
-				filter: blur(2px);
 			}
 		}
 	}
