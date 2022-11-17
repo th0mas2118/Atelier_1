@@ -7,6 +7,7 @@ use \iutnc\mf\control\AbstractController;
 use \iutnc\mediaApp\model\Gallery;
 use iutnc\mediaApp\model\User;
 use \iutnc\mediaApp\view\HomeView;
+use iutnc\mf\router\Router;
 
 class HomeController extends AbstractController
 {
@@ -32,8 +33,20 @@ class HomeController extends AbstractController
                 return ($k['isPrivate'] == 0) || ($k['isPrivate'] == 1 && in_array($k['id'], $userAccess)) || ($k['author'] == Authentification::connectedUser());
             });
         }
-        $nbreArticle = Gallery::where('hasImage', '=', true)->count();
-        $hv = new HomeView(["galleryList" => $gl, "nombreArticle" => $nbreArticle]);
-        $hv->makePage();
+
+        if (isset($this->request->get['page']) && $this->request->get['page'] < 0) {
+            $_GET = [];
+            Router::executeRoute('home');
+            return;
+        }
+
+        if ($gl->count() > 0) {
+            $nbreArticle = Gallery::where('hasImage', '=', true)->count();
+            $hv = new HomeView(["galleryList" => $gl, "nombreArticle" => $nbreArticle]);
+            $hv->makePage();
+        } else {
+            $_GET = [];
+            Router::executeRoute('home');
+        }
     }
 }

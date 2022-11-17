@@ -52,7 +52,7 @@ class Gallery extends \Illuminate\Database\Eloquent\Model
     {
         $access = $this->belongsToMany(User::class, Access::class, 'gallery_id', 'user_id')->pluck('user_id')->toArray();
 
-        if (in_array($id, $access)) {
+        if (in_array($id, $access) || $this->author === $id) {
             return true;
         }
 

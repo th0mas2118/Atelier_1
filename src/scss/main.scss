@@ -49,7 +49,8 @@ main {
 
 #home-list,
 #user-list,
-#gallery-list {
+#gallery-list,
+#images-list {
 	display: grid;
 	padding: 0.25rem;
 	width: 100%;
@@ -247,6 +248,13 @@ img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+}
+
+#create-gallery {
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 #about div {

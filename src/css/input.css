@@ -5,23 +5,20 @@ input {
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
-input[type=submit] {
+input[type="submit"] {
   background-color: gray;
   color: white;
   padding: 6px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 4px;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 100%;
-}
+  width: 100%; }
 
 /*# sourceMappingURL=input.css.map */

@@ -25,7 +25,7 @@ class UploadManager
                 move_uploaded_file($file_tmp, realpath(".") . "/img/full_size/" . $id . ".jpg");
                 self::createThumb(realpath(".") . "/img/full_size/" . $id . ".jpg", realpath(".") . "/img/thumbnails/" . $id . ".jpg");
             } else {
-                print_r($errors);
+               return false;
             }
 
             if (is_file(realpath(".") . "/img/full_size/" . $id . ".jpg")) {
@@ -35,24 +35,28 @@ class UploadManager
             }
             return true;
         } catch (\Throwable $th) {
-            echo "b";
             return false;
         }
     }
 
     public static function createThumb($src, $destImagePath)
     {
-        if (is_file($src)) {
-            $sourceImage = imagecreatefromjpeg($src);
-            $orgWidth = imagesx($sourceImage);
-            $orgHeight = imagesy($sourceImage);
-            $thumbWidth = floor($orgWidth / 2);
-            $thumbHeight = floor($orgHeight * ($thumbWidth / $orgWidth));
-            $destImage = imagecreatetruecolor($thumbWidth, $thumbHeight);
-            imagecopyresampled($destImage, $sourceImage, 0, 0, 0, 0, $thumbWidth, $thumbHeight, $orgWidth, $orgHeight);
-            imagejpeg($destImage, $destImagePath);
-            imagedestroy($sourceImage);
-            imagedestroy($destImage);
+        try {
+            if (is_file($src)) {
+                $sourceImage = imagecreatefromjpeg($src);
+                $orgWidth = imagesx($sourceImage);
+                $orgHeight = imagesy($sourceImage);
+                $thumbWidth = floor($orgWidth / 2);
+                $thumbHeight = floor($orgHeight * ($thumbWidth / $orgWidth));
+                $destImage = imagecreatetruecolor($thumbWidth, $thumbHeight);
+                imagecopyresampled($destImage, $sourceImage, 0, 0, 0, 0, $thumbWidth, $thumbHeight, $orgWidth, $orgHeight);
+                imagejpeg($destImage, $destImagePath);
+                imagedestroy($sourceImage);
+                imagedestroy($destImage);
+            }
+        } catch (\Throwable $th) {
+            return false;
         }
+        
     }
 }

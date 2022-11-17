@@ -2,16 +2,12 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 2%;
-}
-.createGallery form {
-  margin: 49px;
-}
-.createGallery form #isPrivate {
-  width: auto;
-}
-.createGallery .modify-image-gallery-button {
-  text-align: center;
-}
+  padding: 2%; }
+  .createGallery form {
+    margin: 49px; }
+    .createGallery form #isPrivate {
+      width: auto; }
+  .createGallery .modify-image-gallery-button {
+    text-align: center; }
 
 /*# sourceMappingURL=createGallery.css.map */

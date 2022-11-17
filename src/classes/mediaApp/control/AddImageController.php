@@ -23,7 +23,7 @@ class AddImageController extends AbstractController
         }
 
         if ($this->request->method === 'POST') {
-            if (!isset($_FILES["img"])) {
+            if (!isset($_FILES["img"]) || empty($_FILES['img'])) {
                 Router::executeRoute('user');
                 return;
             }
@@ -40,7 +40,6 @@ class AddImageController extends AbstractController
             $image = Image::addNew($title, $description, $gallery_id, 0, 0, 0, date("Y-m-d H:i:s"), AbstractAuthentification::connectedUser());
 
             $result = UploadManager::saveImage($img, $image->id);
-            echo $result;
             if (!$result) {
                 $image->delete();
                 Router::executeRoute('user');

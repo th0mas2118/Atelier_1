@@ -28,6 +28,10 @@ class AboutView extends MainView implements Renderer{
                     <td>dragun.anthony</td>
                     <td>123456789</td>
                 </tr>
+                <tr>
+                    <td>seb</td>
+                    <td>1234</td>
+                </tr>
             </table>
             </div>
             </section>
