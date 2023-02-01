@@ -70,7 +70,7 @@ class GalleryController extends AbstractController
         }
         $nbreArticle = Gallery::where('id', '=', $id)->first()->nb_images();
 
-        if ($nbreArticle > 0) {
+        if ($liste_images->count() > 0) {
             $gv = new \iutnc\mediaApp\view\GalleryView(['gallery' => $gallery, 'images' => $liste_images, 'nombreArticle' => $nbreArticle, 'url_modify' => $url_modify]);
             $gv->makePage();
         } else {
